@@ -1,7 +1,7 @@
 <script setup lang="ts">
-type Icons = "line" | "facebook" | "twitter" | "telegram" | "whatsapp"
+import { Icons } from "~/types"
 
-const props = defineProps<{
+defineProps<{
   icon: Icons
   name: string
   network: string

@@ -4,6 +4,7 @@
     "module": "ESNext",
     "target": "esnext",
     "lib": ["DOM", "ESNext"],
+    "jsx": "preserve",
     "strict": true,
     "esModuleInterop": true,
     "incremental": true,
@@ -11,12 +12,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
-    "types": [
-      "vite/client",
-      "vite-plugin-pages/client",
-      "vite-plugin-pwa/client",
-      "unplugin-icons/type/vue"
-    ],
+    "types": ["vite/client", "vite-plugin-pages/client", "vite-plugin-pwa/client"],
     "skipDefaultLibCheck": true,
     "paths": {
       "~/*": ["src/*"]

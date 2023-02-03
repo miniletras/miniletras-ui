@@ -29,12 +29,14 @@
     "prism-theme-vars": "^0.2.2",
     "vue": "^3.2.31",
     "vue-disqus": "^5.1.0",
+    "vue-i18n": "^9.2.2",
     "vue-router": "^4.0.13",
     "vue-social-sharing": "^4.0.0-alpha4",
     "workbox-window": "^6.5.0"
   },
   "devDependencies": {
     "@iconify/json": "^1.1.461",
+    "@intlify/vite-plugin-vue-i18n": "^7.0.0",
     "@satyawikananda/prettier-config": "^0.0.3",
     "@types/markdown-it": "^12.2.3",
     "@types/node": "^15.14.9",

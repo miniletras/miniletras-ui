@@ -147,14 +147,14 @@ if (isClient) {
         <Article
           v-for="(data, i) in relatedArticles"
           :key="i"
-          :image="data.meta.frontmatter.thumbnail"
-          :alt="`blog-banner-${slug(data.meta.frontmatter.name)}`"
-          :tags="data.meta.frontmatter.tags"
-          :date="`${new Date(data.meta.frontmatter.date).toDateString()}`"
-          :title="data.meta.frontmatter.name"
+          :image="(data as Record<string, any>).meta.frontmatter.thumbnail"
+          :alt="`blog-banner-${slug((data as Record<string, any>).meta.frontmatter.name)}`"
+          :tags="(data as Record<string, any>).meta.frontmatter.tags"
+          :date="`${new Date((data as Record<string, any>).meta.frontmatter.date).toDateString()}`"
+          :title="(data as Record<string, any>).meta.frontmatter.name"
           :to="data.path"
-          :description="limitString(data.meta.frontmatter.description, 200)"
-          :to-tags="`/tags/${data.meta.frontmatter.tags}`"
+          :description="limitString((data as Record<string, any>).meta.frontmatter.description, 200)"
+          :to-tags="`/tags/${(data as Record<string, any>).meta.frontmatter.tags}`"
         />
       </div>
     </div>

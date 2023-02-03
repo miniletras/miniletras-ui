@@ -2,10 +2,12 @@ import type { ViteSSGContext } from "vite-ssg"
 
 export type UserModule = (ctx: ViteSSGContext) => void
 
+export type Icons = "line" | "facebook" | "twitter" | "telegram" | "whatsapp"
+
 type Network = "facebook" | "twitter" | "telegram" | "whatsapp" | "pinterest"
 
 export interface DataShare {
-  icon: string
+  icon: Icons
   network: Network
   url: string
   name: string

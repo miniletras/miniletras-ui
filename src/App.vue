@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 // In this section, we use @vueuse/head. Check this for more detail
 // https://github.com/vueuse/head
 useHead({
@@ -10,8 +11,8 @@ useHead({
     },
   ],
 })
-</script>
 
+</script>
 <template>
   <div class="min-h-100vh overflow-hidden block relative pb-30 mx-auto flex flex-col">
     <Navbar />

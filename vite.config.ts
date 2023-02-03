@@ -16,19 +16,16 @@ import anchor from "markdown-it-anchor"
 import toc from "markdown-it-table-of-contents"
 // @ts-expect-error
 import attr from "markdown-it-link-attributes"
-import { resolve } from "path"
+import { dirname, resolve } from "path"
 import { readFileSync } from "fs"
+import vueI18n from '@intlify/vite-plugin-vue-i18n'
+import { fileURLToPath } from "url"
 
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
     fs: {
       allow: [".."],
-    },
-  },
-  resolve: {
-    alias: {
-      "~/": `${resolve(__dirname, "src")}/`,
     },
   },
   define: {
@@ -38,7 +35,13 @@ export default defineConfig({
     Vue({
       include: [/\.vue$/, /\.md$/],
     }),
+    vueI18n({
+      // if you want to use Vue I18n Legacy API, you need to set `compositionOnly: false`
+      // compositionOnly: false,
 
+      // you need to set i18n resource including paths !
+      include: resolve(dirname(fileURLToPath(import.meta.url)), './path/to/src/locales/**'),
+    }),
     // https://github.com/antfu/vite-plugin-md
     Markdown({
       headEnabled: true,
@@ -147,11 +150,16 @@ export default defineConfig({
 
     // https://github.com/antfu/unplugin-auto-import
     AutoImport({
-      imports: ["vue", "@vueuse/core", "@vueuse/head", "vue-router"],
+      imports: ["vue", "vue-i18n", "@vueuse/core", "@vueuse/head", "vue-router"],
       dts: true,
     }),
   ],
   optimizeDeps: {
     include: ["vue", "vue-router", "@vueuse/core"],
   },
+  resolve: {
+    alias: {
+      "~/": `${resolve(__dirname, "src")}/`,
+    },
+  }
 })

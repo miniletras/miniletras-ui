@@ -1,0 +1,24 @@
+{
+  "atDirectives": [
+    {
+      "name": "@windi",
+      "description": "Use the @windi directive to insert windi’s `base`, `components`, `utilities`, and `screens` styles into your CSS.",
+      "references": [
+        {
+          "name": "Tailwind-like @apply, @screen directives are fully supported.",
+          "url": "https://windicss.org/features/directives.html#directives"
+        }
+      ]
+    },
+    {
+      "name": "@apply",
+      "description": "Use @apply to inline any existing utility classes into your style block.",
+      "references": [
+        {
+          "name": "Tailwind-like @apply, @screen directives are fully supported.",
+          "url": "https://windicss.org/features/directives.html#apply"
+        }
+      ]
+    }
+  ]
+}

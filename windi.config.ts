@@ -5,6 +5,9 @@ export default defineConfig({
   extract: {
     include: ["index.html", "src/**/*.{vue, ts, md}"],
   },
+  files: {
+    associations: { "*.scss": "postcss" }
+  },
   darkMode: "class",
   theme: {
     minHeight: {

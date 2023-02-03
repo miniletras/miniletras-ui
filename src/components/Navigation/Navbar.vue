@@ -49,17 +49,22 @@ const dataNavbar: NavbarMenu[] = [
     to: "/",
   },
   {
-    name: "Articles",
+    name: "Artículos",
     to: "/articles",
   },
   {
     name: "About",
     to: "/about",
   },
+  {
+    name: "Store",
+    to: "/store",
+  },
 ]
 </script>
 
 <template>
+  <!-- <p>{{ $t('message.hello', { msg: 'hello' }) }}</p> -->
   <nav
     class="z-10 text-elucidator-700 dark:text-dark-repulser-400 relative h-20 px-4"
     role="navigation"
@@ -155,7 +160,7 @@ const dataNavbar: NavbarMenu[] = [
         class="absolute right-8 top-4 text-xl text-gray-400 cursor-pointer"
         @click="goSearch"
       />
-      <input
+      <input 
         ref="search"
         v-model="searchArticle"
         type="text"
@@ -172,7 +177,7 @@ const dataNavbar: NavbarMenu[] = [
   />
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 .active-class {
   @apply p-2 mb-2 rounded-md bg-elucidator-200 dark:bg-elucidator-700;
 }
