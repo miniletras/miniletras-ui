@@ -4,12 +4,12 @@ import { limitString, slug } from "~/utils"
 
 // Get latest article
 const latest = computed(() => {
-  return latestArticle()
+  return latestArticle() as Record<string, any>
 })
 
 // Get articles data
 const articles = computed(() => {
-  return getArticles(6)
+  return getArticles(6) as Record<string, any>[]
 })
 </script>
 

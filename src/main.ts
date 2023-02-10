@@ -5,7 +5,7 @@ import routes from "virtual:generated-pages"
 import { RouterScrollBehavior } from "vue-router"
 import "~/assets/styles/style.scss"
 import "@purge-icons/generated"
-import { createI18n } from 'vue-i18n';
+import { createI18n } from 'vue-i18n'
 import * as es from './locales/es.json'
 import * as en from './locales/en.json'
 
@@ -24,4 +24,4 @@ export const i18n = createI18n({
   locale: 'es',
   allowComposition: true, // mandatory!
   messages: { es, en }
-})
+});

@@ -38,7 +38,6 @@ export default defineConfig({
     vueI18n({
       // if you want to use Vue I18n Legacy API, you need to set `compositionOnly: false`
       // compositionOnly: false,
-
       // you need to set i18n resource including paths !
       include: resolve(dirname(fileURLToPath(import.meta.url)), './path/to/src/locales/**'),
     }),
@@ -150,7 +149,7 @@ export default defineConfig({
 
     // https://github.com/antfu/unplugin-auto-import
     AutoImport({
-      imports: ["vue", "vue-i18n", "@vueuse/core", "@vueuse/head", "vue-router"],
+      imports: ["vue", "@vueuse/core", "@vueuse/head", "vue-router"],
       dts: true,
     }),
   ],

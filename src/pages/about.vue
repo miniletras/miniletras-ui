@@ -2,6 +2,7 @@
 import { i18n } from '~/main';
 
 const { t } = i18n.global;
+
 </script>
 <template>
   <pre>{{ t('hello') }}</pre>

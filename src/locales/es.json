@@ -1,3 +1,11 @@
 {
-  "hello": "Hoola Mundo!!"
+  "hello": "Hoola Mundo!!",
+  "menu": {
+    "home": "Home",
+    "childrenClubs": "Clubs",
+    "workshops": "Workshops",
+    "trainingAndProjects": "Projects",
+    "whoAmI": "Who am I",
+    "contact": "Contact"
+  }
 }

@@ -19,7 +19,7 @@ export const getArticles = (limit?: number) => {
   const isPosts = getDataRoutes()
     .filter((data) => Object.keys(data.meta).length !== 0)
     .slice(0, limit)
-    .sort((a, b) => +new Date(b.meta.frontmatter.date) - +new Date(a.meta.frontmatter.date))
+    .sort((a: Record<string, any>, b: Record<string, any>) => +new Date(b.meta.frontmatter.date) - +new Date(a.meta.frontmatter.date))
   return isPosts
 }
 
@@ -28,8 +28,8 @@ export const latestArticle = () => {
   const frontmatter = getDataRoutes()
     .filter((data) => data.meta.frontmatter !== undefined)
     .map((data) => data.meta.frontmatter)
-    .sort((a, b) => +new Date(b.date) - +new Date(a.date))
-  const latestPost: unknown = frontmatter[0]
+    .sort((a, b) => +new Date((b as Record<string, any>).date) - +new Date((a as Record<string, any>).date))
+  const latestPost = frontmatter[0]
   return latestPost
 }
 

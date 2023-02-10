@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { isDark, toggleDark, slug } from "~/utils"
 import type { NavbarMenu } from "~/types"
+import { i18n } from "~/main";
+
+const { t } = i18n.global;
 
 // https://vueuse.org/shared/useToggle/
 const [search, setSearch] = useToggle()
@@ -45,20 +48,28 @@ router.afterEach(() => {
 // Navbar list
 const dataNavbar: NavbarMenu[] = [
   {
-    name: "Home",
+    name: t('menu.home'),
     to: "/",
   },
   {
-    name: "Artículos",
+    name: t('menu.childrenClubs'),
     to: "/articles",
   },
   {
-    name: "About",
+    name: t('menu.workshops'),
     to: "/about",
   },
   {
-    name: "Store",
+    name: t('menu.trainingAndProjects'),
     to: "/store",
+  },
+  {
+    name: t('menu.whoAmI'),
+    to: "/about",
+  },
+  {
+    name: t('menu.contact'),
+    to: "/about",
   },
 ]
 </script>
