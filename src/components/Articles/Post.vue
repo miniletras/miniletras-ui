@@ -140,7 +140,6 @@ if (isClient) {
       </client-only>
     </div>
     <div class="flex flex-wrap flex-col px-4 lg:px-0">
-      <h1>Esto es post tb</h1>
       <h1 class="mb-5 mt-8 text-3xl text-elucidator-700 dark:text-dark-repulser-400 font-bold">
         Related Articles
       </h1>

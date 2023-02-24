@@ -1,22 +1,22 @@
 <script setup lang="ts">
 import { capitalizeStr } from "~/utils"
-import { i18n } from '~/main';
-import * as locale from '~/locales/en.json';
+import { i18n } from "~/main"
+import * as locale from "~/locales/en.json"
 
-const { t } = i18n.global;
+const { t } = i18n.global
 const props = defineProps<{
   tags: Array<string>
 }>()
 
 const currTags = {
   tags: props.tags,
-  hasLocale: props.tags.map(tag => Object.keys(locale.tags).some(loc => loc === tag)),
+  hasLocale: props.tags.map((tag) => Object.keys(locale.tags).some((loc) => loc === tag)),
 }
-
 </script>
 <template>
   <div>
-    <router-link v-for="(tag, i) in currTags.tags"
+    <router-link
+      v-for="(tag, i) in currTags.tags"
       :key="`tag-${i}`"
       :to="`/tags/${tag.toLowerCase()}`"
       class="text-elucidator-400 p-1 text-xs bg-elucidator-500 dark:bg-elucidator-700 rounded-xl m-1"
