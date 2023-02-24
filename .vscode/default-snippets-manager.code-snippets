@@ -1,0 +1,12 @@
+{
+  "i18n": {
+    "prefix": "i18",
+    "description": "import i18n global",
+    "scope": "",
+    "body": [
+      "import { i18n } from '~/main';",
+      "",
+      "const { t } = i18n.global;"
+    ]
+  }
+}

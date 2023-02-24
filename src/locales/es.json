@@ -1,11 +1,11 @@
 {
-  "hello": "Hoola Mundo!!",
+  "hello": "Hoola principito!",
   "menu": {
-    "home": "Home",
+    "home": "Inicio",
     "childrenClubs": "Clubs",
-    "workshops": "Workshops",
-    "trainingAndProjects": "Projects",
-    "whoAmI": "Who am I",
-    "contact": "Contact"
+    "workshops": "Talleres",
+    "trainingAndProjects": "Proyectos",
+    "whoAmI": "Quién soy",
+    "contact": "Contacto"
   }
 }

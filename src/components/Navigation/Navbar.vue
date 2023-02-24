@@ -53,23 +53,23 @@ const dataNavbar: NavbarMenu[] = [
   },
   {
     name: t('menu.childrenClubs'),
-    to: "/articles",
+    to: "/clubs",
   },
   {
     name: t('menu.workshops'),
-    to: "/about",
+    to: "/workshops",
   },
   {
     name: t('menu.trainingAndProjects'),
-    to: "/store",
+    to: "/training",
   },
   {
     name: t('menu.whoAmI'),
-    to: "/about",
+    to: "/whoami",
   },
   {
     name: t('menu.contact'),
-    to: "/about",
+    to: "/contact",
   },
 ]
 </script>

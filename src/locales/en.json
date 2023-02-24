@@ -1,10 +1,11 @@
 {
-  "hello": "hello ENENEN!",
+  "hello": "Hello Mundo!!",
   "menu": {
-    "home": "Inicio",
+    "home": "Home",
     "childrenClubs": "Clubs",
-    "workshops": "Talleres",
-    "trainingAndProjects": "Proyectos",
+    "workshops": "Workshops",
+    "trainingAndProjects": "Projects",
+    "whoAmI": "Who am I",
     "contact": "Contact"
   }
 }
