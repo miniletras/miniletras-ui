@@ -13,7 +13,7 @@ defineProps<{
 
 <template>
   <router-link :to="to" class="max-w-lg rounded shadow-lg card-hover flex flex-col">
-    <h1>Esto es Article.vue djisiiii!!!</h1>
+    <h1>Esto es Club.vue djisiiii!!!</h1>
     <img :src="$props.image" class="h-auto object-cover w-full" :alt="$props.alt" loading="lazy" />
     <div
       class="article-content flex content-between flex-1 flex-col dark:bg-elucidator-100 py-2 px-4"

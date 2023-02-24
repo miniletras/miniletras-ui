@@ -90,7 +90,7 @@ const dataNavbar: NavbarMenu[] = [
       <div class="flex flex-wrap items-center">
         <router-link
           v-for="(data, i) in dataNavbar"
-          :key="i"
+          :key="`desktop-navbar-${i}`"
           class="mr-5 py-1.5 px-3 rounded-md text-elucidator-700 dark:text-dark-repulser-400 dark:hover:text-elucidator-300 hover:text-gray-900 hidden lg:block"
           :to="data.to"
           active-class="bg-gray-200 dark:bg-gray-500 dark:text-dark-repulser-200"
@@ -140,26 +140,17 @@ const dataNavbar: NavbarMenu[] = [
     class="py-4 px-8 bg-elucidator-100 dark:bg-elucidator-600 fixed bottom-0 z-99 inset-x-0 rounded-t-lg shadow-lg overflow-x-hidden overflow-y-hidden lg:hidden"
     :class="open ? 'block translate-y-0' : 'hidden translate-y-full'"
   >
-    <ul class="flex flex-col">
-      <router-link to="/" class="bg-elucidator-50 dark:bg-elucidator-500 p-2 mb-2 rounded-md">
+  <ul class="flex flex-col">
+    <router-link v-for="(data, i) in dataNavbar"
+                 :key="`mobile-navbar-${i}`"
+                 class="bg-elucidator-50 dark:bg-elucidator-500 p-2 mb-2 rounded-md"
+                 :to="data.to"
+    >
         <li class="flex flex-row flex-wrap items-center dark:text-elucidator-100">
-          <carbon-home class="mr-2" />Home
+          <carbon-home class="mr-2" />{{ data.name }}
         </li>
       </router-link>
-      <router-link
-        to="/articles"
-        class="bg-elucidator-50 dark:bg-elucidator-500 p-2 mb-2 rounded-md"
-      >
-        <li class="flex flex-row flex-wrap items-center dark:text-elucidator-100">
-          <carbon-table-of-contents class="mr-2" />Articles
-        </li>
-      </router-link>
-      <router-link to="/about" class="bg-elucidator-50 dark:bg-elucidator-500 p-2 mb-2 rounded-md">
-        <li class="flex flex-row flex-wrap items-center dark:text-elucidator-100">
-          <uil-document-layout-center class="mr-2" />About
-        </li>
-      </router-link>
-    </ul>
+  </ul>
   </nav>
   <!-- Search -->
   <div

@@ -86,6 +86,7 @@ if (isClient) {
 
 <template>
   <div class="py-5 px-4">
+    <h1>Esto es Post.vue djisiiii!!!</h1>
     <h1
       class="mb-5 text-transparent bg-clip-text bg-gradient-to-r text-center font-bold text-5xl from-elucidator-500 to-elucidator-700 dark:from-dark-repulser-500 dark:to-dark-repulser-300 md:block"
     >
@@ -140,6 +141,7 @@ if (isClient) {
       </client-only>
     </div>
     <div class="flex flex-wrap flex-col px-4 lg:px-0">
+      <h1>Esto es post tb</h1>
       <h1 class="mb-5 mt-8 text-3xl text-elucidator-700 dark:text-dark-repulser-400 font-bold">
         Related Articles
       </h1>
