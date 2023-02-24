@@ -24,6 +24,17 @@ export const getArticles = (limit?: number) => {
 }
 
 // Get the latest article
+// TODO: Make clubs article based on clubs tag for the moment
+export const clubsArticle = () => {
+  const frontmatter = getDataRoutes()
+    .filter((data) => data.meta.frontmatter !== undefined)
+    .map((data) => data.meta.frontmatter)
+    .sort((a, b) => +new Date((b as Record<string, any>).date) - +new Date((a as Record<string, any>).date))
+  const latestPost = frontmatter[0]
+  return latestPost
+}
+
+// Get the latest article
 export const latestArticle = () => {
   const frontmatter = getDataRoutes()
     .filter((data) => data.meta.frontmatter !== undefined)
