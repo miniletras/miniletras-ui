@@ -1,12 +1,6 @@
 <script setup lang="ts">
-import { i18n } from '~/main';
-import { latestArticle, getArticles } from '~/data';
+import { latestArticle, getArticles, getClubs } from "~/data"
 import { limitString, slug } from "~/utils"
-
-
-const { t } = i18n.global;
-
-const title = ref('Test title');
 
 // Get latest article
 const latest = computed(() => {
@@ -14,17 +8,16 @@ const latest = computed(() => {
 })
 
 // Get articles data
-const articles = computed(() => {
-  return getArticles(6) as Record<string, any>[]
-})
+const articles = computed(() => getArticles(6) as Record<string, any>[])
 
+const clubs = computed(() => getClubs())
 </script>
 <template>
   <div class="inline-grid px-4 lg:px-0">
     <h1 class="mb-5 text-3xl text-elucidator-700 dark:text-dark-repulser-400 font-bold">
-      Latest Article
+      Latest Club
     </h1>
-    <Latest
+    <LatestClub
       :image="latest.thumbnail"
       :alt="`blog-banner-${slug(latest.name)}`"
       :tags="latest.tags"
