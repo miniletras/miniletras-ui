@@ -1,5 +1,8 @@
 {
   "hello": "Hello Mundo!!",
+  "clubs": {
+    "monthClub": "Month club"
+  },
   "menu": {
     "home": "Home",
     "childrenClubs": "Clubs",

@@ -1,4 +1,7 @@
 {
+  "clubs": {
+    "monthClub": "Club del mes"
+  },
   "hello": "Hoola principito!",
   "menu": {
     "home": "Inicio",

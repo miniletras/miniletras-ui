@@ -1,6 +1,7 @@
 import { usePaginate, someTag } from "~/utils/"
 import type { RelatedArticles, PaginateData } from "~/types"
 import { sortByDate } from "~/utils/array"
+import { RouteRecordNormalized } from 'vue-router';
 
 // Get data frontmatter using function getRoutes from useRouter
 const getDataRoutes = () => {
@@ -33,43 +34,25 @@ export const getClubs = (limit?: number) => {
     .filter((data) => Object.keys(data.meta).length)
     .filter((data) => someTag(data, "club"))
     .slice(0, limit)
-  const postSortedByDate = sortByDate(clubPosts)
-  console.log(
-    "%c[index.ts postSortedByDate]- 37",
-    "color: blue; background: pink; font-size: 14px",
-    postSortedByDate,
-  )
-  return postSortedByDate
+
+  return sortByDate(clubPosts)
 }
 
-// Get the latest article
-// TODO: Make clubs article based on clubs tag for the moment
-export const importantClub = () => {
-  const isClubPosts = getDataRoutes()
-    .filter((data) => Object.keys(data.meta).length)
-    .filter((data) => someTag(data, "club"))
+// Get the latest important club
+export const latestImportantClub = () => {
+  const importantClubs = getClubs().filter((data) => someTag(data, "important"))
+  const frontmatterClubs = importantClubs.map((data) => data.meta.frontmatter)
 
-  const hasImportantTag = isClubPosts.some((data) => someTag(data, "important"))
-  console.log(
-    "%c[index.ts hasImportantTag]- 51",
-    "color: blue; background: pink; font-size: 14px",
-    hasImportantTag,
-  )
-  // .map((data) => data.meta.frontmatter)
-
-  return hasImportantTag
+  return frontmatterClubs[0];
 }
 
 // Get the latest article
 export const latestArticle = () => {
   const frontmatter = getDataRoutes()
     .filter((data) => data.meta.frontmatter)
-    .map((data) => data.meta.frontmatter)
-    .sort(
-      (a, b) =>
-        +new Date((b as Record<string, any>).date) - +new Date((a as Record<string, any>).date),
-    )
-  const latestPost = frontmatter[0]
+    .map((data) => data.meta.frontmatter) as Record<string, any>[] 
+  const latestPost = sortByDate(frontmatter)[0]
+
   return latestPost
 }
 
