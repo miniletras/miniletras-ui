@@ -86,7 +86,6 @@ if (isClient) {
 
 <template>
   <div class="py-5 px-4">
-    <h1>Esto es Post.vue djisiiii!!!</h1>
     <h1
       class="mb-5 text-transparent bg-clip-text bg-gradient-to-r text-center font-bold text-5xl from-elucidator-500 to-elucidator-700 dark:from-dark-repulser-500 dark:to-dark-repulser-300 md:block"
     >

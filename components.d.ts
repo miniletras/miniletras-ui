@@ -12,6 +12,7 @@ declare module 'vue' {
     CarbonMoon: typeof import('~icons/carbon/moon')['default']
     CarbonSearch: typeof import('~icons/carbon/search')['default']
     CarbonSun: typeof import('~icons/carbon/sun')['default']
+    CarbonTableOfContents: typeof import('~icons/carbon/table-of-contents')['default']
     Club: typeof import('./src/components/Clubs/Club.vue')['default']
     Footer: typeof import('./src/components/Footer/Footer.vue')['default']
     ImageThree: typeof import('./src/components/Image/ImageThree.vue')['default']
@@ -24,6 +25,7 @@ declare module 'vue' {
     Share: typeof import('./src/components/Button/Share.vue')['default']
     Tag: typeof import('./src/components/Button/Tag.vue')['default']
     ToTopBtn: typeof import('./src/components/Button/ToTopBtn.vue')['default']
+    UilDocumentLayoutCenter: typeof import('~icons/uil/document-layout-center')['default']
     UilGithub: typeof import('~icons/uil/github')['default']
   }
 }

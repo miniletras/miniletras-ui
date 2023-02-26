@@ -1,7 +1,5 @@
-import { usePaginate, someTag } from "~/utils/"
+import { usePaginate, someTag, sortByDate } from "~/utils"
 import type { RelatedArticles, PaginateData } from "~/types"
-import { sortByDate } from "~/utils/array"
-import { RouteRecordNormalized } from 'vue-router';
 
 // Get data frontmatter using function getRoutes from useRouter
 const getDataRoutes = () => {
@@ -21,18 +19,15 @@ export const getArticles = (limit?: number) => {
   const isPosts = getDataRoutes()
     .filter((data) => Object.keys(data.meta).length)
     .slice(0, limit)
-    .sort(
-      (a: Record<string, any>, b: Record<string, any>) =>
-        +new Date(b.meta.frontmatter.date) - +new Date(a.meta.frontmatter.date),
-    )
-  return isPosts
+
+  return sortByDate(isPosts)
 }
 
 // Filter data routes to get the clubs data and limit as needed
 export const getClubs = (limit?: number) => {
   const clubPosts = getDataRoutes()
     .filter((data) => Object.keys(data.meta).length)
-    .filter((data) => someTag(data, "club"))
+    .filter((data) => someTag(data, 'club'))
     .slice(0, limit)
 
   return sortByDate(clubPosts)
@@ -40,10 +35,10 @@ export const getClubs = (limit?: number) => {
 
 // Get the latest important club
 export const latestImportantClub = () => {
-  const importantClubs = getClubs().filter((data) => someTag(data, "important"))
+  const importantClubs = getClubs().filter((data) => someTag(data, 'important'))
   const frontmatterClubs = importantClubs.map((data) => data.meta.frontmatter)
 
-  return frontmatterClubs[0];
+  return sortByDate(frontmatterClubs)[0];
 }
 
 // Get the latest article
@@ -51,9 +46,8 @@ export const latestArticle = () => {
   const frontmatter = getDataRoutes()
     .filter((data) => data.meta.frontmatter)
     .map((data) => data.meta.frontmatter) as Record<string, any>[] 
-  const latestPost = sortByDate(frontmatter)[0]
 
-  return latestPost
+  return sortByDate(frontmatter)[0]
 }
 
 // Filter data to get specific articles based on tags

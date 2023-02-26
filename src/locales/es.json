@@ -10,5 +10,12 @@
     "trainingAndProjects": "Proyectos",
     "whoAmI": "Quién soy",
     "contact": "Contacto"
+  },
+  "tags": {
+    "club": "club",
+    "important": "destacado",
+    "new": "novedad",
+    "news": "novedades",
+    "post": "post"
   }
 }

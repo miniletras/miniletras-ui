@@ -12,27 +12,27 @@ tags: ["club", "important"]
 
 ## Índice
 
-- [1Biografía](https://es.wikipedia.org/wiki/Roald_Dahl#Biografía)
-- [2Escritura](https://es.wikipedia.org/wiki/Roald_Dahl#Escritura)
-- 3Controversias
-  - [3.1La controversia del *Literary Review*](https://es.wikipedia.org/wiki/Roald_Dahl#La_controversia_del_Literary_Review)
-  - [3.2La controversia de *Las brujas*](https://es.wikipedia.org/wiki/Roald_Dahl#La_controversia_de_Las_brujas)
-- 4Ficción infantil
-  - [4.1Prosa](https://es.wikipedia.org/wiki/Roald_Dahl#Prosa)
-  - [4.2Poesía](https://es.wikipedia.org/wiki/Roald_Dahl#Poesía)
-- 5Ficción para adultos
-  - [5.1Novelas](https://es.wikipedia.org/wiki/Roald_Dahl#Novelas)
-  - [5.2Antologías de cuentos](https://es.wikipedia.org/wiki/Roald_Dahl#Antologías_de_cuentos)
-- [6Memorias](https://es.wikipedia.org/wiki/Roald_Dahl#Memorias)
-- [7Teatro](https://es.wikipedia.org/wiki/Roald_Dahl#Teatro)
-- 8Guiones
-  - [8.1Cine](https://es.wikipedia.org/wiki/Roald_Dahl#Cine)
-  - [8.2Televisión](https://es.wikipedia.org/wiki/Roald_Dahl#Televisión)
-- 9Adaptaciones de sus obras
+- [1 Biografía](https://es.wikipedia.org/wiki/Roald_Dahl#Biografía)
+- [2 Escritura](https://es.wikipedia.org/wiki/Roald_Dahl#Escritura)
+- 3 Controversias
+  - [3.1 La controversia del *Literary Review*](https://es.wikipedia.org/wiki/Roald_Dahl#La_controversia_del_Literary_Review)
+  - [3.2 La controversia de *Las brujas*](https://es.wikipedia.org/wiki/Roald_Dahl#La_controversia_de_Las_brujas)
+- 4 Ficción infantil
+  - [4.1 Prosa](https://es.wikipedia.org/wiki/Roald_Dahl#Prosa)
+  - [4.2 Poesía](https://es.wikipedia.org/wiki/Roald_Dahl#Poesía)
+- 5 Ficción para adultos
+  - [5.1 Novelas](https://es.wikipedia.org/wiki/Roald_Dahl#Novelas)
+  - [5.2 Antologías de cuentos](https://es.wikipedia.org/wiki/Roald_Dahl#Antologías_de_cuentos)
+- [6 Memorias](https://es.wikipedia.org/wiki/Roald_Dahl#Memorias)
+- [7 Teatro](https://es.wikipedia.org/wiki/Roald_Dahl#Teatro)
+- 8 Guiones
+  - [8.1 Cine](https://es.wikipedia.org/wiki/Roald_Dahl#Cine)
+  - [8.2 Televisión](https://es.wikipedia.org/wiki/Roald_Dahl#Televisión)
+- 9 Adaptaciones de sus obras
   - [9.1Cine](https://es.wikipedia.org/wiki/Roald_Dahl#Cine_2)
-  - [9.2Televisión](https://es.wikipedia.org/wiki/Roald_Dahl#Televisión_2)
-- [10Referencias](https://es.wikipedia.org/wiki/Roald_Dahl#Referencias)
-- [11Enlaces externos](https://es.wikipedia.org/wiki/Roald_Dahl#Enlaces_externos)
+  - [9.2 Televisión](https://es.wikipedia.org/wiki/Roald_Dahl#Televisión_2)
+- [10 Referencias](https://es.wikipedia.org/wiki/Roald_Dahl#Referencias)
+- [11 Enlaces externos](https://es.wikipedia.org/wiki/Roald_Dahl#Enlaces_externos)
 
 ## Biografía
 
@@ -204,7 +204,7 @@ Roald Dahl fue también presentador de los programas *Way out* y *Tales of the u
 - *[The BFG](https://es.wikipedia.org/wiki/The_BFG_(película))* (Estados Unidos, Reino Unido y Canadá, 2016)
 - *[Las brujas](https://es.wikipedia.org/wiki/Las_brujas_(película_de_2020))* ([Estados Unidos](https://es.wikipedia.org/wiki/Estados_Unidos), 2020)
 
-### Televisión[[editar](https://es.wikipedia.org/w/index.php?title=Roald_Dahl&action=edit&section=19)]
+### Televisión
 
 - *Danger* ([Estados Unidos](https://es.wikipedia.org/wiki/Estados_Unidos), 1950-1955, de su cuento *Apuestas*)
 - *Star tonight* ([Estados Unidos](https://es.wikipedia.org/wiki/Estados_Unidos), 1955-1956, de su cuento *Gastrónomos*)
@@ -216,7 +216,7 @@ Roald Dahl fue también presentador de los programas *Way out* y *Tales of the u
 - *Tales of the unexpected* ([Reino Unido](https://es.wikipedia.org/wiki/Reino_Unido), 1979-1988, diversos cuentos)
 - *Danny the champion of the world* (película para televisión, [Reino Unido](https://es.wikipedia.org/wiki/Reino_Unido), 1989)
 
-## Referencias[[editar](https://es.wikipedia.org/w/index.php?title=Roald_Dahl&action=edit&section=20)]
+## Referencias
 
 1. ↑ [Saltar a:***a***](https://es.wikipedia.org/wiki/Roald_Dahl#cite_ref-:0_1-0) [***b***](https://es.wikipedia.org/wiki/Roald_Dahl#cite_ref-:0_1-1) Philip Howard, ‘Dahl, Roald (1916–1990)’, *Oxford Dictionary of National Biography*, [Oxford University Press](https://es.wikipedia.org/wiki/Oxford_University_Press), 2004; online edn, May 2006 [[1\]](http://www.oxforddnb.com/view/article/39827) Consultado el 16 de septiembre de 2007.
 2. ↑ [Saltar a:***a***](https://es.wikipedia.org/wiki/Roald_Dahl#cite_ref-:1_2-0) [***b***](https://es.wikipedia.org/wiki/Roald_Dahl#cite_ref-:1_2-1) Berntsen, Erik (21 de octubre de 2020). [«Harald Dahl b. 1863 Sarpsborg, Østfold d. 1920 Wales: Erik Berntsens slektssider»](http://vestraat.net/TNG/getperson.php?personID=I87052&tree=IEA). *Erik Berntsens slektssider*. Consultado el 21 de octubre de 2020.
