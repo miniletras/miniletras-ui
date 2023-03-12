@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { getClubs, latestImportantClub } from "~/data"
 import { limitString, slug } from "~/utils"
-import { i18n } from '~/main';
+import { i18n } from "~/main"
 
-
-const { t } = i18n.global;
+const { t } = i18n.global
 
 // Get latest important club
 const importantClub = computed(() => {
@@ -13,14 +12,13 @@ const importantClub = computed(() => {
 
 // Get clubs data
 const clubs = computed(() => getClubs(6))
-
 </script>
 <template>
   <div class="inline-grid px-4 lg:px-0">
     <h1 class="mb-5 text-3xl text-elucidator-700 dark:text-dark-repulser-400 font-bold">
-      {{ t('clubs.monthClub') }}
+      {{ t("clubs.monthClub") }}
     </h1>
-    <LatestClub
+    <Latest
       :image="importantClub.thumbnail"
       :alt="`blog-banner-${slug(importantClub.name)}`"
       :tags="importantClub.tags"
@@ -35,7 +33,7 @@ const clubs = computed(() => getClubs(6))
     <div
       class="mx-auto inline-grid gap-4 mb-5 sm:grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-10"
     >
-      <Club
+      <Article
         v-for="(data, i) in clubs"
         :key="i"
         :image="data.meta.frontmatter.thumbnail"

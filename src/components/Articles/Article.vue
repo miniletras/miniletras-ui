@@ -10,7 +10,6 @@ defineProps<{
   toTags: string
 }>()
 </script>
-
 <template>
   <router-link :to="to" class="max-w-lg rounded shadow-lg card-hover flex flex-col">
     <img :src="image" class="h-auto object-cover w-full" :alt="alt" loading="lazy" />
@@ -32,7 +31,6 @@ defineProps<{
     </div>
   </router-link>
 </template>
-
 <style lang="scss">
 .card-hover {
   transition: all 0.3s ease;
