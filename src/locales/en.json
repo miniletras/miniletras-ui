@@ -3,6 +3,9 @@
   "clubs": {
     "monthClub": "Month club"
   },
+  "latest": {
+    "publishedAt": "Published at"
+  },
   "menu": {
     "home": "Home",
     "childrenClubs": "Clubs",

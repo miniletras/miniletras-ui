@@ -1,5 +1,5 @@
 ---
-name: Taller de Roald Dahl
+name: Club de Roald Dahl
 thumbnail: https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Roald_Dahl.jpg/200px-Roald_Dahl.jpg
 date: 2023-02-24
 description: Club de lectura para ñinos en torno a la figura de Roald Dahl.

@@ -3,6 +3,9 @@
     "monthClub": "Club del mes"
   },
   "hello": "Hoola principito!",
+  "latest": {
+    "publishedAt": "Publicado el"
+  },
   "menu": {
     "home": "Inicio",
     "childrenClubs": "Clubs",
