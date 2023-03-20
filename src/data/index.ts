@@ -35,8 +35,8 @@ export const getItemsByMenu = (menuItem: string, limit?: number) => {
 
 // Get the latest important by tag
 export const latestItemByMenuTag = (menuItem: string, tag: string) => {
-  const importantClubs = getItemsByMenu(menuItem).filter((data) => someTag(data, tag))
-  const frontmatterClubs = importantClubs.map((data) => data.meta.frontmatter)
+  const importantItem = getItemsByMenu(menuItem).filter((data) => someTag(data, tag))
+  const frontmatterClubs = importantItem.map((data) => data.meta.frontmatter)
 
   return sortByDate(frontmatterClubs)[0]
 }

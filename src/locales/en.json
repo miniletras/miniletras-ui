@@ -20,5 +20,8 @@
     "new": "new",
     "news": "news",
     "post": "post"
+  },
+  "workshops": {
+    "monthWorkshop": "Month workshop"
   }
 }

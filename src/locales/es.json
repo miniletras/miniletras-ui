@@ -20,5 +20,8 @@
     "new": "novedad",
     "news": "novedades",
     "post": "post"
+  },
+  "workshops": {
+    "monthWorkshop": "Taller del mes"
   }
 }
