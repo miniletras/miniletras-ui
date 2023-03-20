@@ -6,13 +6,11 @@ declare module 'vue' {
   export interface GlobalComponents {
     Article: typeof import('./src/components/Articles/Article.vue')['default']
     CarbonBackToTop: typeof import('~icons/carbon/back-to-top')['default']
-    CarbonCalendar: typeof import('~icons/carbon/calendar')['default']
     CarbonHome: typeof import('~icons/carbon/home')['default']
     CarbonMenu: typeof import('~icons/carbon/menu')['default']
     CarbonMoon: typeof import('~icons/carbon/moon')['default']
     CarbonSearch: typeof import('~icons/carbon/search')['default']
     CarbonSun: typeof import('~icons/carbon/sun')['default']
-    CarbonTableOfContents: typeof import("~icons/carbon/table-of-contents")["default"]
     Footer: typeof import('./src/components/Footer/Footer.vue')['default']
     ImageThree: typeof import('./src/components/Image/ImageThree.vue')['default']
     ImageTwo: typeof import('./src/components/Image/ImageTwo.vue')['default']
@@ -23,7 +21,6 @@ declare module 'vue' {
     Share: typeof import('./src/components/Button/Share.vue')['default']
     Tag: typeof import('./src/components/Button/Tag.vue')['default']
     ToTopBtn: typeof import('./src/components/Button/ToTopBtn.vue')['default']
-    UilDocumentLayoutCenter: typeof import("~icons/uil/document-layout-center")["default"]
     UilGithub: typeof import('~icons/uil/github')['default']
   }
 }

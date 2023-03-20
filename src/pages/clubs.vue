@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { getClubs, latestImportantClub } from "~/data"
+import { getItemsByMenuTag, latestItemByMenuTag } from "~/data"
 import { limitString, slug } from "~/utils"
 import { i18n } from "~/main"
 
 const { t } = i18n.global
 
 // Get latest important club
-const importantClub = computed(() => {
-  return latestImportantClub() as Record<string, any>
+const clubImportant = computed(() => {
+  return latestItemByMenuTag("club", "important") as Record<string, any>
 })
 
 // Get clubs data
-const clubs = computed(() => getClubs(6))
+const clubs = computed(() => getItemsByMenuTag("club", 6))
 </script>
 <template>
   <div class="inline-grid px-4 lg:px-0">
@@ -19,14 +19,14 @@ const clubs = computed(() => getClubs(6))
       {{ t("clubs.monthClub") }}
     </h1>
     <Latest
-      :image="importantClub.thumbnail"
-      :alt="`blog-banner-${slug(importantClub.name)}`"
-      :tags="importantClub.tags"
-      :date="`${new Date(importantClub.date).toDateString()}`"
-      :title="importantClub.name"
-      :description="limitString(importantClub.description, 200)"
+      :image="clubImportant.thumbnail"
+      :alt="`blog-banner-${slug(clubImportant.name)}`"
+      :tags="clubImportant.tags"
+      :date="`${new Date(clubImportant.date).toDateString()}`"
+      :title="clubImportant.name"
+      :description="limitString(clubImportant.description, 200)"
       :to="clubs[0].path"
-      :to-tags="`/tags/${importantClub.tags}`"
+      :to-tags="`/tags/${clubImportant.tags}`"
     />
   </div>
   <div class="flex flex-col flex-wrap mb-2 mt-12 px-4 lg:px-0">
