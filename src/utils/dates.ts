@@ -1,14 +1,30 @@
 import { DateTimeFormatOptions } from "@intlify/core-base"
+import { DateOption } from "./models"
 
-const dateToIntString = (date: string) => {
-  const dateOptions = {
+const dateTypes = {
+  long: {
     weekday: "long",
     year: "numeric",
     month: "long",
     day: "numeric",
-  } as DateTimeFormatOptions
+  },
+  short: {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  },
+}
 
-  return new Intl.DateTimeFormat("es-ES", dateOptions).format(new Date(date))
+const dateOptions = (dateOption?: DateOption): DateTimeFormatOptions => {
+  return {
+    ...((dateOption === "long" || !dateOption) && { ...dateTypes.long }),
+    ...(dateOption === "short" && { ...dateTypes.short }),
+    // dateOption === 'short'
+  } as DateTimeFormatOptions
+}
+
+const dateToIntString = (date: string, option?: DateOption) => {
+  return new Intl.DateTimeFormat("default", dateOptions(option)).format(new Date(date))
 }
 
 export { dateToIntString }

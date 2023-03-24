@@ -30,8 +30,7 @@ const { t } = i18n.global
     />
     <div class="mt-5 flex flex-col lg:px-5 lg:pt-5 lg:mt-0">
       <span class="mb-2 sm:mt-5 lg:mt-0 text-elucidator-700 dark:text-elucidator-50">
-        {{ t("latest.publishedAt") }}
-        {{ dateToIntString(date) }}
+        {{ t("latest.publishedAt") }} {{ dateToIntString(date) }}
       </span>
       <router-link
         :to="to"
