@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { isDark, toggleDark, slug } from "~/utils"
 import type { NavbarMenu } from "~/types"
-import { i18n } from "~/main";
+import { i18n } from "~/main"
 
-const { t } = i18n.global;
+const { t } = i18n.global
 
 // https://vueuse.org/shared/useToggle/
 const [search, setSearch] = useToggle()
@@ -48,27 +48,27 @@ router.afterEach(() => {
 // Navbar list
 const dataNavbar: NavbarMenu[] = [
   {
-    name: t('menu.home'),
+    name: t("menu.home"),
     to: "/",
   },
   {
-    name: t('menu.childrenClubs'),
+    name: t("menu.childrenClubs"),
     to: "/clubs",
   },
   {
-    name: t('menu.workshops'),
+    name: t("menu.workshops"),
     to: "/workshops",
   },
   {
-    name: t('menu.trainingAndProjects'),
-    to: "/training",
+    name: t("menu.trainingAndProjects"),
+    to: "/trainings",
   },
   {
-    name: t('menu.whoAmI'),
+    name: t("menu.whoAmI"),
     to: "/whoami",
   },
   {
-    name: t('menu.contact'),
+    name: t("menu.contact"),
     to: "/contact",
   },
 ]
@@ -140,17 +140,18 @@ const dataNavbar: NavbarMenu[] = [
     class="py-4 px-8 bg-elucidator-100 dark:bg-elucidator-600 fixed bottom-0 z-99 inset-x-0 rounded-t-lg shadow-lg overflow-x-hidden overflow-y-hidden lg:hidden"
     :class="open ? 'block translate-y-0' : 'hidden translate-y-full'"
   >
-  <ul class="flex flex-col">
-    <router-link v-for="(data, i) in dataNavbar"
-                 :key="`mobile-navbar-${i}`"
-                 class="bg-elucidator-50 dark:bg-elucidator-500 p-2 mb-2 rounded-md"
-                 :to="data.to"
-    >
+    <ul class="flex flex-col">
+      <router-link
+        v-for="(data, i) in dataNavbar"
+        :key="`mobile-navbar-${i}`"
+        class="bg-elucidator-50 dark:bg-elucidator-500 p-2 mb-2 rounded-md"
+        :to="data.to"
+      >
         <li class="flex flex-row flex-wrap items-center dark:text-elucidator-100">
           <carbon-home class="mr-2" />{{ data.name }}
         </li>
       </router-link>
-  </ul>
+    </ul>
   </nav>
   <!-- Search -->
   <div
@@ -162,7 +163,7 @@ const dataNavbar: NavbarMenu[] = [
         class="absolute right-8 top-4 text-xl text-gray-400 cursor-pointer"
         @click="goSearch"
       />
-      <input 
+      <input
         ref="search"
         v-model="searchArticle"
         type="text"

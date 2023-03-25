@@ -21,6 +21,9 @@
     "news": "novedades",
     "post": "post"
   },
+  "trainings": {
+    "monthTraining": "Proyecto del mes"
+  },
   "workshops": {
     "monthWorkshop": "Taller del mes"
   }

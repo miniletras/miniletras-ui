@@ -21,6 +21,9 @@
     "news": "news",
     "post": "post"
   },
+  "trainings": {
+    "monthTraining": "Month training"
+  },
   "workshops": {
     "monthWorkshop": "Month workshop"
   }

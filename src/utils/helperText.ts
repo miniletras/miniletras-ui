@@ -3,11 +3,15 @@ export const capitalizeStr = (str: string): string => {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
-export const slug = (str: string): string =>
-  str
+export const slug = (str: string): string => {
+  if (!str) {
+    return ""
+  }
+  return str
     .toLowerCase()
     .replace(/ /g, "-")
     .replace(/[^\w-]+/g, "")
+}
 
 export const unslug = (str: string): string => {
   const slug = str.split("-")
@@ -19,6 +23,9 @@ export const unslug = (str: string): string => {
 }
 
 export const limitString = (str: string, limit: number): string => {
+  if (!str) {
+    return ""
+  }
   const string = str
   const length = limit
   const result = string.length > length ? string.substring(0, limit) + "..." : string
