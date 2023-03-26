@@ -26,5 +26,8 @@
   },
   "workshops": {
     "monthWorkshop": "Taller del mes"
+  },
+  "whoami": {
+    "cataDeMar": "Cata de Mar"
   }
 }
