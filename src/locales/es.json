@@ -15,11 +15,13 @@
     "contact": "Contacto"
   },
   "tags": {
-    "club": "club",
+    "club": "clubs",
     "important": "destacado",
     "new": "novedad",
     "news": "novedades",
-    "post": "post"
+    "post": "post",
+    "training": "proyectos",
+    "workshop": "talleres"
   },
   "trainings": {
     "monthTraining": "Proyecto del mes"

@@ -11,7 +11,7 @@ const itemImportant = computed(() => {
 })
 
 // Get clubs data
-const clubs = computed(() => getItemsByMenu("training", 6))
+const trainings = computed(() => getItemsByMenu("training", 6))
 </script>
 <template>
   <div class="inline-grid px-4 lg:px-0">
@@ -26,7 +26,7 @@ const clubs = computed(() => getItemsByMenu("training", 6))
       :date="`${new Date(itemImportant.date).toDateString()}`"
       :title="itemImportant.name"
       :description="limitString(itemImportant.description, 200)"
-      :to="clubs[0].path"
+      :to="trainings[0].path"
       :to-tags="`/tags/${itemImportant.tags}`"
     />
   </div>
@@ -35,7 +35,7 @@ const clubs = computed(() => getItemsByMenu("training", 6))
       class="mx-auto inline-grid gap-4 mb-5 sm:grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-10"
     >
       <Article
-        v-for="(data, i) in clubs"
+        v-for="(data, i) in trainings"
         :key="i"
         :image="data.meta.frontmatter.thumbnail"
         :alt="`blog-banner-${slug(data.meta.frontmatter.name)}`"
