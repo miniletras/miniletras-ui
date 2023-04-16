@@ -4,29 +4,36 @@ import { ref } from "vue"
 const title = ref(" whoami.vue Component!")
 </script>
 <template>
-  <div class="whoami border">
-    <div class="whoami__border border">
-      <img class="whoami__img" src="/images/cata_de_mar_whoami.jpeg" alt="Cata de Mar" />
+  <div class="grid grid-cols-2">
+    <div class="main-section border-red">
+      <section class="main-section__figure">
+        <figure class="main-section__personal-photo"></figure>
+      </section>
     </div>
-    <div class="border">
-      <h1>{{ title }}</h1>
-    </div>
+    <div class="col-1 border-red"></div>
   </div>
 </template>
-<style lang="scss" scoped>
-.border {
+<style scoped lang="scss">
+@use "~/assets/styles/settings/mixins.scss" as *;
+@use "~/assets/styles/settings/variables.scss" as *;
+
+.border-red {
   border: 1px solid red;
 }
-.whoami {
+.main-section {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  &__border {
+  justify-content: center;
+  &__figure {
     border-radius: 100%;
-    border: 2rem solid;
-    @apply dark:text-dark-repulser-400;
+    background-color: $color-gray-1;
+    border: 1rem solid $color-gray-1;
   }
-  &__img {
+  &__personal-photo {
+    background: no-repeat center/80% url("../images/cata_de_mar_whoami.jpeg");
+    @include heightWidth(16rem, 16rem);
     border-radius: 100%;
+    background-color: $color-gray-1;
+    border-radius: 4px solid $color-purple-1;
   }
 }
 </style>
