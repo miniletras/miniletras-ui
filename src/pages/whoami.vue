@@ -8,9 +8,6 @@
   <div class="col-1 border-red"></div>
 </template>
 <style scoped lang="scss">
-@use "~/assets/styles/settings/mixins.scss" as *;
-@use "~/assets/styles/settings/variables.scss" as *;
-
 .border-red {
   border: 1px solid red;
 }
@@ -26,7 +23,7 @@
   }
   &__personal-photo {
     background: no-repeat center 100%/100% url("../images/cata_de_mar_whoami-circle.png");
-    @include heightWidth(19rem, 19rem);
+    @include h-w(19rem, 19rem);
     border-radius: 100%;
     background-color: white;
     border: 1.75rem solid $color-pink-1;
@@ -34,16 +31,16 @@
     overflow: visible;
     position: relative;
     @media (min-width: $xxs) {
-      @include heightWidth(26rem, 26rem);
+      @include h-w(26rem, 26rem);
     }
     @media (min-width: $xs) {
-      @include heightWidth(19rem, 19rem);
+      @include h-w(19rem, 19rem);
     }
     @media (min-width: $sm) {
-      @include heightWidth(23.5rem, 23.5rem);
+      @include h-w(23.5rem, 23.5rem);
     }
     @media (min-width: $md) {
-      @include heightWidth(26rem, 26rem);
+      @include h-w(26rem, 26rem);
     }
   }
   &__square-1 {

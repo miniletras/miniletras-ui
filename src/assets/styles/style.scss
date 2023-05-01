@@ -1,7 +1,8 @@
+@use "./components/_scrollbar.scss" as *;
+@use "./components/_nprogress.scss" as *;
+@use "./components/_markdown.scss" as *;
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
-@import url("./components/_scrollbar.scss");
-@import url("./components/_nprogress.scss");
-@import url("./components/_markdown.scss");
 
 * {
   margin: 0;

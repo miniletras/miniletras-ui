@@ -18,7 +18,7 @@ import toc from "markdown-it-table-of-contents"
 import attr from "markdown-it-link-attributes"
 import { dirname, resolve } from "path"
 import { readFileSync } from "fs"
-import vueI18n from '@intlify/vite-plugin-vue-i18n'
+import vueI18nPlugin from '@intlify/vite-plugin-vue-i18n'
 import { fileURLToPath } from "url"
 
 // https://vitejs.dev/config/
@@ -35,7 +35,7 @@ export default defineConfig({
     Vue({
       include: [/\.vue$/, /\.md$/],
     }),
-    vueI18n({
+    vueI18nPlugin({
       // if you want to use Vue I18n Legacy API, you need to set `compositionOnly: false`
       // compositionOnly: false,
       // you need to set i18n resource including paths !
@@ -153,6 +153,13 @@ export default defineConfig({
       dts: true,
     }),
   ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@use "src/assets/styles/settings/index.scss" as *;',
+      }
+    }
+  },
   optimizeDeps: {
     include: ["vue", "vue-router", "@vueuse/core"],
   },
