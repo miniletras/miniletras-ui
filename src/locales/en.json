@@ -30,6 +30,8 @@
     "monthWorkshop": "Month workshop"
   },
   "whoami": {
-    "cataDeMar": "Cata de Mar"
+    "cataDeMar": "Cata de Mar",
+    "occupation": "Teacher",
+    "occupationSubtitle": "Proofreader"
   }
 }

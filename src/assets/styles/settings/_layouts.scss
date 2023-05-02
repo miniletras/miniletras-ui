@@ -1,0 +1,12 @@
+@use "./mixins" as *;
+
+@for $n from 1 through 6 {
+  .col-#{$n} {
+    @include grid-columns($n);
+  }
+}
+
+.flex-gap {
+  display: flex;
+  gap: 0.5rem;
+}

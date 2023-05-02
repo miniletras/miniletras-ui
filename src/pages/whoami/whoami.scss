@@ -1,0 +1,105 @@
+@use "~/assets/styles/settings/index" as *;
+@use "~/assets/styles/elements/_figures" as *;
+
+.whoami {
+  display: grid;
+  @media (min-width: $xs) {
+    @include grid-columns(2);
+  }
+  &__figure {
+    display: grid;
+    justify-content: center;
+  }
+  &__personal-photo {
+    background: no-repeat center 66%/95% url("../images/cata_de_mar_whoami-circle.png");
+    @include h-w(19rem, 19rem);
+    border-radius: 100%;
+    background-color: white;
+    border: 1.75rem solid $color-pink-1;
+    z-index: 1;
+    overflow: visible;
+  }
+  &__title {
+    width: fit-content;
+    margin-bottom: 1rem;
+  }
+  &__hr {
+    background-color: $color-purple-2;
+    height: 0.35rem;
+  }
+  &__slash {
+    background-color: $color-purple-2;
+    width: 0.3rem;
+    height: 100%;
+    display: block;
+    margin-left: 0.6rem;
+  }
+  @for $n from 1 through 3 {
+    &__square-#{$n} {
+      background-color: $color-pink-1;
+    }
+  }
+  &__square-1 {
+    z-index: 0;
+    margin-top: -10rem;
+  }
+  &__square-2  {
+    @include grid-center;
+  }
+  @media (min-width: $xxs) and (min-width: $md) {
+    &__personal-photo {
+      @include h-w(26rem, 26rem);
+    }
+    &__square-1 {
+      margin-top: -12rem;
+    }
+  }
+  @media (min-width: $xs) {
+    &__personal-photo {
+      @include h-w(19rem, 19rem);
+      &__square-1 {
+        margin-top: -10rem;
+      }
+    }
+  }
+  @media (min-width: $sm) {
+    &__personal-photo {
+      @include h-w(23.5rem, 23.5rem);
+    }
+    &__square-1 {
+      margin-top: -12rem;
+    }
+  }
+}
+.h {
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  &__h2, &__h3 {
+    text-transform: uppercase;
+  }
+  &__h2 {
+    font-size: 2em;
+    line-height: 2.75rem;
+    padding: 0 0.5em;
+  }
+  &__h3 {
+    font-size: 1.45em;
+    line-height: 1.5rem;
+    &--subtitle {
+      display: block;
+      text-align: center;
+    }
+  }
+}
+.contact-list {
+  margin-top: 0.6em;
+  line-height: 1.6em;
+  &__label {
+    font-size: 0.85em;
+    margin-left: 0.5rem;
+    vertical-align: top;
+  }
+  &__label, .iconify-inline {
+    color: $color-gray-2;
+  }
+}

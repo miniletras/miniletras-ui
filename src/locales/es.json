@@ -30,6 +30,8 @@
     "monthWorkshop": "Taller del mes"
   },
   "whoami": {
-    "cataDeMar": "Cata de Mar"
+    "cataDeMar": "Cata de Mar",
+    "occupation": "Profesora",
+    "occupationSubtitle": "Correctora de estilos"
   }
 }

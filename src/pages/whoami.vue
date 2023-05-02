@@ -1,58 +1,55 @@
+<script setup lang="ts">
+import { i18n } from "~/main"
+
+const { t } = i18n.global
+
+const contactList = [
+  { icon: "mdi:phone-classic", label: "+34 717 70 39 20" },
+  { icon: "jam:envelope-f", label: "cata.cabanillas@gmail.com" },
+  { icon: "tabler:world-www", label: "http://miniletras.com" },
+  {
+    icon: "mdi:location-radius-outline",
+    label: "Baiona, Pontevedra (Galicia), ESP",
+  },
+]
+</script>
 <template>
-  <div class="whoami border-red">
-    <section class="whoami__figure">
+  <section class="whoami">
+    <div class="whoami__figure">
       <figure class="whoami__personal-photo"></figure>
-      <!-- <div class="whoami__square-1"></div> -->
-    </section>
-  </div>
-  <div class="col-1 border-red"></div>
+      <div class="whoami__square-1"></div>
+      <div class="whoami__square-2">
+        <div class="whoami__title">
+          <h2 class="h h__h2">{{ t("whoami.occupation") }}</h2>
+          <hr class="whoami__hr" />
+          <i class="h__h3--subtitle">{{ t("whoami.occupationSubtitle") }}</i>
+        </div>
+        <div class="flex-gap">
+          <div>
+            <div class="circle"></div>
+            <span class="whoami__slash"></span>
+          </div>
+          <div>
+            <h3 class="h h__h3">{{ t("menu.contact") }}</h3>
+            <ul class="contact-list">
+              <li v-for="(list, i) in contactList" :key="`whoami-contact-list-${i}`">
+                <span class="iconify-inline" data-width="1.2em" :data-icon="list.icon"></span>
+                <label class="contact-list__label" :for="`whoami-contact-list-${i}`">
+                  {{ list.label }}
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-1 border-red"></div>
+  </section>
 </template>
 <style scoped lang="scss">
+@use "./whoami/whoami.scss" as *;
+
 .border-red {
   border: 1px solid red;
-}
-.whoami {
-  display: grid;
-  @media (min-width: 610px) {
-    grid-template-columns: (1fr 1fr);
-  }
-  &__figure {
-    border-radius: 100%;
-    display: grid;
-    justify-content: center;
-  }
-  &__personal-photo {
-    background: no-repeat center 100%/100% url("../images/cata_de_mar_whoami-circle.png");
-    @include h-w(19rem, 19rem);
-    border-radius: 100%;
-    background-color: white;
-    border: 1.75rem solid $color-pink-1;
-    z-index: 1;
-    overflow: visible;
-    position: relative;
-    @media (min-width: $xxs) {
-      @include h-w(26rem, 26rem);
-    }
-    @media (min-width: $xs) {
-      @include h-w(19rem, 19rem);
-    }
-    @media (min-width: $sm) {
-      @include h-w(23.5rem, 23.5rem);
-    }
-    @media (min-width: $md) {
-      @include h-w(26rem, 26rem);
-    }
-  }
-  &__square-1 {
-    background-color: $color-pink-1;
-    margin-top: -14rem;
-    z-index: 0;
-    position: relative;
-    // @include heightWidth(10rem, 28rem);
-    // @media (min-width: 375px) {
-    // }
-    // @media (min-width: 768px) {
-    // }
-  }
 }
 </style>

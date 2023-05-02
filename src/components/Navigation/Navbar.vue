@@ -75,7 +75,6 @@ const dataNavbar: NavbarMenu[] = [
 </script>
 
 <template>
-  <!-- <p>{{ $t('message.hello', { msg: 'hello' }) }}</p> -->
   <nav
     class="z-10 text-elucidator-700 dark:text-dark-repulser-400 relative h-20 px-4"
     role="navigation"
