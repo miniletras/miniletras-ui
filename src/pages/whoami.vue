@@ -40,7 +40,7 @@ const skillList = [
         </div>
       </div>
     </div>
-    <div class="col-1 border-red"></div>
+    <div class="whoami__name border-red"></div>
   </section>
 </template>
 <style scoped lang="scss">

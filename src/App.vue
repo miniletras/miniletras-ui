@@ -22,5 +22,5 @@ useHead({
   </div>
 </template>
 <style lang="scss">
-@use "~/assets/styles/style.scss" as *;
+@use "~/styles/style.scss" as *;
 </style>

@@ -38,8 +38,10 @@ export default defineConfig({
     vueI18nPlugin({
       // if you want to use Vue I18n Legacy API, you need to set `compositionOnly: false`
       // compositionOnly: false,
+      // INFO: build PROD ERR: https://github.com/quasarframework/quasar/issues/13229#issuecomment-1115905093
+      runtimeOnly: false,
       // you need to set i18n resource including paths !
-      include: resolve(dirname(fileURLToPath(import.meta.url)), './path/to/src/locales/**'),
+      include: resolve(dirname(fileURLToPath(import.meta.url)), '~/locales/**'),
     }),
     // https://github.com/antfu/vite-plugin-md
     Markdown({
@@ -156,7 +158,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@use "src/assets/styles/settings/index.scss" as *;',
+        additionalData: '@use "src/styles/settings/index.scss" as *;',
       }
     }
   },
