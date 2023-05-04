@@ -1,5 +1,7 @@
 {
-  "hello": "Hello Mundo!!",
+  "common": {
+    "language": "Languages"
+  },
   "clubs": {
     "monthClub": "Month club"
   },
@@ -32,6 +34,7 @@
   "whoami": {
     "cataDeMar": "Cata de Mar",
     "occupation": "Teacher",
-    "occupationSubtitle": "Proofreader"
+    "occupationSubtitle": "Proofreader",
+    "skills": "Skills"
   }
 }

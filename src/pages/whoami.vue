@@ -14,6 +14,13 @@ const contactList = [
     label: "Baiona, Pontevedra (Galicia), ESP",
   },
 ]
+
+const skillList = [
+  { label: "Correcciones de estilo" },
+  { label: "Elaboración de proyectos" },
+  { label: "Redacción y escritura creativa" },
+  { label: "Bordados artísticos" },
+].map((el) => ({ ...el, icon: "mdi:dot" }))
 </script>
 <template>
   <section class="whoami">
@@ -30,7 +37,10 @@ const contactList = [
           <CircleBlockBase />
           <ULBase :base-list="contactList" :title="t('menu.contact')" />
         </div>
-        <CircleBlockBase />
+        <div class="flex-gap mt-4">
+          <CircleBlockBase />
+          <ULBase :base-list="skillList" :title="t('whoami.skills')" />
+        </div>
       </div>
     </div>
     <div class="col-1 border-red"></div>

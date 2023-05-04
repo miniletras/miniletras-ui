@@ -1,4 +1,7 @@
 {
+  "common": {
+    "languages": "idiomas"
+  },
   "clubs": {
     "monthClub": "Club del mes"
   },
@@ -32,6 +35,7 @@
   "whoami": {
     "cataDeMar": "Cata de Mar",
     "occupation": "Profesora",
-    "occupationSubtitle": "Correctora de estilos"
+    "occupationSubtitle": "Correctora de estilos",
+    "skills": "Especialidades"
   }
 }

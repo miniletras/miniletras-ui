@@ -45,6 +45,8 @@
   }
   &__square-2  {
     @include grid-center;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
   }
   @media (min-width: $xxs) and (min-width: $md) {
     &__personal-photo {
