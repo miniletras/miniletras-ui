@@ -1,18 +1,18 @@
 @use "~/styles/settings/index" as *;
-@use "~/styles/elements/_figures" as *;
 
 .whoami {
   display: grid;
   @media (min-width: $xs) {
     @include grid-columns(2);
   }
-  &__figure {
-    display: grid;
-    justify-content: center;
+  &__column {
+    @include grid-center;
+  }
+  &__personal-photo, &__name {
+    @include h-w(19rem, 19rem);
   }
   &__personal-photo {
     background: no-repeat center 66%/95% url("~/assets/images/cata_de_mar_whoami-circle.png");
-    @include h-w(19rem, 19rem);
     border-radius: 100%;
     background-color: white;
     border: 1.75rem solid $color-pink-1;
@@ -20,7 +20,8 @@
     overflow: visible;
   }
   &__title {
-    width: fit-content;
+    @include grid-center;
+    width: 100%;
     margin-bottom: 1rem;
   }
   &__hr {
@@ -48,8 +49,8 @@
     padding-bottom: 2rem;
     margin-bottom: 2rem;
   }
-  @media (min-width: $xxs) and (min-width: $md) {
-    &__personal-photo {
+  @media (min-width: $xxs) and (min-width: $lg) {
+    &__personal-photo, &__name {
       @include h-w(26rem, 26rem);
     }
     &__square-1 {
@@ -57,7 +58,7 @@
     }
   }
   @media (min-width: $xs) {
-    &__personal-photo {
+    &__personal-photo, &__name  {
       @include h-w(19rem, 19rem);
       &__square-1 {
         margin-top: -10rem;
@@ -65,32 +66,22 @@
     }
   }
   @media (min-width: $sm) {
-    &__personal-photo {
+    &__personal-photo, &__name  {
       @include h-w(23.5rem, 23.5rem);
     }
     &__square-1 {
       margin-top: -12rem;
     }
   }
-}
-.h {
-  letter-spacing: 0.1em;
-  font-weight: bold;
-  &__h2, &__h3 {
-    text-transform: uppercase;
-  }
-  &__h2 {
-    font-size: 2em;
-    line-height: 2.75rem;
-    padding: 0 0.5em;
-  }
-  &__h3 {
-    font-size: 1.25em;
-    line-height: 1.5rem;
-    &--subtitle {
-      display: block;
-      text-align: center;
+  &__personal-photo, &__name  {
+    @media (min-width: $sm-l) {
+      @include h-w(100%, 100%);
+      min-height: 24.5rem;
+      min-width: 24.5rem;
+    }
+    @media (min-width: $lg) {
+      min-height: 30rem;
+      min-width: 30rem;
     }
   }
 }
-

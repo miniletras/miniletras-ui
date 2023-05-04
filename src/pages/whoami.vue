@@ -21,7 +21,7 @@ const skillList = [
 </script>
 <template>
   <section class="whoami">
-    <div class="whoami__figure">
+    <div class="whoami__column">
       <figure class="whoami__personal-photo"></figure>
       <div class="whoami__square-1"></div>
       <div class="whoami__square-2">
@@ -40,7 +40,12 @@ const skillList = [
         </div>
       </div>
     </div>
-    <div class="whoami__name border-red"></div>
+    <div class="whoami__column">
+      <div class="whoami__name border-red">
+        <h1 class="h h__h1 text-right">Cata</h1>
+        <h1 class="h h__h1 surname text-right">CABANILLAS</h1>
+      </div>
+    </div>
   </section>
 </template>
 <style scoped lang="scss">

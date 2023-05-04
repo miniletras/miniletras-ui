@@ -6,13 +6,11 @@ declare module 'vue' {
   export interface GlobalComponents {
     Article: typeof import('./src/components/Articles/Article.vue')['default']
     CarbonBackToTop: typeof import('~icons/carbon/back-to-top')['default']
-    CarbonCalendar: typeof import('~icons/carbon/calendar')['default']
     CarbonHome: typeof import('~icons/carbon/home')['default']
     CarbonMenu: typeof import('~icons/carbon/menu')['default']
     CarbonMoon: typeof import('~icons/carbon/moon')['default']
     CarbonSearch: typeof import('~icons/carbon/search')['default']
     CarbonSun: typeof import('~icons/carbon/sun')['default']
-    CarbonWarningAltFilled: typeof import('~icons/carbon/warning-alt-filled')['default']
     CircleBlockBase: typeof import('./src/components/smart/WhoAmI/CircleBlockBase.vue')['default']
     Footer: typeof import('./src/components/Footer/Footer.vue')['default']
     ImageThree: typeof import('./src/components/Image/ImageThree.vue')['default']
