@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { i18n } from "~/main"
-import ULBase from "./whoami/components/ULBase.vue"
-import CircleBlockBase from "./whoami/components/CircleBlockBase.vue"
 
 const { t } = i18n.global
 
@@ -14,7 +12,6 @@ const contactList = [
     label: "Baiona, Pontevedra (Galicia), ESP",
   },
 ]
-
 const skillList = [
   { label: "Correcciones de estilo" },
   { label: "Elaboración de proyectos" },
@@ -47,7 +44,7 @@ const skillList = [
   </section>
 </template>
 <style scoped lang="scss">
-@use "./whoami/whoami.scss" as *;
+@use "~/components/smart/WhoAmI/whoami" as *;
 
 .border-red {
   border: 1px solid red;

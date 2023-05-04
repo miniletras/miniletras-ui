@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BaseList } from "../models"
+import { BaseList } from "./models"
 
 withDefaults(
   defineProps<{
@@ -25,7 +25,7 @@ withDefaults(
   </div>
 </template>
 <style scoped lang="scss">
-@use "../whoami" as *;
+@use "./whoami" as *;
 .base {
   &__ul {
     margin-top: 0.6em;

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = defineProps<{
+defineProps<{
   imageOne: string
   descOne: string
   altOne: string
@@ -11,7 +11,7 @@ const props = defineProps<{
   descThree: string
 }>()
 </script>
-
+∫
 <template>
   <div class="flex flex-wrap flex-row justify-center items-center">
     <div class="flex flex-wrap flex-col sm:w-full lg:w-1/2">

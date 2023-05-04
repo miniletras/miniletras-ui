@@ -11,7 +11,7 @@
     justify-content: center;
   }
   &__personal-photo {
-    background: no-repeat center 66%/95% url("../images/cata_de_mar_whoami-circle.png");
+    background: no-repeat center 66%/95% url("~/assets/images/cata_de_mar_whoami-circle.png");
     @include h-w(19rem, 19rem);
     border-radius: 100%;
     background-color: white;
