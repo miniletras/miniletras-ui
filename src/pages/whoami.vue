@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { i18n } from "~/main"
+import ULBase from "./whoami/components/ULBase.vue"
+import CircleBlockBase from "./whoami/components/CircleBlockBase.vue"
 
 const { t } = i18n.global
 
@@ -25,22 +27,10 @@ const contactList = [
           <i class="h__h3--subtitle">{{ t("whoami.occupationSubtitle") }}</i>
         </div>
         <div class="flex-gap">
-          <div>
-            <div class="circle"></div>
-            <span class="whoami__slash"></span>
-          </div>
-          <div>
-            <h3 class="h h__h3">{{ t("menu.contact") }}</h3>
-            <ul class="contact-list">
-              <li v-for="(list, i) in contactList" :key="`whoami-contact-list-${i}`">
-                <span class="iconify-inline" data-width="1.2em" :data-icon="list.icon"></span>
-                <label class="contact-list__label" :for="`whoami-contact-list-${i}`">
-                  {{ list.label }}
-                </label>
-              </li>
-            </ul>
-          </div>
+          <CircleBlockBase />
+          <ULBase :base-list="contactList" :title="t('menu.contact')" />
         </div>
+        <CircleBlockBase />
       </div>
     </div>
     <div class="col-1 border-red"></div>

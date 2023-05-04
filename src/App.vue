@@ -21,3 +21,6 @@ useHead({
     <Footer />
   </div>
 </template>
+<style lang="scss">
+@use "~/assets/styles/style.scss" as *;
+</style>

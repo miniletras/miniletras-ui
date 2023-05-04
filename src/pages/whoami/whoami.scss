@@ -83,7 +83,7 @@
     padding: 0 0.5em;
   }
   &__h3 {
-    font-size: 1.45em;
+    font-size: 1.25em;
     line-height: 1.5rem;
     &--subtitle {
       display: block;
@@ -91,15 +91,4 @@
     }
   }
 }
-.contact-list {
-  margin-top: 0.6em;
-  line-height: 1.6em;
-  &__label {
-    font-size: 0.85em;
-    margin-left: 0.5rem;
-    vertical-align: top;
-  }
-  &__label, .iconify-inline {
-    color: $color-gray-2;
-  }
-}
+
