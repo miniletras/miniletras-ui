@@ -8,8 +8,19 @@
   &__column {
     @include grid-center;
   }
-  &__personal-photo, &__name {
+  &__personal-photo {
     @include h-w(19rem, 19rem);
+  }
+  &__name {
+    @media (min-width: $xxs) and (min-width: $lg) {
+      width: 26rem;
+    }
+    @media (min-width: $xs) {
+      width: 19rem;
+    }
+    @media (min-width: $sm) {
+      width: 23.5rem;
+    }
   }
   &__personal-photo {
     background: no-repeat center 66%/95% url("~/assets/images/cata_de_mar_whoami-circle.png");
@@ -18,7 +29,27 @@
     border: 1.75rem solid $color-pink-1;
     z-index: 1;
     overflow: visible;
+    @media (min-width: $xxs) and (min-width: $lg) {
+      @include h-w(26rem, 26rem);
+    }
+    @media (min-width: $xs) {
+      @include h-w(19rem, 19rem);
+    }
+    @media (min-width: $sm) {
+      @include h-w(23.5rem, 23.5rem);
+    }
   }
+  &__personal-photo, &__name  {
+    @media (min-width: $sm-l) {
+      @include h-w(100%, 100%);
+      min-height: 24.5rem;
+      min-width: 24.5rem;
+    }
+    @media (min-width: $lg) {
+      min-height: 30rem;
+      min-width: 30rem;
+    }
+  }  
   &__title {
     @include grid-center;
     width: 100%;
@@ -43,45 +74,37 @@
   &__square-1 {
     z-index: 0;
     margin-top: -10rem;
+    @media (min-width: $xxs) and (min-width: $lg) {
+      margin-top: -12rem;
+    }
+    @media (min-width: $xs) {
+      margin-top: -10rem;
+    }
+    @media (min-width: $sm) {
+      margin-top: -15rem;
+    }
   }
   &__square-2  {
     @include grid-center;
     padding-bottom: 2rem;
     margin-bottom: 2rem;
   }
-  @media (min-width: $xxs) and (min-width: $lg) {
-    &__personal-photo, &__name {
-      @include h-w(26rem, 26rem);
-    }
-    &__square-1 {
-      margin-top: -12rem;
-    }
+}
+.personal-name {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: flex-end;
+  justify-content: flex-start;
+  &__figure {
+    width: 12rem;
+    height: 4rem;
+    background: no-repeat url("~/assets/images/cata_name.svg");
+    margin-left: 6rem;
   }
-  @media (min-width: $xs) {
-    &__personal-photo, &__name  {
-      @include h-w(19rem, 19rem);
-      &__square-1 {
-        margin-top: -10rem;
-      }
-    }
-  }
-  @media (min-width: $sm) {
-    &__personal-photo, &__name  {
-      @include h-w(23.5rem, 23.5rem);
-    }
-    &__square-1 {
-      margin-top: -12rem;
-    }
-  }
-  &__personal-photo, &__name  {
-    @media (min-width: $sm-l) {
-      @include h-w(100%, 100%);
-      min-height: 24.5rem;
-      min-width: 24.5rem;
-    }
-    @media (min-width: $lg) {
-      min-height: 30rem;
-      min-width: 30rem;
-    }
+  &__surname {
+    width: 18rem;
+    height: 4rem;
+    background: no-repeat url("~/assets/images/cata_surname.svg");
   }
 }

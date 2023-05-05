@@ -1,6 +1,9 @@
+@use "./variables" as *;
+
 .h {
   letter-spacing: 0.1em;
   font-weight: bold;
+  color: $color-black;
   &__h1 {
     font-size: 2.5em;
   }

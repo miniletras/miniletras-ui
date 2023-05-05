@@ -40,10 +40,10 @@ const skillList = [
         </div>
       </div>
     </div>
-    <div class="whoami__column">
-      <div class="whoami__name border-red">
-        <h1 class="h h__h1 text-right">Cata</h1>
-        <h1 class="h h__h1 surname text-right">CABANILLAS</h1>
+    <div class="whoami__column whoami__name">
+      <div class="whoami__name personal-name">
+        <figure class="personal-name__figure"></figure>
+        <figure class="personal-name__surname"></figure>
       </div>
     </div>
   </section>
