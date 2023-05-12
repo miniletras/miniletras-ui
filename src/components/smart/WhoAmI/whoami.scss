@@ -12,6 +12,8 @@
     @include h-w(19rem, 19rem);
   }
   &__name {
+    display: block;
+    width: 19rem;
     @media (min-width: $xxs) and (min-width: $lg) {
       width: 26rem;
     }
@@ -39,7 +41,8 @@
       @include h-w(23.5rem, 23.5rem);
     }
   }
-  &__personal-photo, &__name  {
+  &__personal-photo,
+  &__name {
     @media (min-width: $sm-l) {
       @include h-w(100%, 100%);
       min-height: 24.5rem;
@@ -49,7 +52,7 @@
       min-height: 30rem;
       min-width: 30rem;
     }
-  }  
+  }
   &__title {
     @include grid-center;
     width: 100%;
@@ -74,28 +77,31 @@
   &__square-1 {
     z-index: 0;
     margin-top: -10rem;
-    @media (min-width: $xxs) and (min-width: $lg) {
+    @media (min-width: $sm) {
       margin-top: -12rem;
     }
-    @media (min-width: $xs) {
-      margin-top: -10rem;
-    }
-    @media (min-width: $sm) {
+    @media (min-width: $lg) {
       margin-top: -15rem;
     }
   }
-  &__square-2  {
+  &__square-2 {
     @include grid-center;
     padding-bottom: 2rem;
     margin-bottom: 2rem;
   }
+  &__body {
+    @include flex-gap("1rem");
+    margin: 0 1rem;
+  }
+  &__biopic {
+    text-align: justify;
+    font-size: 1em;
+  }
 }
 .personal-name {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  align-content: flex-end;
-  justify-content: flex-start;
+  display: grid;
+  justify-content: end;
+  grid-auto-rows: min-content;
   &__figure {
     width: 12rem;
     height: 4rem;
@@ -107,4 +113,8 @@
     height: 4rem;
     background: no-repeat url("~/assets/images/cata_surname.svg");
   }
+}
+
+.flex-gap {
+  @include flex-gap("0.5rem", "");
 }

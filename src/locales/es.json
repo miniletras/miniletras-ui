@@ -5,7 +5,6 @@
   "clubs": {
     "monthClub": "Club del mes"
   },
-  "hello": "Hoola principito!",
   "latest": {
     "publishedAt": "Publicado el"
   },
@@ -33,9 +32,13 @@
     "monthWorkshop": "Taller del mes"
   },
   "whoami": {
+    "biopic": "Especializada en literatura infantil y juvenil he colaborado en intervenido en diferentes proyectos de edición y corrección tanto en Lima, Perú como en Madrid, España.",
+    "biopicTwo": "Actualmente trabajo de forma independiente para algunas editoriales dirigidas al público infantil, además de mantener mi actividad en la mediación de la lectura.",
     "cataDeMar": "Cata de Mar",
+    "experience": "Experiencia",
     "occupation": "Profesora",
     "occupationSubtitle": "Correctora de estilos",
-    "skills": "Especialidades"
+    "skills": "Especialidades",
+    "training": "Formación"
   }
 }

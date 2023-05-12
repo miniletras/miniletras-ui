@@ -1,12 +1,8 @@
-@use "./mixins" as *;
+@use "../settings/mixins" as *;
+@use "../settings/variables" as *;
 
 @for $n from 1 through 6 {
   .col-#{$n} {
     @include grid-columns($n);
   }
-}
-
-.flex-gap {
-  display: flex;
-  gap: 0.5rem;
 }

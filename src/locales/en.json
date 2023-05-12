@@ -32,9 +32,13 @@
     "monthWorkshop": "Month workshop"
   },
   "whoami": {
+    "biopic": "Specializing in children's and young adult literature, I have collaborated in different editing and proofreading projects both in Lima, Peru and in Madrid, Spain. I am currently working independently for some publishing houses aimed at children.",
+    "biopicTwo": "In addition I'm maintaining my activity in the mediation of reading.",
     "cataDeMar": "Cata de Mar",
+    "experience": "Experience",
     "occupation": "Teacher",
     "occupationSubtitle": "Proofreader",
-    "skills": "Skills"
+    "skills": "Skills",
+    "training": "Training"
   }
 }

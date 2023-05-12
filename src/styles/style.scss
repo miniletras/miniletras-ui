@@ -1,7 +1,8 @@
 @use "./components/_scrollbar.scss" as *;
 @use "./components/_nprogress.scss" as *;
 @use "./components/_markdown.scss" as *;
-@use "./elements/index.scss" as *;
+@use "./elements" as *;
+@use "./layouts" as *;
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
 
@@ -17,4 +18,11 @@ html.dark {
 }
 a {
   @apply cursor-pointer;
+}
+
+body {
+  font-size: 14px;
+  @media (min-width: 420px) and (min-width: 1024px) {
+    font-size: 16px;
+  }
 }
