@@ -19,9 +19,9 @@ withDefaults(
 </script>
 <template>
   <div class="base">
-    <h3 v-if="title" :class="['h h__h3', theme]">{{ title }}</h3>
+    <h3 v-if="title" :class="['h h__h3', theme, configStyles?.baseUlClass]">{{ title }}</h3>
     <template v-for="(lists, listsIdx) in baseLists" :key="`ul-base-lists-${listsIdx}`">
-      <ul :class="['base__ul', theme]" :style="configStyles?.baseUl">
+      <ul :class="['base__ul', theme, configStyles?.baseUlClass]" :style="configStyles?.baseUl">
         <div v-if="theme === 'subtitles'" class="subtitles__list">
           <h4 class="h h__h5 uppercase">{{ lists.subtitles?.h4 }}</h4>
           <h4 class="h h__h5">{{ lists.subtitles?.h5 }}</h4>
@@ -51,6 +51,9 @@ withDefaults(
   .h__h3.subtitles {
     font-size: 1.45em;
     letter-spacing: 0.075em;
+    &.default-gray {
+      font-size: 1.25em;
+    }
   }
   &__ul {
     margin-top: 0.6rem;
@@ -59,6 +62,15 @@ withDefaults(
       font-size: 0.85rem;
     }
     &.subtitles {
+      &.default-gray {
+        .h__h5 {
+          font-weight: normal;
+        }
+        .h__h5,
+        .h__6 {
+          color: $color-gray-2;
+        }
+      }
       .base__label {
         font-size: 1rem;
         color: $color-black;

@@ -16,6 +16,33 @@ const contactList = [
     ],
   },
 ]
+
+const trainingList = [
+  {
+    subtitles: {
+      h4: "Centro de Formación CA Madrid",
+      h5: "Asistencia a le edición",
+      h6: "2017 - 2018",
+    },
+    list: [],
+  },
+  {
+    subtitles: {
+      h4: "Calamo & Cran",
+      h5: "Correctora profesional",
+      h6: "2015 - 2016",
+    },
+    list: [],
+  },
+  {
+    subtitles: {
+      h4: "Univ. Nacional Enrique Guzmán y Valle",
+      h5: "Lic. en Educación, Lengua y literatura española",
+      h6: "2001 - 2006",
+    },
+    list: [],
+  },
+]
 const skillList = [
   {
     list: [
@@ -46,9 +73,9 @@ const expTwo = {
     h6: "feb. 2007 - ene. 2015 · 2 meses",
   },
   list: [
-    { label: "Mediación en la lectura" },
-    { label: "Correción de estilos" },
-    { label: "Corrección ortotipográfica" },
+    { label: "Marketing y diseño" },
+    { label: "fotografía y redacción de textos" },
+    { label: "Diseño de catalagos" },
   ].map((el) => ({ ...el, icon: "mdi:dot" })),
 }
 const expThree = {
@@ -57,11 +84,10 @@ const expThree = {
     h5: "Grupo La República",
     h6: "feb. 2007 - ene. 2015 5 · 8 años",
   },
-  list: [
-    { label: "Mediación en la lectura" },
-    { label: "Correción de estilos" },
-    { label: "Corrección ortotipográfica" },
-  ].map((el) => ({ ...el, icon: "mdi:dot" })),
+  list: [{ label: "Corrección ortotipográfica" }, { label: "Correción de estilos" }].map((el) => ({
+    ...el,
+    icon: "mdi:dot",
+  })),
 }
 const experiences = [expOne, expTwo, expThree]
 </script>
@@ -88,10 +114,15 @@ const experiences = [expOne, expTwo, expThree]
           <CircleBlockBase />
           <ULBase :base-lists="skillList" :title="t('whoami.skills')" />
         </div>
-        <!-- <div class="flex-gap mt-6">
+        <div class="flex-gap mt-6">
           <CircleBlockBase />
-          <ULBase :base-lists="skillList" :title="t('whoami.skills')" />
-        </div> -->
+          <ULBase
+            theme="subtitles"
+            :base-lists="trainingList"
+            :title="t('whoami.training')"
+            :config-styles="{ baseUlClass: 'default-gray' }"
+          />
+        </div>
       </div>
     </div>
     <div class="whoami__column">
@@ -119,8 +150,4 @@ const experiences = [expOne, expTwo, expThree]
 </template>
 <style scoped lang="scss">
 @use "~/components/smart/WhoAmI/whoami" as *;
-
-.border-red {
-  border: 1px solid red;
-}
 </style>
