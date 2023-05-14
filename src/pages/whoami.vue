@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { UlBaseTheme } from "~/components/smart/WhoAmI/models"
 import { i18n } from "~/main"
 
 const { t } = i18n.global
@@ -106,8 +107,8 @@ const experiences = [expOne, expTwo, expThree]
           <CircleBlockBase />
           <ULBase
             :base-lists="contactList"
-            :title="t('menu.contact')"
             :config-styles="{ baseUl: { lineHeight: '2rem' } }"
+            :title="t('menu.contact')"
           />
         </div>
         <div class="flex-gap mt-6">
@@ -117,10 +118,10 @@ const experiences = [expOne, expTwo, expThree]
         <div class="flex-gap mt-6">
           <CircleBlockBase />
           <ULBase
-            theme="subtitles"
             :base-lists="trainingList"
-            :title="t('whoami.training')"
             :config-styles="{ baseUlClass: 'default-gray' }"
+            :theme="UlBaseTheme.SUBTITLES"
+            :title="t('whoami.training')"
           />
         </div>
       </div>
@@ -137,10 +138,10 @@ const experiences = [expOne, expTwo, expThree]
           <div class="flex-gap mt-6">
             <CircleBlockBase />
             <ULBase
-              theme="subtitles"
               :base-lists="experiences"
-              :title="t('whoami.experience')"
               :config-styles="{ baseUl: { marginTop: '2rem' } }"
+              :theme="UlBaseTheme.SUBTITLES"
+              :title="t('whoami.experience')"
             />
           </div>
         </div>

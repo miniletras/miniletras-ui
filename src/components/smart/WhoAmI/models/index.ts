@@ -1,5 +1,12 @@
 
-export type UlBaseTheme = 'default' | 'subtitles'
+export enum UlBaseTheme {
+  DEFAULT = "default",
+  DEFAULT_GRAY = "default-gray",
+  SUBTITLES = "subtitles",
+}
+
+
+export type UlBaseThemeType = UlBaseTheme.DEFAULT | UlBaseTheme.DEFAULT_GRAY | UlBaseTheme.SUBTITLES
 
 export interface UlBaseSubtitles {
   h4: string

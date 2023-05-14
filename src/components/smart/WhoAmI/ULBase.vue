@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { StyleValue } from "vue"
-import { UlBaseTheme, UlBaseSubtitles, UlBaseLists } from "./models"
+import { UlBaseTheme, UlBaseThemeType, UlBaseSubtitles, UlBaseLists } from "./models"
 
 withDefaults(
   defineProps<{
@@ -8,12 +8,12 @@ withDefaults(
     configStyles?: Record<string, StyleValue>
     subtitles?: UlBaseSubtitles
     title?: string
-    theme?: UlBaseTheme
+    theme?: UlBaseThemeType
   }>(),
   {
     baseList: () => [],
     baseLists: () => [],
-    theme: "default",
+    theme: UlBaseTheme.DEFAULT,
   },
 )
 </script>
@@ -24,7 +24,14 @@ withDefaults(
       <ul :class="['base__ul', theme, configStyles?.baseUlClass]" :style="configStyles?.baseUl">
         <div v-if="theme === 'subtitles'" class="subtitles__list">
           <h4 class="h h__h5 uppercase">{{ lists.subtitles?.h4 }}</h4>
-          <h4 class="h h__h5">{{ lists.subtitles?.h5 }}</h4>
+          <h4
+            :class="[
+              'h h__h5',
+              { 'font-normal': configStyles?.baseUlClass === UlBaseTheme.DEFAULT_GRAY },
+            ]"
+          >
+            {{ lists.subtitles?.h5 }}
+          </h4>
           <h6 class="h h__h6">{{ lists.subtitles?.h6 }}</h6>
         </div>
         <li v-for="(list, i) in lists.list" :key="`ul-base-list-${i}`">
@@ -63,7 +70,7 @@ withDefaults(
     }
     &.subtitles {
       &.default-gray {
-        .h__h5 {
+        .h__h6 {
           font-weight: normal;
         }
         .h__h5,
