@@ -4,44 +4,34 @@ import { i18n } from "~/main"
 const { t } = i18n.global
 
 const contactList = [
-  { icon: "mdi:phone-classic", label: "+34 717 70 39 20" },
-  { icon: "jam:envelope-f", label: "cata.cabanillas@gmail.com" },
-  { icon: "tabler:world-www", label: "http://miniletras.com" },
   {
-    icon: "mdi:location-radius-outline",
-    label: "Baiona, Pontevedra (Galicia), ESP",
+    list: [
+      { icon: "mdi:phone-classic", label: "+34 717 70 39 20" },
+      { icon: "jam:envelope-f", label: "cata.cabanillas@gmail.com" },
+      { icon: "tabler:world-www", label: "http://miniletras.com" },
+      {
+        icon: "mdi:location-radius-outline",
+        label: "Baiona, Pontevedra (Galicia), ESP",
+      },
+    ],
   },
 ]
 const skillList = [
-  { label: "Correcciones de estilo" },
-  { label: "Elaboración de proyectos" },
-  { label: "Redacción y escritura creativa" },
-  { label: "Bordados artísticos" },
-].map((el) => ({ ...el, icon: "mdi:dot" }))
+  {
+    list: [
+      { label: "Correcciones de estilo" },
+      { label: "Elaboración de proyectos" },
+      { label: "Redacción y escritura creativa" },
+      { label: "Bordados artísticos" },
+    ].map((el) => ({ ...el, icon: "mdi:dot" })),
+  },
+]
 
-/*
-
-Correctora de textosCorrectora de textos
-Autónomo
-dic. 2017 - actualidad · 5 años 6 meses
-Madrid y alrededores, España
-
-Community Manager
-Librería Signos
-may. 2016 - jun. 2016 · 2 mesesç
-Ponferrada y alrededores, España
-En esta librería infantil he realizado labores básicas de diseño, redacción de textos y fotografía para mostrar el catálogo. En esta librería infantil he realizado labores básicas de diseño, redacción de textos y fotografía para mostrar el catálogo. 
-
-Corrector de textos
-Grupo La RepúblicaGrupo La República
-feb. 2007 - ene. 2015 · 8 añosfeb. 2007 - ene. 2015 · 8 años
-Provincia de Lima, Peru
-*/
 const expOne = {
   subtitles: {
     h4: "Freelance",
     h5: "MiniLetras",
-    h6: "2017 - Actualidad",
+    h6: "2017 - Actualidad · 5 años 6 meses",
   },
   list: [
     { label: "Mediación en la lectura" },
@@ -51,9 +41,9 @@ const expOne = {
 }
 const expTwo = {
   subtitles: {
-    h4: "Freelance",
-    h5: "MiniLetras",
-    h6: "2017 - Actualidad",
+    h4: "Community Manager",
+    h5: "Librería Signos",
+    h6: "feb. 2007 - ene. 2015 · 2 meses",
   },
   list: [
     { label: "Mediación en la lectura" },
@@ -63,9 +53,9 @@ const expTwo = {
 }
 const expThree = {
   subtitles: {
-    h4: "Freelance",
-    h5: "MiniLetras",
-    h6: "2017 - Actualidad",
+    h4: "Correctora de textos",
+    h5: "Grupo La República",
+    h6: "feb. 2007 - ene. 2015 5 · 8 años",
   },
   list: [
     { label: "Mediación en la lectura" },
@@ -73,7 +63,7 @@ const expThree = {
     { label: "Corrección ortotipográfica" },
   ].map((el) => ({ ...el, icon: "mdi:dot" })),
 }
-const experiences = [expOne.list, expTwo.list, expThree.list]
+const experiences = [expOne, expTwo, expThree]
 </script>
 <template>
   <section class="whoami">
@@ -88,12 +78,20 @@ const experiences = [expOne.list, expTwo.list, expThree.list]
         </div>
         <div class="flex-gap">
           <CircleBlockBase />
-          <ULBase :base-list="contactList" :title="t('menu.contact')" />
+          <ULBase
+            :base-lists="contactList"
+            :title="t('menu.contact')"
+            :config-styles="{ baseUl: { lineHeight: '2rem' } }"
+          />
         </div>
-        <div class="flex-gap mt-4">
+        <div class="flex-gap mt-6">
           <CircleBlockBase />
-          <ULBase :base-list="skillList" :title="t('whoami.skills')" />
+          <ULBase :base-lists="skillList" :title="t('whoami.skills')" />
         </div>
+        <!-- <div class="flex-gap mt-6">
+          <CircleBlockBase />
+          <ULBase :base-lists="skillList" :title="t('whoami.skills')" />
+        </div> -->
       </div>
     </div>
     <div class="whoami__column">
@@ -105,13 +103,14 @@ const experiences = [expOne.list, expTwo.list, expThree.list]
         <div class="whoami__body">
           <p class="whoami__biopic">{{ t("whoami.biopic") }}</p>
           <p class="whoami__biopic">{{ t("whoami.biopicTwo") }}</p>
-          <div class="flex-gap">
+          <div class="flex-gap mt-6">
             <CircleBlockBase />
-            <!-- <ULBase
-              :base-list="experiences"
-              :title="t('whoami.experience')"
+            <ULBase
               theme="subtitles"
-            /> -->
+              :base-lists="experiences"
+              :title="t('whoami.experience')"
+              :config-styles="{ baseUl: { marginTop: '2rem' } }"
+            />
           </div>
         </div>
       </div>

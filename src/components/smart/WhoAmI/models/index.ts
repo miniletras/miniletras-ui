@@ -12,7 +12,7 @@ export interface UlBaseList {
 }
 
 export interface UlBaseLists {
-  subtitles?: UlBaseSubtitles
   list: UlBaseList[]
+  subtitles?: UlBaseSubtitles
 }
 

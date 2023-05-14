@@ -2,6 +2,8 @@
 
 .whoami {
   display: grid;
+  font-weight: lighter;
+  row-gap: 1rem;
   @media (min-width: $xs) {
     @include grid-columns(2);
   }
@@ -88,6 +90,7 @@
     @include grid-center;
     padding-bottom: 2rem;
     margin-bottom: 2rem;
+    height: 100%;
   }
   &__body {
     @include flex-gap("1rem");
