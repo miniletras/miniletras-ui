@@ -10,9 +10,6 @@
   &__column {
     @include grid-center;
   }
-  &__personal-photo {
-    @include h-w(19rem, 19rem);
-  }
   &__name {
     display: block;
     width: 19rem;
@@ -23,10 +20,12 @@
       width: 19rem;
     }
     @media (min-width: $sm) {
-      width: 23.5rem;
+      width: 21.5rem;
     }
   }
   &__personal-photo {
+    @include h-w(19rem, 19rem);
+    margin-left: 0.5rem;
     background: no-repeat center 66%/95% url("~/assets/images/cata_de_mar_whoami-circle.png");
     border-radius: 100%;
     background-color: white;
@@ -40,16 +39,11 @@
       @include h-w(19rem, 19rem);
     }
     @media (min-width: $sm) {
-      @include h-w(23.5rem, 23.5rem);
+      @include h-w(25rem, 25rem);
     }
   }
   &__personal-photo,
   &__name {
-    @media (min-width: $sm-l) {
-      @include h-w(100%, 100%);
-      min-height: 24.5rem;
-      min-width: 24.5rem;
-    }
     @media (min-width: $lg) {
       min-height: 30rem;
       min-width: 30rem;
@@ -71,9 +65,18 @@
     display: block;
     margin-left: 0.6rem;
   }
-  @for $n from 1 through 3 {
-    &__square-#{$n} {
-      background-color: $color-pink-1;
+  &__square-1, &__square-2 {
+    background-color: $color-pink-1;
+    width: 19rem;
+    margin-left: 0.5rem;
+    @media (min-width: $xxs) and (min-width: $lg) {
+      width: 26rem;
+    }
+    @media (min-width: $xs) {
+      width: 19rem;
+    }
+    @media (min-width: $sm) {
+      width: calc(100% - 0.5rem);
     }
   }
   &__square-1 {
@@ -88,8 +91,7 @@
   }
   &__square-2 {
     @include grid-center;
-    padding-bottom: 2rem;
-    margin-bottom: 2rem;
+    padding: 0 0 2rem 0.5rem;
     height: 100%;
   }
   &__body {

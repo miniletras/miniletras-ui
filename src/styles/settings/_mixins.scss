@@ -1,6 +1,8 @@
-@mixin h-w($height: 100%, $width: 100%) {
+@mixin h-w($height: 100%, $width: 100%, $min-height: "", $min-width: "") {
   height: $height;
   width: $width;
+  min-height: unquote($min-height);
+  min-width: unquote($min-width);
 }
 
 @mixin flex-center($justify-content: center) {
