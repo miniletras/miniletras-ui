@@ -1,5 +1,9 @@
 @use "~/styles/settings/index" as *;
 
+.flex-gap {
+  @include flex-gap("0.5rem", "");
+}
+
 .whoami {
   display: grid;
   font-weight: lighter;
@@ -23,6 +27,11 @@
       width: 21.5rem;
     }
   }
+  &__title {
+    @include grid-center;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
   &__personal-photo {
     @include h-w(19rem, 19rem);
     margin-left: 0.5rem;
@@ -42,30 +51,10 @@
       @include h-w(25rem, 25rem);
     }
   }
-  &__personal-photo,
-  &__name {
-    @media (min-width: $lg) {
-      min-height: 30rem;
-      min-width: 30rem;
-    }
-  }
-  &__title {
-    @include grid-center;
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-  &__hr {
-    background-color: $color-purple-2;
-    height: 0.35rem;
-  }
-  &__slash {
-    background-color: $color-purple-2;
-    width: 0.3rem;
-    height: 100%;
-    display: block;
-    margin-left: 0.6rem;
-  }
-  &__square-1, &__square-2 {
+}
+.whoami {
+  &__square-1,
+  &__square-2 {
     background-color: $color-pink-1;
     width: 19rem;
     margin-left: 0.5rem;
@@ -94,6 +83,26 @@
     padding: 0 0 2rem 0.5rem;
     height: 100%;
   }
+}
+.whoami {
+  &__personal-photo,
+  &__name {
+    @media (min-width: $lg) {
+      min-height: 30rem;
+      min-width: 30rem;
+    }
+  }
+  &__slash {
+    background-color: $color-purple-2;
+    width: 0.3rem;
+    height: 100%;
+    display: block;
+    margin-left: 0.6rem;
+  }
+  &__hr {
+    background-color: $color-purple-2;
+    height: 0.35rem;
+  }
   &__body {
     @include flex-gap("1rem");
     margin: 1rem 1rem 0;
@@ -103,6 +112,7 @@
     font-size: 1em;
   }
 }
+
 .personal-name {
   display: grid;
   justify-content: end;
@@ -119,7 +129,8 @@
     background: no-repeat url("~/assets/images/cata_surname.svg");
   }
 }
-
-.flex-gap {
+.training-list {
   @include flex-gap("0.5rem", "");
+  margin-top: 1.5rem;
+  width: calc(100% - 0.5rem);
 }

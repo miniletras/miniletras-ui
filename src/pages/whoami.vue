@@ -115,7 +115,7 @@ const experiences = [expOne, expTwo, expThree]
           <CircleBlockBase />
           <ULBase :base-lists="skillList" :title="t('whoami.skills')" />
         </div>
-        <div class="flex-gap mt-6">
+        <div class="training-list">
           <CircleBlockBase />
           <ULBase
             :base-lists="trainingList"
