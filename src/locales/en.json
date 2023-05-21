@@ -40,5 +40,10 @@
     "occupationSubtitle": "Proofreader",
     "skills": "Skills",
     "training": "Training"
+  },
+  "contact": {
+    "fullName": "Full name",
+    "email": "Email",
+    "reason": "Reason"
   }
 }

@@ -40,5 +40,10 @@
     "occupationSubtitle": "Correctora de estilos",
     "skills": "Especialidades",
     "training": "Formación"
+  },
+  "contact": {
+    "fullName": "Nombre completo",
+    "email": "Email",
+    "reason": "Motivo"
   }
 }

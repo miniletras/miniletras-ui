@@ -1,11 +1,10 @@
 <template>
   <div class="input-control">
     <label v-if="label" class="input-control__label"> {{ label }} {{ required ? "*" : "" }} </label>
-    <div :class="{ 'input-prefix': prefix }">
-      <span v-if="prefix" class="input-prefix__prefix">{{ prefix }}</span>
+    <div class="input-control__input-group">
       <input
         v-model="inputValue"
-        :class="[textboxClass, { 'input-control__prefix': prefix }]"
+        :class="inputClasses"
         :disabled="disabled"
         :min="min"
         :placeholder="placeholder"
@@ -14,15 +13,9 @@
         :type="type"
         @keydown.enter.prevent="onSubmit"
       />
-    </div>
-    <div class="input-control__buttons">
-      <span v-if="icon" :class="icon" @click.prevent="onSubmit" @keydown.enter.prevent="onSubmit" />
-      <span
-        v-show="hasValue"
-        class="icon-cross_small"
-        @click.prevent="onClear"
-        @keydown.enter.prevent="onClear"
-      />
+      <button v-if="hasValue" class="input-control__button" @click="onClear">
+        <span class="iconify-inline" data-width="1.2em" data-icon="basil:cross-outline" />
+      </button>
     </div>
   </div>
 </template>
@@ -33,12 +26,10 @@ const props = withDefaults(
   defineProps<{
     disabled?: boolean
     hasError?: boolean
-    icon?: string
     label?: string
     min?: number
     modelValue?: string | number
     placeholder?: string
-    prefix?: string
     readonly?: boolean
     required?: boolean
     type?: string
@@ -51,26 +42,28 @@ const props = withDefaults(
   },
 )
 const emit = defineEmits<{
-  (e: "update:modelValue", value: string): void
-  (e: "on-submit", value: string): void
+  (e: "submit", value: string): void
+  (e: "update:modelValue"): void
 }>()
 
 const inputValue = ref(`${props.modelValue}`)
 
-const hasValue = computed(() => !!props.modelValue)
-const hasWrongValue = computed(() => props.required && (props.hasError || !props.modelValue))
-const disabledClass = props.disabled && !props.readonly ? " disable" : ""
-const textboxClass = computed(
-  () => `input-control__input ${hasWrongValue.value ? " error" : ""}${disabledClass}`,
-)
+const hasValue = computed(() => !!inputValue.value && !props.readonly && !props.disabled)
+const inputClasses = computed(() => [
+  "input-control__input",
+  {
+    disable: props.disabled && !props.readonly,
+    error: props.required && (props.hasError || !props.modelValue),
+  },
+])
 
 const onSubmit = () => {
-  emit("on-submit", inputValue.value)
+  emit("submit", inputValue.value)
 }
 
 const onClear = () => {
   inputValue.value = ""
-  emit("on-submit", "")
+  emit("submit", "")
 }
 </script>
 
@@ -85,55 +78,40 @@ const onClear = () => {
 .input-control {
   @include flex-gap($row-gap: "0.2rem");
   line-height: 1.4rem;
+  &__input-group {
+    position: relative;
+    display: flex;
+    height: 40px;
+  }
   &__input {
-    border: 1px solid $color-gray-2;
+    width: 100%;
+    outline: 0;
+    border-color: $color-primary;
+    border-width: 2px;
+    border-style: solid;
     border-radius: $border-radius-m;
-    padding-left: 0.5rem;
+    padding: 0.25rem 0.3rem 0.3rem 0.5rem;
     &:read-only {
       cursor: not-allowed;
     }
-  }
-  &__buttons {
-    bottom: 0.4rem;
-    color: $color-gray-1;
-    display: flex;
-    flex-direction: row-reverse;
-    font-size: 2.5rem;
-    position: absolute;
-    right: 0.4rem;
-    & span:hover {
-      cursor: pointer;
-      filter: opacity(0.7);
+    &:focus,
+    &:hover {
+      border-color: $color-gray-2;
     }
+    &:focus-within {
+      border-color: $color-black;
+    }
+  }
+  &__button {
+    background-color: white;
+    position: absolute;
+    color: $color-gray-2;
+    font-size: 1.8rem;
+    right: 0.2rem;
+    bottom: 3px;
   }
 }
 .disable {
-  background-color: $color-gray-2;
-}
-
-.input-prefix {
-  display: flex;
-  align-items: center;
-  border: 2px solid $color-gray-2;
-  border-radius: $border-radius-m;
-  height: 3.4rem;
-  &:hover {
-    border-color: $color-primary;
-  }
-  &:focus-within {
-    border-color: $color-primary;
-  }
-  &__prefix {
-    font-weight: 300;
-    font-size: 1.4rem;
-    color: $color-gray-1;
-    padding-left: 0.5rem;
-  }
-  .input-control__prefix {
-    padding-left: 0.25rem;
-    height: 3rem;
-    border: none;
-    outline: none;
-  }
+  background-color: $color-gray-1;
 }
 </style>

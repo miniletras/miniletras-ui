@@ -11,9 +11,6 @@
   @media (min-width: $xs) {
     @include grid-columns(2);
   }
-  &__column {
-    @include grid-center;
-  }
   &__name {
     display: block;
     width: 19rem;

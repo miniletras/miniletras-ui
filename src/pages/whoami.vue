@@ -94,7 +94,7 @@ const experiences = [expOne, expTwo, expThree]
 </script>
 <template>
   <section class="whoami">
-    <div class="whoami__column">
+    <div class="grid-center">
       <figure class="whoami__personal-photo"></figure>
       <div class="whoami__square-1"></div>
       <div class="whoami__square-2">
@@ -126,7 +126,7 @@ const experiences = [expOne, expTwo, expThree]
         </div>
       </div>
     </div>
-    <div class="whoami__column">
+    <div class="grid-center">
       <div class="whoami__name">
         <div class="personal-name">
           <figure class="personal-name__figure"></figure>

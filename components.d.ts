@@ -14,6 +14,8 @@ declare module 'vue' {
     CarbonSun: typeof import('~icons/carbon/sun')['default']
     CircleBlockBase: typeof import('./src/components/smart/WhoAmI/CircleBlockBase.vue')['default']
     Footer: typeof import('./src/components/building/Footer/Footer.vue')['default']
+    Icon: typeof import('~icons/ic/on')['default']
+    IconifyIcon: typeof import('~icons/ic/onify-icon')['default']
     ImageThree: typeof import('./src/components/building/Image/ImageThree.vue')['default']
     ImageTwo: typeof import('./src/components/building/Image/ImageTwo.vue')['default']
     Input: typeof import('./src/components/building/Input/Input.vue')['default']

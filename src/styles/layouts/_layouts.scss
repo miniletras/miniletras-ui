@@ -6,3 +6,6 @@
     @include grid-columns($n);
   }
 }
+.grid-center {
+  @include grid-center;
+}

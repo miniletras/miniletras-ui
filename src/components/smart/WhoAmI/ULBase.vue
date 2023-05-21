@@ -20,28 +20,31 @@ withDefaults(
 <template>
   <div class="base">
     <h3 v-if="title" :class="['h h__h3', theme, configStyles?.baseUlClass]">{{ title }}</h3>
-    <template v-for="(lists, listsIdx) in baseLists" :key="`ul-base-lists-${listsIdx}`">
-      <ul :class="['base__ul', theme, configStyles?.baseUlClass]" :style="configStyles?.baseUl">
-        <div v-if="theme === 'subtitles'" class="subtitles__list">
-          <h4 class="h h__h5 uppercase">{{ lists.subtitles?.h4 }}</h4>
-          <h4
-            :class="[
-              'h h__h5',
-              { 'font-normal': configStyles?.baseUlClass === UlBaseTheme.DEFAULT_GRAY },
-            ]"
-          >
-            {{ lists.subtitles?.h5 }}
-          </h4>
-          <h6 class="h h__h6">{{ lists.subtitles?.h6 }}</h6>
-        </div>
-        <li v-for="(list, i) in lists.list" :key="`ul-base-list-${i}`">
-          <span class="iconify-inline" data-width="1.2em" :data-icon="list.icon"></span>
-          <label class="base__label" :for="`base-label-${i}`">
-            {{ list.label }}
-          </label>
-        </li>
-      </ul>
-    </template>
+    <ul
+      v-for="(lists, listsIdx) in baseLists"
+      :key="`ul-base-lists-${listsIdx}`"
+      :class="['base__ul', theme, configStyles?.baseUlClass]"
+      :style="configStyles?.baseUl"
+    >
+      <div v-if="theme === 'subtitles'" class="subtitles__list">
+        <h4 class="h h__h5 uppercase">{{ lists.subtitles?.h4 }}</h4>
+        <h4
+          :class="[
+            'h h__h5',
+            { 'font-normal': configStyles?.baseUlClass === UlBaseTheme.DEFAULT_GRAY },
+          ]"
+        >
+          {{ lists.subtitles?.h5 }}
+        </h4>
+        <h6 class="h h__h6">{{ lists.subtitles?.h6 }}</h6>
+      </div>
+      <li v-for="(list, i) in lists.list" :key="`ul-base-list-${i}`">
+        <span class="iconify-inline" data-width="1.2em" :data-icon="list.icon"></span>
+        <label class="base__label" :for="`base-label-${i}`">
+          {{ list.label }}
+        </label>
+      </li>
+    </ul>
   </div>
 </template>
 <style scoped lang="scss">
@@ -88,8 +91,7 @@ withDefaults(
     margin-left: 0.5rem;
     vertical-align: top;
   }
-  &__label,
-  .iconify-inline {
+  &__label {
     color: $color-gray-2;
   }
 }
