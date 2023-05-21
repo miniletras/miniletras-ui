@@ -12,9 +12,11 @@
   align-items: center;
 }
 
-@mixin flex-gap($gap: "", $direction: "column") {
+@mixin flex-gap($gap: "", $row-gap: "", $column-gap: "", $direction: "column") {
   display: flex;
   gap: unquote($gap);
+  row-gap: unquote($row-gap);
+  column-gap: unquote($column-gap);
   flex-direction: unquote($direction);
 }
 

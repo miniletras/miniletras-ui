@@ -16,6 +16,7 @@ declare module 'vue' {
     Footer: typeof import('./src/components/building/Footer/Footer.vue')['default']
     ImageThree: typeof import('./src/components/building/Image/ImageThree.vue')['default']
     ImageTwo: typeof import('./src/components/building/Image/ImageTwo.vue')['default']
+    Input: typeof import('./src/components/building/Input/Input.vue')['default']
     Latest: typeof import('./src/components/smart/Articles/Latest.vue')['default']
     Navbar: typeof import('./src/components/building/Navigation/Navbar.vue')['default']
     Paginate: typeof import('./src/components/building/Pagination/Paginate.vue')['default']
