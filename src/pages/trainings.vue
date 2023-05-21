@@ -15,9 +15,7 @@ const trainings = computed(() => getItemsByMenu("training", 6))
 </script>
 <template>
   <div class="inline-grid px-4 lg:px-0">
-    <h1 class="mb-5 text-3xl text-elucidator-700 dark:text-dark-repulser-400 font-bold">
-      {{ t("trainings.monthTraining") }}
-    </h1>
+    <h1 class="post__h1">{{ t("trainings.monthTraining") }}</h1>
     <Latest
       v-if="itemImportant"
       :image="itemImportant.thumbnail"

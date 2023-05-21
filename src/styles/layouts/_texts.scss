@@ -41,3 +41,11 @@
     font-size: 1em;
   }
 }
+.post {
+  &__h1 {
+    @apply mb-5 text-3xl text-elucidator-700 dark:text-dark-repulser-400 font-bold;
+  }
+}
+.text-5xl {
+  line-height: 1.3;
+}

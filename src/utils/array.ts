@@ -1,4 +1,3 @@
-import { RouteRecordNormalized } from "vue-router"
 
 const sortByDate = (dataArray: Record<string, any>[]) => {
   if (!dataArray.length) {

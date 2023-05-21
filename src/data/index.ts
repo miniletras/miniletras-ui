@@ -29,8 +29,17 @@ export const getItemsByMenu = (menuItem: string, limit?: number) => {
     .filter((data) => Object.keys(data.meta).length)
     .filter((data) => someTag(data, menuItem))
     .slice(0, limit)
+  const sortedByDate = sortByDate(tagPosts);
+  const important = sortedByDate.find(post => {
+    const tags = post.meta.frontmatter.tags
+    return tags.includes('important')
+  }) ?? {}
+  const noImportant = sortedByDate.filter(post => {
+    const tags = post.meta.frontmatter.tags
+    return !tags.includes('important')
+  })
 
-  return sortByDate(tagPosts)
+  return [important, ...noImportant];
 }
 
 // Get the latest important by tag
