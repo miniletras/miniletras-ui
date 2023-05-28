@@ -44,6 +44,8 @@
   "contact": {
     "fullName": "Nombre completo",
     "email": "Email",
-    "reason": "Motivo"
+    "name": "Nombre",
+    "reason": "Motivo",
+    "subscribeChild": "¿Quieres suscribir a tu hijo?"
   }
 }

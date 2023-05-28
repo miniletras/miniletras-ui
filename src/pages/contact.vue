@@ -7,14 +7,22 @@ const form = reactive({
   name: "",
   email: "",
   reason: "",
+  subscribeChild: "",
 })
 </script>
 <template>
-  <div class="grid-center">
-    <Input class="min-w-md" v-model="form.name" :label="t('contact.fullName')" />
-    <Input class="max-w-sm" type="email" v-model="form.email" :label="t('contact.email')" />
-    <Input class="max-w-sm" type="textarea" v-model="form.reason" :label="t('contact.reason')" />
-  </div>
+  <form class="grid-center">
+    <Input v-model="form.name" class="min-w-md" :label="t('contact.fullName')" />
+    <Input v-model="form.email" class="max-w-sm" type="email" :label="t('contact.email')" />
+    <TextArea class="max-w-sm" v-model="form.reason" :label="t('contact.reason')" />
+    <Input
+      v-model="form.subscribeChild"
+      class="max-w-sm"
+      type="email"
+      :label="t('contact.subscribeChild')"
+      :placeholder="t('contact.name')"
+    />
+  </form>
 </template>
 <style lang="scss" scoped>
 .grid-center {

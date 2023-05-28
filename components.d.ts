@@ -25,6 +25,8 @@ declare module 'vue' {
     Post: typeof import('./src/components/smart/Articles/Post.vue')['default']
     Share: typeof import('./src/components/building/Button/Share.vue')['default']
     Tag: typeof import('./src/components/building/Button/Tag.vue')['default']
+    Textarea: typeof import('./src/components/building/TextArea/Textarea.vue')['default']
+    TextArea: typeof import('./src/components/building/TextArea/TextArea.vue')['default']
     ToTopBtn: typeof import('./src/components/building/Button/ToTopBtn.vue')['default']
     UilGithub: typeof import('~icons/uil/github')['default']
     ULBase: typeof import('./src/components/smart/WhoAmI/ULBase.vue')['default']

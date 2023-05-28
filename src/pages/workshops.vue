@@ -15,7 +15,7 @@ const workshops = computed(() => getItemsByMenu("workshop", 6))
 </script>
 <template>
   <div class="inline-grid px-4 lg:px-0">
-    <h1 class="mb-5 text-3xl text-elucidator-700 dark:text-dark-repulser-400 font-bold">
+    <h1 class="post__h1">
       {{ t("workshops.monthWorkshop") }}
     </h1>
     <Latest
