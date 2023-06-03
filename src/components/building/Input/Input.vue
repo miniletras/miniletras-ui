@@ -1,29 +1,6 @@
-<template>
-  <div class="input-control">
-    <label v-if="label" class="input-control__label" :for="id">
-      {{ label }} {{ required ? "*" : "" }}
-    </label>
-    <div class="input-control__input-group">
-      <input
-        :id="id"
-        v-model="inputValue"
-        :class="inputClasses"
-        :disabled="disabled"
-        :min="min"
-        :placeholder="placeholder"
-        :readonly="readonly"
-        :step="type === 'number' ? 'any' : 1"
-        :type="type"
-        @keydown.enter.prevent="onSubmit"
-      />
-      <button v-if="hasValue" class="input-control__button" @click="onClear">
-        <span class="iconify-inline" data-width="1.2em" data-icon="basil:cross-outline" />
-      </button>
-    </div>
-  </div>
-</template>
 <script setup lang="ts">
 import { computed } from "vue"
+import { InputType } from "../models"
 
 const props = withDefaults(
   defineProps<{
@@ -47,7 +24,7 @@ const props = withDefaults(
 )
 const emit = defineEmits<{
   (e: "submit", value: string | number): void
-  (e: "update:modelValue"): void
+  (e: "update:modelValue", value: string | number): void
 }>()
 
 const inputValue = ref<string | number>(props.modelValue)
@@ -61,12 +38,42 @@ const inputClasses = computed(() => [
   },
 ])
 
+const onInput = (event: Event) => {
+  inputValue.value = (<HTMLInputElement>event.target).value
+  emit("update:modelValue", inputValue.value)
+}
+
 const onSubmit = () => {
   emit("submit", inputValue.value)
 }
 
 const onClear = () => {
   inputValue.value = ""
-  emit("submit", "")
+  emit("update:modelValue", inputValue.value)
 }
 </script>
+<template>
+  <div class="input-control">
+    <label v-if="label" class="input-control__label" :for="id">
+      {{ label }} {{ required ? "*" : "" }}
+    </label>
+    <div class="input-control__input-group">
+      <input
+        :class="inputClasses"
+        :disabled="disabled"
+        :id="id"
+        :min="min"
+        :placeholder="placeholder"
+        :readonly="readonly"
+        :step="type === InputType.NUMBER ? 'any' : 1"
+        :type="type"
+        :value="inputValue"
+        @keydown.enter.prevent="onSubmit"
+        @input="onInput"
+      />
+      <button v-if="hasValue" class="input-control__button" @click.prevent="onClear">
+        <span class="iconify-inline" data-width="1.2em" data-icon="basil:cross-outline" />
+      </button>
+    </div>
+  </div>
+</template>

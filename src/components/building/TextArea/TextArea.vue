@@ -19,8 +19,10 @@ const props = withDefaults(
 )
 const emit = defineEmits<{
   (e: "submit", value: string): void
-  (e: "update:modelValue"): void
+  (e: "update:modelValue", value: string): void
 }>()
+
+const inputValue = ref<string>(props.modelValue)
 
 const inputClasses = computed(() => [
   "input-control__input",
@@ -29,6 +31,11 @@ const inputClasses = computed(() => [
     error: props.required && (props.hasError || !props.modelValue),
   },
 ])
+
+const onInput = (event: Event) => {
+  inputValue.value = (<HTMLInputElement>event.target).value
+  emit("update:modelValue", inputValue.value)
+}
 
 const onSubmit = () => {
   emit("submit", props.modelValue)
@@ -40,12 +47,13 @@ const onSubmit = () => {
       {{ label }} {{ required ? "*" : "" }}
     </label>
     <textarea
-      v-model="modelValue"
+      :value="inputValue"
       :id="id"
       :rows="rows"
       :cols="cols"
       :class="inputClasses"
       @keydown.enter.prevent="onSubmit"
+      @input="onInput"
     />
   </div>
 </template>

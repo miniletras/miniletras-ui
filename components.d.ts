@@ -12,6 +12,7 @@ declare module 'vue' {
     CarbonMoon: typeof import('~icons/carbon/moon')['default']
     CarbonSearch: typeof import('~icons/carbon/search')['default']
     CarbonSun: typeof import('~icons/carbon/sun')['default']
+    CheckButton: typeof import('./src/components/building/CheckButton/CheckButton.vue')['default']
     CircleBlockBase: typeof import('./src/components/smart/WhoAmI/CircleBlockBase.vue')['default']
     Footer: typeof import('./src/components/building/Footer/Footer.vue')['default']
     Icon: typeof import('~icons/ic/on')['default']

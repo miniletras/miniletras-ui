@@ -45,6 +45,7 @@
     "fullName": "Full name",
     "email": "Email",
     "reason": "Reason",
-    "subscribeChild": "Do you want subcribe your child?"
+    "subscribeChild": "Do you want subcribe your child?",
+    "testSession": "Do you want a test session for your child?"
   }
 }

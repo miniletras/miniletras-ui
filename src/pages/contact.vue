@@ -8,24 +8,47 @@ const form = reactive({
   email: "",
   reason: "",
   subscribeChild: "",
+  testSession: false,
 })
 </script>
 <template>
-  <form class="grid-center">
-    <Input v-model="form.name" class="min-w-md" :label="t('contact.fullName')" />
-    <Input v-model="form.email" class="max-w-sm" type="email" :label="t('contact.email')" />
-    <TextArea class="max-w-sm" v-model="form.reason" :label="t('contact.reason')" />
-    <Input
-      v-model="form.subscribeChild"
-      class="max-w-sm"
-      type="email"
-      :label="t('contact.subscribeChild')"
-      :placeholder="t('contact.name')"
-    />
+  <form class="contact">
+    <Input v-model="form.name" class="contact--min-md" :label="t('contact.fullName')" />
+    <div class="contact--max-sm">
+      <Input v-model="form.email" type="email" :label="t('contact.email')" />
+      <TextArea v-model="form.reason" :label="t('contact.reason')" />
+      <Input
+        v-model="form.subscribeChild"
+        type="email"
+        :label="t('contact.subscribeChild')"
+        :placeholder="t('contact.name')"
+      />
+      <CheckButton
+        v-model="form.testSession"
+        :label="t('contact.testSession')"
+        :disabled="!form.subscribeChild"
+      />
+    </div>
   </form>
+  <pre>{{ form }}</pre>
 </template>
 <style lang="scss" scoped>
-.grid-center {
-  row-gap: 0.5rem;
+.contact {
+  @include grid-center($row-gap: "0.5rem");
+  padding: 0 1.25rem;
+  &--min-md,
+  &--max-sm {
+    @include grid($row-gap: "0.5rem");
+  }
+  &--min-md {
+    @media (min-width: $xs) {
+      min-width: 28rem;
+    }
+  }
+  &--max-sm {
+    @media (min-width: $xs) {
+      max-width: 24rem;
+    }
+  }
 }
 </style>

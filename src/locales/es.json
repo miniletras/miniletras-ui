@@ -46,6 +46,7 @@
     "email": "Email",
     "name": "Nombre",
     "reason": "Motivo",
-    "subscribeChild": "¿Quieres suscribir a tu hijo?"
+    "subscribeChild": "¿Quieres inscribir a tu hijo?",
+    "testSession": "¿Quieres una sesión de prueba para tu hijo?"
   }
 }
