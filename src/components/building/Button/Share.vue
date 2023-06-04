@@ -27,9 +27,7 @@ defineProps<{
       :twitter-user="$props.twitterUser"
       :media="$props.media"
     >
-      <button
-        class="bg-transparent border border-dark-repulser-300 rounded py-2 px-4 inline-flex items-center mr-2 mb-2 transition ease-in-out"
-      >
+      <button class="border-button flex">
         <span
           class="iconify text-xl text-elucidator-500 dark:text-dark-repulser-50 mr-2"
           :data-icon="`uim:${$props.icon}`"

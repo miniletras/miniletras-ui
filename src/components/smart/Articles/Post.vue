@@ -118,7 +118,7 @@ if (isClient) {
     >
       Share this article
     </h2>
-    <div class="flex flex-wrap justify-center items-center">
+    <div class="share">
       <Share
         v-for="(share, i) in dataShare"
         :key="i"
@@ -160,3 +160,8 @@ if (isClient) {
     </div>
   </div>
 </template>
+<style lang="scss" scoped>
+.share {
+  @include flex-center($justify-content: "center", $column-gap: "0.5rem");
+}
+</style>

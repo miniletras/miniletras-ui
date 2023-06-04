@@ -1,3 +1,5 @@
+@use "./variables" as *;
+
 @mixin h-w($height: 100%, $width: 100%, $min-height: "", $min-width: "") {
   height: $height;
   width: $width;
@@ -5,17 +7,43 @@
   min-width: unquote($min-width);
 }
 
-@mixin flex-center($flex-wrap: unquote(""), $justify-content: unquote("")) {
+@mixin flex(
+  $align-items: unquote(""),
+  $flex-wrap: unquote(""),
+  $justify-content: unquote(""),
+  $gap: "",
+  $row-gap: "",
+  $column-gap: ""
+) {
+  display: flex;
+  align-items: unquote($align-items);
+  flex-wrap: unquote($flex-wrap);
+  justify-content: unquote($justify-content);
+  gap: unquote($gap);
+  row-gap: unquote($row-gap);
+  column-gap: unquote($column-gap);
+}
+
+@mixin flex-center(
+  $flex-wrap: unquote(""),
+  $justify-content: unquote(""),
+  $gap: "",
+  $row-gap: "",
+  $column-gap: ""
+) {
   display: flex;
   align-items: center;
   flex-wrap: unquote($flex-wrap);
   justify-content: unquote($justify-content);
+  gap: unquote($gap);
+  row-gap: unquote($row-gap);
+  column-gap: unquote($column-gap);
 }
 
 @mixin flex-gap($gap: "", $direction: "column", $row-gap: "", $column-gap: "") {
   display: flex;
-  gap: unquote($gap);
   flex-direction: unquote($direction);
+  gap: unquote($gap);
   row-gap: unquote($row-gap);
   column-gap: unquote($column-gap);
 }
@@ -45,4 +73,8 @@
 @mixin grid-columns($col: 1) {
   display: grid;
   grid-template-columns: repeat($col, 1fr);
+}
+
+@mixin inner-box() {
+  box-shadow: $box-shadow-1;
 }

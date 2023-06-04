@@ -42,9 +42,11 @@
     "training": "Formación"
   },
   "contact": {
-    "fullName": "Nombre completo",
     "email": "Email",
+    "fullName": "Nombre completo",
+    "introduction": "Si quieres contactar conmigo,\n completa los siguientes datos:",
     "name": "Nombre",
+    "phoneNumber": "Teléfono",
     "reason": "Motivo",
     "subscribeChild": "¿Quieres inscribir a tu hijo?",
     "testSession": "¿Quieres una sesión de prueba para tu hijo?"

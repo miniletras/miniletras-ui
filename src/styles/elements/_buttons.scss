@@ -1,0 +1,14 @@
+@use "~/styles/settings/variables" as *;
+
+.border-button {
+  border-color: rgba(154, 214, 207, var(--tw-border-opacity));
+  --tw-border-opacity: 0.5;
+  border-radius: $border-radius-s;
+  border-width: 1px;
+  padding: 0.5rem 1rem;
+  min-width: 7rem;
+  &:hover {
+    --tw-border-opacity: 1;
+    transition: border-color cubic-bezier(0.4, 0, 0.2, 1) 150ms;
+  }
+}

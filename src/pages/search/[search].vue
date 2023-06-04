@@ -52,7 +52,7 @@ const clickEndPage = () => {
         />
       </div>
     </div>
-    <div class="flex flex-wrap justify-center items-center mb-5">
+    <div class="flex-center mb-5">
       <Paginate
         :start-page="dataSearch.startPage"
         :end-page="dataSearch.endPage"

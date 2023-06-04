@@ -90,7 +90,7 @@ const dataNavbar: NavbarMenu[] = [
         <router-link
           v-for="(data, i) in dataNavbar"
           :key="`desktop-navbar-${i}`"
-          class="mr-5 py-1.5 px-3 rounded-md text-elucidator-700 dark:text-dark-repulser-400 dark:hover:text-elucidator-300 hover:text-gray-900 hidden lg:block"
+          class="light-button--negative"
           :to="data.to"
           active-class="bg-gray-200 dark:bg-gray-500 dark:text-dark-repulser-200"
           >{{ data.name }}</router-link
@@ -182,5 +182,10 @@ const dataNavbar: NavbarMenu[] = [
 <style scoped lang="scss">
 .active-class {
   @apply p-2 mb-2 rounded-md bg-elucidator-200 dark:bg-elucidator-700;
+}
+.light-button {
+  &--negative {
+    @apply mr-5 py-1.5 px-3 rounded-md text-elucidator-700 dark:text-dark-repulser-400 dark:hover:text-elucidator-300 hover:text-gray-900 hidden lg:block;
+  }
 }
 </style>

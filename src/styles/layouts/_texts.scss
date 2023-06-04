@@ -23,7 +23,7 @@
   &__h3 {
     font-size: 1.25em;
     line-height: 1.5rem;
-    ∫ &--subtitle {
+    &--subtitle {
       display: block;
       text-align: center;
     }
@@ -44,6 +44,9 @@
 .post {
   &__h1 {
     @apply mb-5 text-3xl text-elucidator-700 dark:text-dark-repulser-400 font-bold;
+  }
+  &__h2 {
+    @apply mb-5 text-2xl text-elucidator-700 dark:text-dark-repulser-400 font-bold;
   }
 }
 .text-5xl {

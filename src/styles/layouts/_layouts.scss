@@ -9,3 +9,6 @@
 .grid-center {
   @include grid-center;
 }
+.flex-center {
+  @include flex-center($justify-content: "center");
+}

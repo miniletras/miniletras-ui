@@ -48,7 +48,7 @@ const clickEndPage = () => {
         :to-tags="`/tags/${(data as Record<string, any>).meta.frontmatter.tags}`"
       />
     </div>
-    <div class="flex flex-wrap justify-center items-center mb-5">
+    <div class="flex-center mb-5">
       <Paginate
         :start-page="articles.startPage"
         :end-page="articles.endPage"
