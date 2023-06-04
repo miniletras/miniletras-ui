@@ -15,6 +15,7 @@ const props = withDefaults(
   {
     label: "",
     required: false,
+    rows: 4,
   },
 )
 const emit = defineEmits<{

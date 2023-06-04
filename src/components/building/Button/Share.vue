@@ -38,3 +38,8 @@ defineProps<{
     </ShareNetwork>
   </client-only>
 </template>
+<style lang="scss" scoped>
+.border-button {
+  border-width: 1px;
+}
+</style>

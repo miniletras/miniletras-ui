@@ -2,9 +2,8 @@
 
 .border-button {
   border-color: rgba(154, 214, 207, var(--tw-border-opacity));
-  --tw-border-opacity: 0.5;
+  --tw-border-opacity: 0.6;
   border-radius: $border-radius-s;
-  border-width: 1px;
   padding: 0.5rem 1rem;
   min-width: 7rem;
   &:hover {
