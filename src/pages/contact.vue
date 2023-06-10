@@ -1,23 +1,21 @@
 <script setup lang="ts">
 import { i18n } from "~/main"
-import { MaskaDetail, vMaska } from "maska"
+import { MaskOptions, vMaska } from "maska"
+import { ContactForm } from "~/types"
 
 const { t } = i18n.global
 
-const form = reactive({
-  name: "",
-  phoneNumber: "",
-  email: "",
-  reason: "",
-  subscribeChild: "",
-  testSession: false,
+const form = ref<ContactForm>({
+  phoneNumber: "51",
 })
-const phoneMask = reactive({
+const phoneMask = reactive<MaskOptions>({
   mask: "+(##) ###-###-###",
   eager: true,
 })
 
-const inValidEmail = computed(() => !!form.email && !/^[^@]+@\w+(\.\w+)+\w$/.test(form.email))
+const inValidEmail = computed(
+  () => !!form.value.email && !/^[^@]+@\w+(\.\w+)+\w$/.test(form.value.email),
+)
 </script>
 <hr class="green-line" />
 <template>
@@ -30,6 +28,7 @@ const inValidEmail = computed(() => !!form.email && !/^[^@]+@\w+(\.\w+)+\w$/.tes
         <div class="contact--max-sm">
           <Input
             v-model="form.email"
+            id="email"
             type="email"
             :has-error="inValidEmail"
             :label="t('contact.email')"
@@ -37,8 +36,10 @@ const inValidEmail = computed(() => !!form.email && !/^[^@]+@\w+(\.\w+)+\w$/.tes
           <Input
             v-model="form.phoneNumber"
             v-maska:[phoneMask]
+            id="tel"
+            type="tel"
+            placeholder="+(51) 990-000-000"
             :label="t('contact.phoneNumber')"
-            placeholder="+(34) 600-000-000"
           />
           <TextArea v-model="form.reason" :label="t('contact.reason')" />
           <Input
@@ -54,7 +55,7 @@ const inValidEmail = computed(() => !!form.email && !/^[^@]+@\w+(\.\w+)+\w$/.tes
           />
         </div>
         <div class="button-right">
-          <button type="submit" class="border-button">Enviar</button>
+          <button type="submit" class="border-button">{{ t("contact.send") }}</button>
         </div>
       </div>
     </form>
@@ -109,9 +110,11 @@ const inValidEmail = computed(() => !!form.email && !/^[^@]+@\w+(\.\w+)+\w$/.tes
 .border-button {
   font-weight: bolder;
   border-width: 2px;
-  color: $color-primary_8;
+  border-color: $color-green-2;
+  color: $color-gray-4;
   &:hover {
-    color: $color-primary;
+    border-color: $color-green-3;
+    color: $color-gray-2;
   }
 }
 .green-line {

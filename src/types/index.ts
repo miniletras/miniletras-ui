@@ -42,3 +42,12 @@ export interface Paginate {
   pageSize: number
   maxPages?: number
 }
+
+export interface ContactForm {
+  name?: string
+  phoneNumber?: string
+  email?: string
+  reason?: string
+  subscribeChild?: string
+  testSession?: boolean
+}

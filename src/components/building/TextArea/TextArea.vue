@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { Undefinable } from "~/utils/models"
+
 const props = withDefaults(
   defineProps<{
-    modelValue: string
+    modelValue?: string
     id?: string
     cols?: number
     disabled?: boolean
@@ -19,11 +21,11 @@ const props = withDefaults(
   },
 )
 const emit = defineEmits<{
-  (e: "submit", value: string): void
-  (e: "update:modelValue", value: string): void
+  (e: "submit", value?: string): void
+  (e: "update:modelValue", value?: string): void
 }>()
 
-const inputValue = ref<string>(props.modelValue)
+const inputValue = ref<Undefinable<string>>(props.modelValue)
 
 const inputClasses = computed(() => [
   "input-control__input",

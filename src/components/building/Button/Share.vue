@@ -41,5 +41,10 @@ defineProps<{
 <style lang="scss" scoped>
 .border-button {
   border-width: 1px;
+  border-color: rgba(154, 214, 207, var(--tw-border-opacity));
+  --tw-border-opacity: 0.6;
+  &:hover {
+    --tw-border-opacity: 1;
+  }
 }
 </style>

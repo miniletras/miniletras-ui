@@ -37,11 +37,13 @@
   }
   &__button {
     background-color: white;
+
     position: absolute;
     color: $color-gray-2;
     font-size: 1.8rem;
     right: 0.2rem;
     bottom: 3px;
+    border-radius: 0 $border-radius-m $border-radius-m 0;
   }
 }
 .disable {

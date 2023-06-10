@@ -39,7 +39,13 @@ const inputClasses = computed(() => [
 ])
 
 const onInput = (event: Event) => {
-  inputValue.value = (<HTMLInputElement>event.target).value
+  const targetEl = <HTMLInputElement>event.target
+  inputValue.value = targetEl.value
+
+  targetEl.setCustomValidity("")
+  if (inputValue.value === "xxx") {
+    targetEl.setCustomValidity("Custom validation is ONONONO!!!")
+  }
   emit("update:modelValue", inputValue.value)
 }
 
