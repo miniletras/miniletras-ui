@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { i18n } from "~/main"
+import { MaskaDetail, vMaska } from "maska"
 
 const { t } = i18n.global
 
@@ -11,6 +12,12 @@ const form = reactive({
   subscribeChild: "",
   testSession: false,
 })
+const phoneMask = reactive({
+  mask: "+(##) ###-###-###",
+  eager: true,
+})
+
+const inValidEmail = computed(() => !!form.email && !/^[^@]+@\w+(\.\w+)+\w$/.test(form.email))
 </script>
 <hr class="green-line" />
 <template>
@@ -21,12 +28,21 @@ const form = reactive({
       <div class="contact__form-group">
         <Input v-model="form.name" class="contact--min-md" :label="t('contact.fullName')" />
         <div class="contact--max-sm">
-          <Input v-model="form.email" type="email" :label="t('contact.email')" />
-          <Input v-model="form.phoneNumber" type="number" :label="t('contact.phoneNumber')" />
+          <Input
+            v-model="form.email"
+            type="email"
+            :has-error="inValidEmail"
+            :label="t('contact.email')"
+          />
+          <Input
+            v-model="form.phoneNumber"
+            v-maska:[phoneMask]
+            :label="t('contact.phoneNumber')"
+            placeholder="+(34) 600-000-000"
+          />
           <TextArea v-model="form.reason" :label="t('contact.reason')" />
           <Input
             v-model="form.subscribeChild"
-            type="email"
             :label="t('contact.subscribeChild')"
             :placeholder="t('contact.name')"
           />

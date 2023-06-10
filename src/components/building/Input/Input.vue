@@ -4,7 +4,7 @@ import { InputType } from "../models"
 
 const props = withDefaults(
   defineProps<{
-    modelValue: string | number
+    modelValue?: string | number
     disabled?: boolean
     hasError?: boolean
     id?: string
@@ -27,14 +27,14 @@ const emit = defineEmits<{
   (e: "update:modelValue", value: string | number): void
 }>()
 
-const inputValue = ref<string | number>(props.modelValue)
+const inputValue = ref<string | number>(props.modelValue ?? "")
 
 const hasValue = computed(() => !!inputValue.value && !props.readonly && !props.disabled)
 const inputClasses = computed(() => [
   "input-control__input",
   {
     disable: props.disabled && !props.readonly,
-    error: props.required && (props.hasError || !props.modelValue),
+    error: props.hasError || (!props.modelValue && props.required),
   },
 ])
 

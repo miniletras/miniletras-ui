@@ -1,13 +1,6 @@
 @use "../settings/mixins" as *;
 @use "../settings/variables" as *;
 
-.error {
-  border-color: $color-secondary-error;
-  &:focus,
-  &:hover {
-    border-color: $color-secondary-error-hover;
-  }
-}
 .input-control {
   @include flex-gap($row-gap: "0.2rem");
   line-height: 1.4rem;
@@ -33,6 +26,13 @@
     }
     &:focus-within {
       border-color: $color-black;
+    }
+    &.error {
+      border-color: $color-secondary-error;
+      &:focus,
+      &:hover {
+        border-color: $color-secondary-error-hover;
+      }
     }
   }
   &__button {
