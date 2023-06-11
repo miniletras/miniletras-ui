@@ -27,11 +27,12 @@
     &:focus-within {
       border-color: $color-black;
     }
-    &.error {
-      border-color: $color-secondary-error;
+    &.error,
+    &:invalid {
+      border-color: $color-error-active;
       &:focus,
       &:hover {
-        border-color: $color-secondary-error-hover;
+        border-color: $color-warning;
       }
     }
   }

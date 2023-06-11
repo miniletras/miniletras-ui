@@ -1,37 +1,66 @@
 <script setup lang="ts">
-import { i18n } from "~/main"
-import { MaskOptions, vMaska } from "maska"
+import { recordTranslator } from "~/main"
+import { MaskOptions, vMaska, MaskaDetail } from "maska"
 import { ContactForm } from "~/types"
 
-const { t } = i18n.global
+const form = reactive<ContactForm>({ phoneNumber: "51" })
+const phoneMaskdetail = ref<MaskaDetail>()
+const validEmail = ref<boolean>()
 
-const form = ref<ContactForm>({
-  phoneNumber: "51",
-})
-const phoneMask = reactive<MaskOptions>({
-  mask: "+(##) ###-###-###",
-  eager: true,
+const emailOrPhoneValid = computed(() => {
+  return !!(
+    (form.email && validEmail.value) ||
+    (form.phoneNumber && phoneMaskdetail.value?.completed)
+  )
 })
 
-const inValidEmail = computed(
-  () => !!form.value.email && !/^[^@]+@\w+(\.\w+)+\w$/.test(form.value.email),
-)
+const contactTranslator = recordTranslator("contact")
+const phoneMaskOptions: MaskOptions = { mask: "+(##) ###-###-###", eager: true }
+
+const phoneMask = {
+  ...phoneMaskOptions,
+  onMaska: (detail: MaskaDetail) => {
+    phoneMaskdetail.value = detail
+  },
+}
+
+const onTargetEmail = (emailEl: HTMLInputElement) => {
+  console.log("%c [ emailEl ]-28", "font-size:13px; background:pink; color:#bf2c9f;", emailEl)
+  validEmail.value = emailEl.validity.valid
+}
+
+const onSubmit = (event: SubmitEvent) => {
+  console.log(
+    "%c [ event SubmitEvent]-32",
+    "font-size:13px; background:pink; color:#bf2c9f;",
+    event,
+  )
+  if (!emailOrPhoneValid.value) {
+    console.log(
+      "%c [ emailOrPhoneValid ]-34",
+      "font-size:13px; background:pink; color:#bf2c9f;",
+      emailOrPhoneValid.value,
+    )
+    return
+  }
+}
 </script>
 <hr class="green-line" />
 <template>
   <div class="contact">
-    <form class="contact__form">
+    <form class="contact__form" @submit.prevent="onSubmit">
       <hr class="green-line" />
-      <h2 class="h post__h2 text-center">{{ t("contact.introduction") }}</h2>
+      <h2 class="h post__h2 text-center">{{ contactTranslator("introduction") }}</h2>
       <div class="contact__form-group">
-        <Input v-model="form.name" class="contact--min-md" :label="t('contact.fullName')" />
+        <Input v-model="form.name" class="contact--min-md" :label="contactTranslator('fullName')" />
         <div class="contact--max-sm">
+          <!-- emailOrPhoneValid : {{ emailOrPhoneValid }} :required="emailValue"-->
           <Input
             v-model="form.email"
             id="email"
             type="email"
-            :has-error="inValidEmail"
-            :label="t('contact.email')"
+            :label="contactTranslator('email')"
+            @target="onTargetEmail"
           />
           <Input
             v-model="form.phoneNumber"
@@ -39,23 +68,23 @@ const inValidEmail = computed(
             id="tel"
             type="tel"
             placeholder="+(51) 990-000-000"
-            :label="t('contact.phoneNumber')"
+            :label="contactTranslator('phoneNumber')"
           />
-          <TextArea v-model="form.reason" :label="t('contact.reason')" />
+          <TextArea v-model="form.reason" :label="contactTranslator('reason')" />
           <Input
             v-model="form.subscribeChild"
-            :label="t('contact.subscribeChild')"
-            :placeholder="t('contact.name')"
+            :label="contactTranslator('subscribeChild')"
+            :placeholder="contactTranslator('name')"
           />
           <CheckButton
             class="mt-[0.5rem]"
             v-model="form.testSession"
-            :label="t('contact.testSession')"
+            :label="contactTranslator('testSession')"
             :disabled="!form.subscribeChild"
           />
         </div>
         <div class="button-right">
-          <button type="submit" class="border-button">{{ t("contact.send") }}</button>
+          <button type="submit" class="border-button">{{ contactTranslator("send") }}</button>
         </div>
       </div>
     </form>

@@ -5,7 +5,7 @@ import { CheckButtonPayload } from "./models"
 
 const props = withDefaults(
   defineProps<{
-    modelValue: boolean | string
+    modelValue?: boolean | string
     checked?: boolean
     configStyles?: Record<string, StyleValue | string>
     disabled?: boolean
@@ -27,7 +27,7 @@ const emit = defineEmits<{
 const onInput = (event: Event) => {
   const payload: CheckButtonPayload = {
     checked: (<HTMLInputElement>event.target).checked,
-    value: props.type === InputType.CHECKBOX ? !props.modelValue : props.modelValue,
+    value: props.type === InputType.CHECKBOX ? !props.modelValue : props.modelValue ?? "",
     name: props?.name ?? "",
   }
   emit("update:modelValue", payload.value)

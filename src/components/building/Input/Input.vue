@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed } from "vue"
-import { InputType } from "../models"
+import { InputType } from "~/components/building/models"
+import { setCustomValidator } from "./composables"
 
 const props = withDefaults(
   defineProps<{
@@ -13,18 +13,19 @@ const props = withDefaults(
     placeholder?: string
     readonly?: boolean
     required?: boolean
-    type?: string
+    type?: InputType
   }>(),
   {
     label: "",
     min: 0,
     required: false,
-    type: "text",
+    type: InputType.TEXT,
   },
 )
 const emit = defineEmits<{
   (e: "submit", value: string | number): void
   (e: "update:modelValue", value: string | number): void
+  (e: "target", target: HTMLInputElement): void
 }>()
 
 const inputValue = ref<string | number>(props.modelValue ?? "")
@@ -42,11 +43,9 @@ const onInput = (event: Event) => {
   const targetEl = <HTMLInputElement>event.target
   inputValue.value = targetEl.value
 
-  targetEl.setCustomValidity("")
-  if (inputValue.value === "xxx") {
-    targetEl.setCustomValidity("Custom validation is ONONONO!!!")
-  }
+  setCustomValidator(targetEl, { type: props.type, value: inputValue.value })
   emit("update:modelValue", inputValue.value)
+  emit("target", targetEl)
 }
 
 const onSubmit = () => {
@@ -71,6 +70,7 @@ const onClear = () => {
         :min="min"
         :placeholder="placeholder"
         :readonly="readonly"
+        :required="required"
         :step="type === InputType.NUMBER ? 'any' : 1"
         :type="type"
         :value="inputValue"

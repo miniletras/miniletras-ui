@@ -18,7 +18,7 @@ import toc from "markdown-it-table-of-contents"
 import attr from "markdown-it-link-attributes"
 import { dirname, resolve } from "path"
 import { readFileSync } from "fs"
-import vueI18nPlugin from '@intlify/vite-plugin-vue-i18n'
+import vueI18nPlugin from "@intlify/vite-plugin-vue-i18n"
 import { fileURLToPath } from "url"
 
 // https://vitejs.dev/config/
@@ -41,7 +41,7 @@ export default defineConfig({
       // INFO: build PROD ERR: https://github.com/quasarframework/quasar/issues/13229#issuecomment-1115905093
       runtimeOnly: false,
       // you need to set i18n resource including paths !
-      include: resolve(dirname(fileURLToPath(import.meta.url)), '~/locales/**'),
+      include: resolve(dirname(fileURLToPath(import.meta.url)), "~/locales/**"),
     }),
     // https://github.com/antfu/vite-plugin-md
     Markdown({
@@ -151,7 +151,7 @@ export default defineConfig({
 
     // https://github.com/antfu/unplugin-auto-import
     AutoImport({
-      imports: ["vue", "@vueuse/core", "@vueuse/head", "vue-router"],
+      imports: ["vue", "vue-router", "@vueuse/core", "@vueuse/head"],
       dts: true,
     }),
   ],
@@ -159,15 +159,15 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         additionalData: '@use "src/styles/settings/index.scss" as *;',
-      }
-    }
+      },
+    },
   },
   optimizeDeps: {
-    include: ["vue", "vue-router", "@vueuse/core"],
+    include: ["vue", "vue-router", "@vueuse/core", "@vueuse/head"],
   },
   resolve: {
     alias: {
       "~/": `${resolve(__dirname, "src")}/`,
     },
-  }
+  },
 })

@@ -4,9 +4,9 @@ import "virtual:windi.css"
 import routes from "virtual:generated-pages"
 import { RouterScrollBehavior } from "vue-router"
 import "@purge-icons/generated"
-import { createI18n } from 'vue-i18n'
-import * as es from './locales/es.json'
-import * as en from './locales/en.json'
+import { createI18n } from "vue-i18n"
+import * as es from "./locales/es.json"
+import * as en from "./locales/en.json"
 
 // https://next.router.vuejs.org/guide/advanced/scroll-behavior.html#scroll-behavior
 const scrollBehavior: RouterScrollBehavior = (to, from, savedPosition) => {
@@ -15,12 +15,20 @@ const scrollBehavior: RouterScrollBehavior = (to, from, savedPosition) => {
 }
 
 // https://github.com/antfu/vite-ssg
-export const createViteSSGApp = ViteSSG(App, { routes, scrollBehavior }, (ctx) => {
- Object.values(import.meta.globEager("./module/*.ts")).map((i) => i.install?.(ctx))
+const createViteSSGApp = ViteSSG(App, { routes, scrollBehavior }, (ctx) => {
+  Object.values(import.meta.globEager("./module/*.ts")).map((i) => i.install?.(ctx))
 })
 
-export const i18n = createI18n({
-  locale: 'es',
+const i18n = createI18n({
+  locale: "es",
   allowComposition: true, // mandatory!
-  messages: { es, en }
-});
+  messages: { es, en },
+})
+
+const { t } = i18n.global
+
+const recordTranslator = (value: string) => (record: string) => {
+  return t(`${value}.${record}`)
+}
+
+export { createViteSSGApp, i18n, t, recordTranslator }

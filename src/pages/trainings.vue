@@ -6,9 +6,7 @@ import { i18n } from "~/main"
 const { t } = i18n.global
 
 // Get latest important training
-const itemImportant = computed(() => {
-  return latestItemByMenuTag("training", "important") as Record<string, any>
-})
+const itemImportant = computed(() => latestItemByMenuTag("training", "important"))
 
 // Get clubs data
 const trainings = computed(() => getItemsByMenu("training", 6))

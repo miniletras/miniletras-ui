@@ -5,6 +5,17 @@
   "clubs": {
     "monthClub": "Club del mes"
   },
+  "contact": {
+    "email": "Email",
+    "fullName": "Nombre completo",
+    "introduction": "Si quieres contactar conmigo,\n completa los siguientes datos:",
+    "name": "Nombre",
+    "phoneNumber": "Teléfono",
+    "reason": "Motivo",
+    "send": "Enviar",
+    "subscribeChild": "¿Quieres inscribir a tu hijo?",
+    "testSession": "¿Quieres una sesión de prueba para tu hijo?"
+  },
   "latest": {
     "publishedAt": "Publicado el"
   },
@@ -15,6 +26,11 @@
     "trainingAndProjects": "Proyectos",
     "whoAmI": "Quién soy",
     "contact": "Contacto"
+  },
+  "messages": {
+    "warning": {
+      "emailDotCom": "Después de \"{'@'}\" tienes que incluir al menos un caracter, el signo \".\", seguido de al menos dos caracteres."
+    }
   },
   "tags": {
     "club": "clubs",
@@ -40,16 +56,5 @@
     "occupationSubtitle": "Correctora de estilos",
     "skills": "Especialidades",
     "training": "Formación"
-  },
-  "contact": {
-    "email": "Email",
-    "fullName": "Nombre completo",
-    "introduction": "Si quieres contactar conmigo,\n completa los siguientes datos:",
-    "name": "Nombre",
-    "phoneNumber": "Teléfono",
-    "reason": "Motivo",
-    "send": "Enviar",
-    "subscribeChild": "¿Quieres inscribir a tu hijo?",
-    "testSession": "¿Quieres una sesión de prueba para tu hijo?"
   }
 }
