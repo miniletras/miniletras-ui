@@ -32,7 +32,7 @@
       border-color: $color-error-active;
       &:focus,
       &:hover {
-        border-color: $color-warning;
+        border-color: $color-error-hover;
       }
     }
   }

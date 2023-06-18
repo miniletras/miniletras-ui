@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { InputType } from "~/components/building/models"
 import { setCustomValidator } from "./composables"
+import { MaskaDetail } from "maska"
 
 const props = withDefaults(
   defineProps<{
@@ -9,6 +10,7 @@ const props = withDefaults(
     hasError?: boolean
     id?: string
     label?: string
+    mask?: MaskaDetail
     min?: number
     placeholder?: string
     readonly?: boolean
@@ -39,22 +41,38 @@ const inputClasses = computed(() => [
   },
 ])
 
+const onClear = () => {
+  // FIXME: default input value has to be assigned from props.mask
+  inputValue.value = ""
+  if (props.type === InputType.TEL) {
+    inputValue.value = "51"
+  }
+  emit("update:modelValue", inputValue.value)
+}
+
 const onInput = (event: Event) => {
+  console.log("%c [ event onInput]-44", "font-size:13px; background:pink; color:#bf2c9f;", event)
   const targetEl = <HTMLInputElement>event.target
   inputValue.value = targetEl.value
 
-  setCustomValidator(targetEl, { type: props.type, value: inputValue.value })
+  if (!inputValue.value) {
+    onClear()
+    return
+  }
+
   emit("update:modelValue", inputValue.value)
   emit("target", targetEl)
+
+  const { type } = props
+  setCustomValidator(targetEl, {
+    type,
+    value: inputValue.value,
+    mask: (<Record<string, any>>event)?.detail,
+  })
 }
 
 const onSubmit = () => {
   emit("submit", inputValue.value)
-}
-
-const onClear = () => {
-  inputValue.value = ""
-  emit("update:modelValue", inputValue.value)
 }
 </script>
 <template>
@@ -68,6 +86,7 @@ const onClear = () => {
         :disabled="disabled"
         :id="id"
         :min="min"
+        :mask="mask"
         :placeholder="placeholder"
         :readonly="readonly"
         :required="required"

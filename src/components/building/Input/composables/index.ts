@@ -1,5 +1,6 @@
 import { CustomValidator, InputType } from "~/components/building/models"
 import { recordTranslator } from "~/main"
+import { isPositiveNum } from "~/utils"
 
 const warningTranslator = recordTranslator("messages.warning")
 
@@ -12,18 +13,25 @@ const checkType = (type: InputType) => {
   }
 }
 
-const inputPatterValidator = (type: InputType, value: string) => {
+const inputPatterValidator = ({ type, value, mask }: CustomValidator) => {
   return {
-    ...(checkType(type).email && { [InputType.EMAIL]: !/@\w+(\.\w+)+\w/.test(value) }),
+    ...(checkType(type).email && { [InputType.EMAIL]: !/@\w+(\.\w+)+\w/.test(`${value}`) }),
+    ...(checkType(type).tel && {
+      [InputType.TEL]: (mask?.unmasked?.length ?? 0) > 2 && !mask?.completed,
+    }),
   }
 }
 
-const setCustomValidator = (targetEl: HTMLInputElement, { type, value }: CustomValidator) => {
+const setCustomValidator = (targetEl: HTMLInputElement, { type, value, mask }: CustomValidator) => {
   targetEl.setCustomValidity("")
-  const pattern = inputPatterValidator(type, `${value}`)
+
+  const pattern = inputPatterValidator({ type, value, mask })
 
   if (pattern.email && !targetEl.validity.typeMismatch) {
     targetEl.setCustomValidity(warningTranslator("emailDotCom"))
+  }
+  if (pattern.tel && !targetEl.validity.typeMismatch) {
+    targetEl.setCustomValidity(warningTranslator("telLength"))
   }
 }
 

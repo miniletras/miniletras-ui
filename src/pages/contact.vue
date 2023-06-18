@@ -2,15 +2,17 @@
 import { recordTranslator } from "~/main"
 import { MaskOptions, vMaska, MaskaDetail } from "maska"
 import { ContactForm } from "~/types"
+import { InputType } from "~/components/building/models"
 
-const form = reactive<ContactForm>({ phoneNumber: "51" })
 const phoneMaskdetail = ref<MaskaDetail>()
+const form = reactive<ContactForm>({ phoneNumber: "51" })
+
 const validEmail = ref<boolean>()
 
 const emailOrPhoneValid = computed(() => {
   return !!(
     (form.email && validEmail.value) ||
-    (form.phoneNumber && phoneMaskdetail.value?.completed)
+    ((phoneMaskdetail.value?.unmasked?.length ?? 0) > 2 && phoneMaskdetail.value?.completed)
   )
 })
 
@@ -25,21 +27,16 @@ const phoneMask = {
 }
 
 const onTargetEmail = (emailEl: HTMLInputElement) => {
-  console.log("%c [ emailEl ]-28", "font-size:13px; background:pink; color:#bf2c9f;", emailEl)
   validEmail.value = emailEl.validity.valid
 }
 
-const onSubmit = (event: SubmitEvent) => {
-  console.log(
-    "%c [ event SubmitEvent]-32",
-    "font-size:13px; background:pink; color:#bf2c9f;",
-    event,
-  )
+const onSubmit = (event: Event) => {
+  console.log("%c [ event onSubmit]-32", "font-size:13px; background:pink; color:#bf2c9f;", event)
   if (!emailOrPhoneValid.value) {
     console.log(
-      "%c [ emailOrPhoneValid ]-34",
+      "%c [ !emailOrPhoneValid ]-34",
       "font-size:13px; background:pink; color:#bf2c9f;",
-      emailOrPhoneValid.value,
+      !emailOrPhoneValid.value,
     )
     return
   }
@@ -58,7 +55,7 @@ const onSubmit = (event: SubmitEvent) => {
           <Input
             v-model="form.email"
             id="email"
-            type="email"
+            :type="InputType.EMAIL"
             :label="contactTranslator('email')"
             @target="onTargetEmail"
           />
@@ -66,7 +63,8 @@ const onSubmit = (event: SubmitEvent) => {
             v-model="form.phoneNumber"
             v-maska:[phoneMask]
             id="tel"
-            type="tel"
+            :mask="phoneMaskdetail"
+            :type="InputType.TEL"
             placeholder="+(51) 990-000-000"
             :label="contactTranslator('phoneNumber')"
           />
@@ -118,9 +116,6 @@ const onSubmit = (event: SubmitEvent) => {
   }
   &--max-sm {
     margin: 0.5rem 0;
-    @media (min-width: $xs) {
-      max-width: 26rem;
-    }
   }
   .post__h2 {
     margin-top: 1rem;
@@ -128,7 +123,8 @@ const onSubmit = (event: SubmitEvent) => {
       margin-top: 2rem;
       margin-bottom: 2rem;
       white-space: pre-line;
-      line-height: 1.6;
+      line-height: 1.4;
+      font-size: 1.75rem;
     }
   }
 }

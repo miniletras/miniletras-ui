@@ -1,3 +1,5 @@
+import { MaskaDetail } from "maska"
+
 enum InputType {
   CHECKBOX = "checkbox",
   RADIO = "radio",
@@ -10,6 +12,7 @@ enum InputType {
 interface CustomValidator {
   type: InputType
   value: string | number
+  mask?: MaskaDetail
 }
 
 // INFO: to cast event by T
