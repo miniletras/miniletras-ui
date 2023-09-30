@@ -1,6 +1,5 @@
 import { CustomValidator, InputType } from "~/components/building/models"
 import { recordTranslator } from "~/main"
-import { isPositiveNum } from "~/utils"
 
 const warningTranslator = recordTranslator("messages.warning")
 
@@ -17,7 +16,7 @@ const inputPatterValidator = ({ type, value, mask }: CustomValidator) => {
   return {
     ...(checkType(type).email && { [InputType.EMAIL]: !/@\w+(\.\w+)+\w/.test(`${value}`) }),
     ...(checkType(type).tel && {
-      [InputType.TEL]: (mask?.unmasked?.length ?? 0) > 2 && !mask?.completed,
+      [InputType.TEL]: (mask?.unmasked?.length ?? 0) > 3 && !mask?.completed,
     }),
   }
 }

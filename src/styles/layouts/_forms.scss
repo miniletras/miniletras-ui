@@ -29,9 +29,7 @@
     }
     &.error,
     &:invalid {
-      border-color: $color-error-active;
-      &:focus,
-      &:hover {
+      &:focus {
         border-color: $color-error-hover;
       }
     }

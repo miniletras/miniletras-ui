@@ -3,26 +3,30 @@ import { recordTranslator } from "~/main"
 import { MaskOptions, vMaska, MaskaDetail } from "maska"
 import { ContactForm } from "~/types"
 import { InputType } from "~/components/building/models"
+import { Undefinable } from "~/utils/models"
 
-const phoneMaskdetail = ref<MaskaDetail>()
-const form = reactive<ContactForm>({ phoneNumber: "51" })
+const phoneMaskdetail = ref<MaskaDetail & { maskValues: Undefinable<string> }>()
+const form = reactive<ContactForm>({ phoneNumber: "051" })
 
 const validEmail = ref<boolean>()
 
-const emailOrPhoneValid = computed(() => {
-  return !!(
-    (form.email && validEmail.value) ||
-    ((phoneMaskdetail.value?.unmasked?.length ?? 0) > 2 && phoneMaskdetail.value?.completed)
-  )
+const emailOrPhoneRequired = computed(() => {
+  const phoneMask = (phoneMaskdetail.value?.unmasked?.length ?? 0) > 3
+  const isValidEmail = form.email && validEmail.value
+
+  return !!(isValidEmail || phoneMask)
 })
 
 const contactTranslator = recordTranslator("contact")
-const phoneMaskOptions: MaskOptions = { mask: "+(##) ###-###-###", eager: true }
-
+const phoneMaskOptions: MaskOptions = { mask: "+(###) ###-##-##-##", eager: true }
 const phoneMask = {
   ...phoneMaskOptions,
   onMaska: (detail: MaskaDetail) => {
-    phoneMaskdetail.value = detail
+    const prefixValues = detail.masked.substring(
+      detail.masked.indexOf("(") + 1,
+      detail.masked.lastIndexOf(")"),
+    )
+    phoneMaskdetail.value = { ...detail, maskValues: `+(${prefixValues}) ` }
   },
 }
 
@@ -31,12 +35,13 @@ const onTargetEmail = (emailEl: HTMLInputElement) => {
 }
 
 const onSubmit = (event: Event) => {
-  console.log("%c [ event onSubmit]-32", "font-size:13px; background:pink; color:#bf2c9f;", event)
-  if (!emailOrPhoneValid.value) {
+  console.log("%c [ event ]-40", "font-size:13px; background:pink; color:#bf2c9f;", event)
+
+  if (!emailOrPhoneRequired.value) {
     console.log(
       "%c [ !emailOrPhoneValid ]-34",
       "font-size:13px; background:pink; color:#bf2c9f;",
-      !emailOrPhoneValid.value,
+      !emailOrPhoneRequired.value,
     )
     return
   }
@@ -51,22 +56,23 @@ const onSubmit = (event: Event) => {
       <div class="contact__form-group">
         <Input v-model="form.name" class="contact--min-md" :label="contactTranslator('fullName')" />
         <div class="contact--max-sm">
-          <!-- emailOrPhoneValid : {{ emailOrPhoneValid }} :required="emailValue"-->
           <Input
             v-model="form.email"
             id="email"
             :type="InputType.EMAIL"
             :label="contactTranslator('email')"
+            :required="!emailOrPhoneRequired"
             @target="onTargetEmail"
           />
           <Input
             v-model="form.phoneNumber"
             v-maska:[phoneMask]
             id="tel"
+            placeholder="+(051) 990-000-000"
+            :label="contactTranslator('phoneNumber')"
             :mask="phoneMaskdetail"
             :type="InputType.TEL"
-            placeholder="+(51) 990-000-000"
-            :label="contactTranslator('phoneNumber')"
+            :required="!emailOrPhoneRequired"
           />
           <TextArea v-model="form.reason" :label="contactTranslator('reason')" />
           <Input

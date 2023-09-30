@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { InputType } from "~/components/building/models"
 import { setCustomValidator } from "./composables"
-import { MaskaDetail } from "maska"
+import { CustomMaskDetails } from "../models"
 
 const props = withDefaults(
   defineProps<{
@@ -10,7 +10,7 @@ const props = withDefaults(
     hasError?: boolean
     id?: string
     label?: string
-    mask?: MaskaDetail
+    mask?: CustomMaskDetails
     min?: number
     placeholder?: string
     readonly?: boolean
@@ -20,7 +20,6 @@ const props = withDefaults(
   {
     label: "",
     min: 0,
-    required: false,
     type: InputType.TEXT,
   },
 )
@@ -32,7 +31,12 @@ const emit = defineEmits<{
 
 const inputValue = ref<string | number>(props.modelValue ?? "")
 
-const hasValue = computed(() => !!inputValue.value && !props.readonly && !props.disabled)
+const hasValue = computed(() => {
+  const hasMask = props.mask?.maskValues
+  const currValue = !hasMask ? inputValue.value : `${inputValue.value}`.replace(hasMask, "")
+
+  return !!currValue && !props.readonly && !props.disabled
+})
 const inputClasses = computed(() => [
   "input-control__input",
   {
@@ -42,16 +46,11 @@ const inputClasses = computed(() => [
 ])
 
 const onClear = () => {
-  // FIXME: default input value has to be assigned from props.mask
-  inputValue.value = ""
-  if (props.type === InputType.TEL) {
-    inputValue.value = "51"
-  }
+  inputValue.value = props.mask?.maskValues ?? ""
   emit("update:modelValue", inputValue.value)
 }
 
 const onInput = (event: Event) => {
-  console.log("%c [ event onInput]-44", "font-size:13px; background:pink; color:#bf2c9f;", event)
   const targetEl = <HTMLInputElement>event.target
   inputValue.value = targetEl.value
 

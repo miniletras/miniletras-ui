@@ -29,7 +29,7 @@
   "messages": {
     "warning": {
       "emailDotCom": "After \"{'@'}\" you should include at least one character, the sign \".\", followed by at least two characters.",
-      "telLength": "The prefix should be with 2 digits and the telephone number with 9"
+      "telLength": "The prefix should be with 3 digits and the telephone number with 9"
     }
   },
   "tags": {

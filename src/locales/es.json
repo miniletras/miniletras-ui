@@ -30,7 +30,7 @@
   "messages": {
     "warning": {
       "emailDotCom": "Después de \"{'@'}\" tienes que incluir al menos un caracter, el signo \".\", seguido de al menos dos caracteres.",
-      "telLength": "El prefijo debería tener 2 dígitos y el número de teléfono 9"
+      "telLength": "El prefijo debería tener 3 dígitos y el número de teléfono 9"
     }
   },
   "tags": {

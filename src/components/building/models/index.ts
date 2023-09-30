@@ -1,6 +1,9 @@
 import { MaskaDetail } from "maska"
+import { Undefinable } from "~/utils/models"
 
-enum InputType {
+export type CustomMaskDetails = MaskaDetail & { maskValues: Undefinable<string> }
+
+export enum InputType {
   CHECKBOX = "checkbox",
   RADIO = "radio",
   NUMBER = "number",
@@ -9,7 +12,7 @@ enum InputType {
   TEL = "tel",
 }
 
-interface CustomValidator {
+export interface CustomValidator {
   type: InputType
   value: string | number
   mask?: MaskaDetail
@@ -20,5 +23,3 @@ interface CustomValidator {
 //   target: T;
 //   currentTarget?: T;
 // }
-
-export { InputType, CustomValidator }
