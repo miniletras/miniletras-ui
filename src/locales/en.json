@@ -3,8 +3,9 @@
     "language": "Languages"
   },
   "contact": {
-    "fullName": "Full name",
     "email": "Email",
+    "fullName": "Full name",
+    "footnote": "Email or phone are mandatory",
     "introduction": "If you would like to contact me, please, fill this form",
     "phoneNumber": "Phone Number",
     "reason": "Reason",

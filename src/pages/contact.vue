@@ -91,6 +91,8 @@ const onSubmit = (event: Event) => {
           <button type="submit" class="border-button">{{ contactTranslator("send") }}</button>
         </div>
       </div>
+      <hr class="grey-line" />
+      <p class="contact__footnote">* {{ contactTranslator("footnote") }}</p>
     </form>
   </div>
 </template>
@@ -110,6 +112,10 @@ const onSubmit = (event: Event) => {
     @media (min-width: $xxs) {
       padding: 0 4.25rem 1rem;
     }
+  }
+  &__footnote {
+    color: $color-gray-2_75;
+    padding: 0.5rem 0.25rem;
   }
   &--min-md,
   &--max-sm {

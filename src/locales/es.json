@@ -7,6 +7,7 @@
   },
   "contact": {
     "email": "Email",
+    "footnote": "El email o el teléfono son obligatorios",
     "fullName": "Nombre completo",
     "introduction": "Si quieres contactar conmigo,\n completa los siguientes datos:",
     "name": "Nombre",
