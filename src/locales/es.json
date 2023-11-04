@@ -15,7 +15,8 @@
     "reason": "Motivo",
     "send": "Enviar",
     "subscribeChild": "¿Quieres inscribir a tu hijo?",
-    "testSession": "¿Quieres una sesión de prueba para tu hijo?"
+    "testSession": "¿Quieres una sesión de prueba para tu hijo?",
+    "miniletrasDescription": "Blog de Cata"
   },
   "latest": {
     "publishedAt": "Publicado el"

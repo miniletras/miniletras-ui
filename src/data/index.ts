@@ -1,5 +1,5 @@
 import { usePaginate, someTag, sortByDate } from "~/utils"
-import type { RelatedArticles, PaginateData } from "~/types"
+import type { RelatedArticles, PaginateData, DataShare } from "~/types"
 
 // Get data frontmatter using function getRoutes from useRouter
 const getDataRoutes = () => {
@@ -29,17 +29,18 @@ export const getItemsByMenu = (menuItem: string, limit?: number) => {
     .filter((data) => Object.keys(data.meta).length)
     .filter((data) => someTag(data, menuItem))
     .slice(0, limit)
-  const sortedByDate = sortByDate(tagPosts);
-  const important = sortedByDate.find(post => {
+  const sortedByDate = sortByDate(tagPosts)
+  const important =
+    sortedByDate.find((post) => {
+      const tags = post.meta.frontmatter.tags
+      return tags.includes("important")
+    }) ?? {}
+  const noImportant = sortedByDate.filter((post) => {
     const tags = post.meta.frontmatter.tags
-    return tags.includes('important')
-  }) ?? {}
-  const noImportant = sortedByDate.filter(post => {
-    const tags = post.meta.frontmatter.tags
-    return !tags.includes('important')
+    return !tags.includes("important")
   })
 
-  return [important, ...noImportant];
+  return [important, ...noImportant]
 }
 
 // Get the latest important by tag
@@ -109,4 +110,46 @@ export const paginateData = ({ articles, currentPage, pageSize }: PaginateData) 
     endPage,
     listArticles,
   }
+}
+
+export const dataShare = (
+  url: string,
+  { name: title, description }: Record<string, any>,
+): DataShare[] => {
+  console.log("%c[index.ts url]- 116", "color: blue; background: pink; font-size: 14px", url)
+  return [
+    {
+      icon: "facebook",
+      network: "facebook",
+      name: "Facebook",
+      url: url,
+      title,
+      description,
+      hashtags: "test",
+    },
+    {
+      icon: "twitter",
+      network: "twitter",
+      name: "Twitter",
+      url: url,
+      title,
+      hashtags: "test",
+    },
+    {
+      icon: "whatsapp",
+      network: "whatsapp",
+      name: "Whatsapp",
+      url: url,
+      description,
+      title,
+    },
+    {
+      icon: "telegram",
+      network: "telegram",
+      name: "Telegram",
+      url: url,
+      description,
+      title,
+    },
+  ]
 }

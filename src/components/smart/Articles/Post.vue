@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { isClient } from "@vueuse/core"
-import { getRelatedArticles } from "~/data"
+import { getRelatedArticles, dataShare } from "~/data"
 import { slug, limitString } from "~/utils"
-import type { DataShare } from "~/types"
 
-const { frontmatter } = defineProps<{ frontmatter: any }>()
+const { frontmatter } = defineProps<{ frontmatter: Record<string, any> }>()
 
 const relatedArticles = computed(() => {
   return getRelatedArticles({
@@ -20,41 +19,6 @@ let url: string = ""
 if (typeof window !== "undefined") {
   url = window.location.origin + routes
 }
-const dataShare: DataShare[] = [
-  {
-    icon: "facebook",
-    network: "facebook",
-    name: "Facebook",
-    url: url,
-    title: frontmatter.name,
-    description: frontmatter.description,
-    hashtags: "test",
-  },
-  {
-    icon: "twitter",
-    network: "twitter",
-    name: "Twitter",
-    url: url,
-    title: frontmatter.name,
-    hashtags: "test",
-  },
-  {
-    icon: "whatsapp",
-    network: "whatsapp",
-    name: "Whatsapp",
-    url: url,
-    description: frontmatter.description,
-    title: frontmatter.name,
-  },
-  {
-    icon: "telegram",
-    network: "telegram",
-    name: "Telegram",
-    url: url,
-    description: frontmatter.description,
-    title: frontmatter.name,
-  },
-]
 
 /* 
   Inspired by https://github.com/antfu/antfu.me/blob/HEAD/src/components/Post.vue
@@ -120,7 +84,7 @@ if (isClient) {
     </h2>
     <div class="share">
       <Share
-        v-for="(share, i) in dataShare"
+        v-for="(share, i) in dataShare(url, frontmatter)"
         :key="i"
         :icon="share.icon"
         :name="share.name"
@@ -160,8 +124,3 @@ if (isClient) {
     </div>
   </div>
 </template>
-<style lang="scss" scoped>
-.share {
-  @include flex-center($justify-content: "center", $column-gap: "0.5rem");
-}
-</style>

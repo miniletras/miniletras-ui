@@ -12,3 +12,15 @@
 .flex-center {
   @include flex-center($justify-content: "center");
 }
+.share {
+  @include flex-center(
+    $justify-content: "center",
+    $gap: "0.5rem",
+  );
+  a {
+    width: 100%;
+  }
+}
+.share__contact a {
+  width: 100%;
+}

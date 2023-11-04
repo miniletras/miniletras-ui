@@ -11,7 +11,8 @@
     "reason": "Reason",
     "send": "Send",
     "subscribeChild": "Do you want subcribe your child?",
-    "testSession": "Do you want a test session for your child?"
+    "testSession": "Do you want a test session for your child?",
+    "miniletrasDescription": "Cata's Blog"
   },
   "clubs": {
     "monthClub": "Month club"

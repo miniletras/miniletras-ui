@@ -4,11 +4,18 @@ import { MaskOptions, vMaska, MaskaDetail } from "maska"
 import { ContactForm } from "~/types"
 import { InputType } from "~/components/building/models"
 import { Undefinable } from "~/utils/models"
+import { dataShare } from "~/data"
 
 const phoneMaskdetail = ref<MaskaDetail & { maskValues: Undefinable<string> }>()
 const form = reactive<ContactForm>({ phoneNumber: "051" })
 
 const validEmail = ref<boolean>()
+
+const { fullPath } = useRoute()
+const url = ref("")
+if (typeof window !== "undefined") {
+  url.value = `${window.location.origin}${fullPath}`
+}
 
 const emailOrPhoneRequired = computed(() => {
   const phoneMask = (phoneMaskdetail.value?.unmasked?.length ?? 0) > 3
@@ -54,6 +61,25 @@ const onSubmit = (event: Event) => {
       <hr class="green-line" />
       <h2 class="h post__h2 text-center">{{ contactTranslator("introduction") }}</h2>
       <div class="contact__form-group">
+        <div class="share__contact">
+          <Share
+            v-for="(share, i) in dataShare(url, {
+              name: 'MiniLetras',
+              description: contactTranslator('miniletrasDescription'),
+            })"
+            :key="i"
+            :icon="share.icon"
+            :name="share.name"
+            :network="share.network"
+            :url="share.url"
+            :title="share.title"
+            :description="share.description"
+            :quote="share.quote"
+            :hashtags="share.hashtags"
+            :twitter-user="share.twitterUser"
+            :media="share.media"
+          />
+        </div>
         <Input v-model="form.name" class="contact--min-md" :label="contactTranslator('fullName')" />
         <div class="contact--max-sm">
           <Input
@@ -158,5 +184,8 @@ const onSubmit = (event: Event) => {
   background-color: $color-green-1;
   border-radius: $border-radius-m $border-radius-m 0 0;
   height: 10px;
+}
+.share__contact {
+  @include grid($gap: "0.5rem");
 }
 </style>

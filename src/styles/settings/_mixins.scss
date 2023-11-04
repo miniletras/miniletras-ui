@@ -25,11 +25,11 @@
 }
 
 @mixin flex-center(
-  $flex-wrap: unquote(""),
+  $flex-wrap: wrap,
   $justify-content: unquote(""),
   $gap: "",
   $row-gap: "",
-  $column-gap: ""
+  $column-gap: "",
 ) {
   display: flex;
   align-items: center;
