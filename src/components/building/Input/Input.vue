@@ -84,6 +84,7 @@ const onSubmit = () => {
         :class="inputClasses"
         :disabled="disabled"
         :id="id"
+        :name="id"
         :min="min"
         :mask="mask"
         :placeholder="placeholder"

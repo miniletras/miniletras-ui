@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { recordTranslator } from "~/main"
-import { MaskOptions, vMaska, MaskaDetail } from "maska"
+import { MaskOptions, MaskaDetail, vMaska } from "maska"
 import { ContactForm } from "~/types"
 import { InputType } from "~/components/building/models"
 import { Undefinable } from "~/utils/models"
@@ -51,7 +51,12 @@ const onSubmit = (event: Event) => {
 <hr class="green-line" />
 <template>
   <div class="contact">
-    <form class="contact__form dark__bg--negative" @submit.prevent="onSubmit">
+    <form
+      action="/contact-form.php"
+      class="contact__form dark__bg--negative"
+      method="POST"
+      @submit.prevent="onSubmit"
+    >
       <hr class="green-line" />
       <h2 class="h post__h2 text-center">{{ contactTranslator("introduction") }}</h2>
       <div class="contact__form-group">
@@ -74,7 +79,12 @@ const onSubmit = (event: Event) => {
             :media="share.media"
           /> -->
         </div>
-        <Input v-model="form.name" class="contact--min-md" :label="contactTranslator('fullName')" />
+        <Input
+          v-model="form.name"
+          class="contact--min-md"
+          id="name"
+          :label="contactTranslator('fullName')"
+        />
         <div class="contact--max-sm">
           <Input
             v-model="form.email"
@@ -87,28 +97,30 @@ const onSubmit = (event: Event) => {
           <Input
             v-model="form.phoneNumber"
             v-maska:[phoneMask]
-            id="tel"
+            id="phoneNumber"
             placeholder="+(051) 990-000-000"
             :label="contactTranslator('phoneNumber')"
             :mask="phoneMaskdetail"
             :type="InputType.TEL"
             :required="!emailOrPhoneRequired"
           />
-          <TextArea v-model="form.reason" :label="contactTranslator('reason')" />
+          <TextArea v-model="form.reason" id="reason" :label="contactTranslator('reason')" />
           <Input
             v-model="form.subscribeChild"
+            id="subscribeChild"
             :label="contactTranslator('subscribeChild')"
             :placeholder="contactTranslator('name')"
           />
           <CheckButton
-            class="mt-[0.5rem]"
             v-model="form.testSession"
+            id="testSession"
+            class="mt-[0.5rem]"
             :label="contactTranslator('testSession')"
             :disabled="!form.subscribeChild"
           />
         </div>
         <div class="button-right">
-          <button type="submit" class="border-button">{{ contactTranslator("send") }}</button>
+          <input type="submit" class="border-button" :value="contactTranslator('send')" />
         </div>
       </div>
       <hr class="grey-line" />

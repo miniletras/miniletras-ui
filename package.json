@@ -33,7 +33,7 @@
     "vue-i18n": "^9.2.2",
     "vue-router": "^4.0.13",
     "vue-social-sharing": "^4.0.0-alpha4",
-    "workbox-window": "^6.5.0"
+    "workbox-window": "^6.6.0"
   },
   "devDependencies": {
     "@iconify/json": "^1.1.461",
@@ -43,7 +43,7 @@
     "@types/node": "^15.14.9",
     "@types/nprogress": "^0.2.0",
     "@vitejs/plugin-vue": "^1.10.2",
-    "@vue/compiler-sfc": "^3.2.31",
+    "@vue/compiler-sfc": "^3.3.8",
     "@vue/server-renderer": "^3.2.31",
     "cross-env": "^7.0.3",
     "gray-matter": "^4.0.3",
@@ -62,7 +62,7 @@
     "unplugin-auto-import": "^0.4.20",
     "unplugin-icons": "^0.12.23",
     "unplugin-vue-components": "^0.14.13",
-    "vite": "^2.8.6",
+    "vite": "^2.9.16",
     "vite-plugin-md": "^0.6.7",
     "vite-plugin-pages": "^0.12.2",
     "vite-plugin-purge-icons": "^0.7.0",

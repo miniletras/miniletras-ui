@@ -170,4 +170,18 @@ export default defineConfig({
       "~/": `${resolve(__dirname, "src")}/`,
     },
   },
+  /* build: {
+    rollupOptions: {
+      ...(process.env.VITE_SSG ? { treeshake: false } : {}),
+      output: {
+        ...(process.env.VITE_SSG
+          ? {
+              footer:
+                "if (typeof createApp !== 'undefined') module.exports = { createApp }",
+            }
+          : {}),
+      },
+    },
+  },
+  ssgOptions: { formatting: "minify" }, */
 })

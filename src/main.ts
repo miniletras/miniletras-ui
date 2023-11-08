@@ -7,6 +7,7 @@ import "@purge-icons/generated"
 import { createI18n } from "vue-i18n"
 import * as es from "./locales/es.json"
 import * as en from "./locales/en.json"
+import { vMaska } from "maska"
 
 // https://next.router.vuejs.org/guide/advanced/scroll-behavior.html#scroll-behavior
 const scrollBehavior: RouterScrollBehavior = (to, from, savedPosition) => {
@@ -14,8 +15,10 @@ const scrollBehavior: RouterScrollBehavior = (to, from, savedPosition) => {
   else return { top: 0, behavior: "smooth" }
 }
 
+// App.directive("maska", vMaska)
+
 // https://github.com/antfu/vite-ssg
-const createViteSSGApp = ViteSSG(App, { routes, scrollBehavior }, (ctx) => {
+const createApp = ViteSSG(App, { routes, scrollBehavior }, (ctx) => {
   Object.values(import.meta.globEager("./module/*.ts")).map((i) => i.install?.(ctx))
 })
 
@@ -31,4 +34,4 @@ const recordTranslator = (value: string) => (record: string) => {
   return t(`${value}.${record}`)
 }
 
-export { createViteSSGApp, i18n, t, recordTranslator }
+export { createApp, i18n, t, recordTranslator }

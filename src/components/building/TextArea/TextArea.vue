@@ -52,6 +52,7 @@ const onSubmit = () => {
     <textarea
       :value="inputValue"
       :id="id"
+      :name="id"
       :rows="rows"
       :cols="cols"
       :class="inputClasses"

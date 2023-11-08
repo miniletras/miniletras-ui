@@ -42,6 +42,7 @@ const onInput = (event: Event) => {
         :checked="checked"
         :disabled="disabled"
         :id="id"
+        :name="id"
         :type="type"
         :value="modelValue"
         @input="onInput"
