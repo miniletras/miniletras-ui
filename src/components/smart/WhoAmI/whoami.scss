@@ -89,6 +89,13 @@
       min-width: 30rem;
     }
   }
+  &__name {
+    border-radius: $border-radius-m $border-radius-m 0 0;
+    padding-top: 0.5rem;
+    @media (min-width: $xs) {
+      padding-top: 2rem;
+    }
+  }
   &__slash {
     background-color: $color-purple-2;
     width: 0.3rem;
@@ -107,6 +114,13 @@
   &__biopic {
     text-align: justify;
     font-size: 1em;
+  }
+  &__experience {
+    @include flex($gap: "0.5rem");
+    padding-bottom: 1.5rem;
+    @media (min-width: $xs) {
+      margin-top: 1.5rem;
+    }
   }
 }
 

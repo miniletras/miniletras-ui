@@ -40,6 +40,7 @@ const props = defineProps<{
 </template>
 <style lang="scss" scoped>
 .border-button {
+  @include flex-center($justify-content: "center");
   border-width: 1px;
   border-color: rgba(154, 214, 207, var(--tw-border-opacity));
   --tw-border-opacity: 0.6;

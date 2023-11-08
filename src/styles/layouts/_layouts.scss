@@ -1,5 +1,6 @@
 @use "../settings/mixins" as *;
 @use "../settings/variables" as *;
+@use "../settings/themes" as *;
 
 @for $n from 1 through 6 {
   .col-#{$n} {
@@ -13,10 +14,11 @@
   @include flex-center($justify-content: "center");
 }
 .share {
-  @include flex-center(
-    $justify-content: "center",
-    $gap: "0.5rem",
-  );
+  flex-wrap: wrap;
+  @include flex-center($justify-content: "center", $gap: "0.5rem");
+  @media (min-width: 570px) {
+    flex-wrap: unset;
+  }
   a {
     width: 100%;
   }

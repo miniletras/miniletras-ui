@@ -43,13 +43,7 @@ const onTargetEmail = (emailEl: HTMLInputElement) => {
 
 const onSubmit = (event: Event) => {
   console.log("%c [ event ]-40", "font-size:13px; background:pink; color:#bf2c9f;", event)
-
   if (!emailOrPhoneRequired.value) {
-    console.log(
-      "%c [ !emailOrPhoneValid ]-34",
-      "font-size:13px; background:pink; color:#bf2c9f;",
-      !emailOrPhoneRequired.value,
-    )
     return
   }
 }
@@ -57,12 +51,12 @@ const onSubmit = (event: Event) => {
 <hr class="green-line" />
 <template>
   <div class="contact">
-    <form class="contact__form" @submit.prevent="onSubmit">
+    <form class="contact__form dark__bg--negative" @submit.prevent="onSubmit">
       <hr class="green-line" />
       <h2 class="h post__h2 text-center">{{ contactTranslator("introduction") }}</h2>
       <div class="contact__form-group">
         <div class="share__contact">
-          <Share
+          <!-- <Share
             v-for="(share, i) in dataShare(url, {
               name: 'MiniLetras',
               description: contactTranslator('miniletrasDescription'),
@@ -78,7 +72,7 @@ const onSubmit = (event: Event) => {
             :hashtags="share.hashtags"
             :twitter-user="share.twitterUser"
             :media="share.media"
-          />
+          /> -->
         </div>
         <Input v-model="form.name" class="contact--min-md" :label="contactTranslator('fullName')" />
         <div class="contact--max-sm">
@@ -123,6 +117,11 @@ const onSubmit = (event: Event) => {
   </div>
 </template>
 <style lang="scss" scoped>
+html.dark {
+  .contact .post__h2 {
+    color: $color-gray-2;
+  }
+}
 .contact {
   @include grid-center;
   @media (min-width: $sm) {
@@ -184,6 +183,7 @@ const onSubmit = (event: Event) => {
   background-color: $color-green-1;
   border-radius: $border-radius-m $border-radius-m 0 0;
   height: 10px;
+  border-top: 1px;
 }
 .share__contact {
   @include grid($gap: "0.5rem");

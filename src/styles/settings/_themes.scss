@@ -1,0 +1,12 @@
+@use "./variables" as *;
+
+html.dark .dark {
+  &__bg {
+    &--negative {
+      background-color: $color-gray-0;
+    }
+    &--pink {
+      background-color: $color-pink-1;
+    }
+  }
+}

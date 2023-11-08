@@ -127,7 +127,7 @@ const experiences = [expOne, expTwo, expThree]
       </div>
     </div>
     <div class="grid-center">
-      <div class="whoami__name">
+      <div class="whoami__name dark__bg--pink">
         <div class="personal-name">
           <figure class="personal-name__figure"></figure>
           <figure class="personal-name__surname"></figure>
@@ -135,7 +135,7 @@ const experiences = [expOne, expTwo, expThree]
         <div class="whoami__body">
           <p class="whoami__biopic">{{ t("whoami.biopic") }}</p>
           <p class="whoami__biopic">{{ t("whoami.biopicTwo") }}</p>
-          <div class="flex-gap mt-6">
+          <div class="whoami__experience flex-gap">
             <CircleBlockBase />
             <ULBase
               :base-lists="experiences"
