@@ -18,6 +18,11 @@
     "subscribeChild": "¿Quieres inscribir a tu hijo?",
     "testSession": "¿Quieres una sesión de prueba para tu hijo?"
   },
+  "home": {
+    "latest": "Posts recientes",
+    "latestArticle": "Último artículo",
+    "seeAll": "Ver todos"
+  },
   "latest": {
     "publishedAt": "Publicado el"
   },
@@ -41,13 +46,14 @@
     "shareArticle": "Comparte este artículo"
   },
   "tags": {
-    "club": "clubs",
-    "important": "destacado",
-    "new": "novedad",
-    "news": "novedades",
-    "post": "post",
-    "training": "proyectos",
-    "workshop": "talleres"
+    "articleTag": "Artículos con la etiqueta",
+    "club": "Clubs",
+    "important": "Destacado",
+    "new": "Novedad",
+    "news": "Novedades",
+    "post": "Post",
+    "training": "Proyectos",
+    "workshop": "Talleres"
   },
   "trainings": {
     "monthTraining": "Proyecto del mes"

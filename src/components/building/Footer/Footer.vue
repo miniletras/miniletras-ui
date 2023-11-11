@@ -1,7 +1,6 @@
 <template>
   <footer class="footer">
-    <p class="text-center">&copy; {{ new Date().getFullYear() }} Elucidator Blog Starter</p>
-    <p class="text-center">Built with Vue 3 + Typescript + Vite</p>
+    <p class="text-center">&copy; {{ new Date().getFullYear() }} MiniLetras Blog</p>
   </footer>
 </template>
 <style scoped lang="scss">

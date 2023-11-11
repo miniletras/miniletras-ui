@@ -89,3 +89,10 @@ export interface MetaArticles {
   enterCallbacks: Instances
   components: Instances
 }
+
+export interface PaginateList {
+  startPage: number
+  mid: any[]
+  endPage: number
+  listArticles: MetaArticles[] | []
+}

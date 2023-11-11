@@ -1,21 +1,24 @@
 <script setup lang="ts">
 import { latestArticle, getArticles } from "~/data"
 import { limitString, slug } from "~/utils"
+import { i18n } from "~/main"
+
+const { t } = i18n.global
 
 // Get latest article
 const latest = computed(() => {
-  return latestArticle() as Record<string, any>
+  return latestArticle()
 })
 
 // Get articles data
 const articles = computed(() => {
-  return getArticles(6) as Record<string, any>[]
+  return getArticles(6)
 })
 </script>
 
 <template>
   <div class="inline-grid px-4 lg:px-0">
-    <h1 class="post__h1">Latest Article</h1>
+    <h1 class="post__h1">{{ t("home.latestArticle") }}</h1>
     <Latest
       :image="latest.thumbnail"
       :alt="`blog-banner-${slug(latest.name)}`"
@@ -29,11 +32,13 @@ const articles = computed(() => {
   </div>
   <div class="flex flex-col flex-wrap mb-2 mt-12 px-4 lg:px-0">
     <div class="grid inline-grid grid-cols-2 mb-5">
-      <h1 class="text-3xl font-bold text-elucidator-700 dark:text-dark-repulser-400">All post</h1>
+      <h1 class="text-3xl font-bold text-elucidator-700 dark:text-dark-repulser-400">
+        {{ t("home.latest") }}
+      </h1>
       <router-link
         to="/articles"
         class="cursor-pointer text-right my-auto text-elucidator-700 dark:text-dark-repulser-400"
-        >See all</router-link
+        >{{ t("home.seeAll") }}</router-link
       >
     </div>
     <div

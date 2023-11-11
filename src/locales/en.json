@@ -11,11 +11,17 @@
     "fullName": "Full name",
     "introduction": "If you would like to contact me, please, fill this form",
     "miniletrasDescription": "Cata's Blog",
+    "name": "Name",
     "phoneNumber": "Phone Number",
     "reason": "Reason",
     "send": "Send",
     "subscribeChild": "Do you want subcribe your child?",
     "testSession": "Do you want a test session for your child?"
+  },
+  "home": {
+    "latest": "latest posts",
+    "latestArticle": "Latest Article",
+    "seeAll": "See all"
   },
   "latest": {
     "publishedAt": "Published at"
@@ -40,13 +46,14 @@
     "shareArticle": "Share this article"
   },
   "tags": {
-    "club": "clubs",
-    "important": "important",
-    "new": "new",
-    "news": "news",
-    "post": "post",
-    "training": "trainings",
-    "workshop": "workshops"
+    "articleTag": "Article with tag",
+    "club": "Clubs",
+    "important": "Important",
+    "new": "New",
+    "news": "News",
+    "post": "Post",
+    "training": "Trainings",
+    "workshop": "Workshops"
   },
   "trainings": {
     "monthTraining": "Month training"

@@ -10,7 +10,7 @@ const dateTypes = {
   },
   short: {
     year: "numeric",
-    month: "short",
+    month: "long",
     day: "numeric",
   },
 }
@@ -24,7 +24,9 @@ const dateOptions = (dateOption?: DateOption): DateTimeFormatOptions => {
 }
 
 const dateToIntString = (date: string, option?: DateOption) => {
-  return new Intl.DateTimeFormat("default", dateOptions(option)).format(new Date(date))
+  // TODO: set browser language or combo selected
+  const setDate = new Intl.DateTimeFormat("es-ES", dateOptions(option)).format(new Date(date))
+  return setDate
 }
 
 export { dateToIntString }

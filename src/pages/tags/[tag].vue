@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import { getArticlesTags, getParams, paginateData } from "~/data"
 import { slug, limitString } from "~/utils"
+import { i18n } from "~/main"
 
-const paramsTag: any = getParams("tag")
+const { t } = i18n.global
 
 // Get tags paginate data
 const currentPage = ref<number>(1)
-const tags = getArticlesTags([paramsTag])
+
+const paramsTag = getParams("tag")
+const tags = getArticlesTags([`${paramsTag}`])
 const dataTags = computed(() => {
   const paginate = paginateData({
     articles: tags,
@@ -32,7 +35,7 @@ const clickEndPage = () => {
 <template>
   <div class="flex flex-col flex-wrap mb-2 px-4 lg:px-0">
     <h1 class="text-3xl text-elucidator-700 dark:text-dark-repulser-400 font-bold">
-      Article with tags {{ paramsTag }} ({{ tags.length }})
+      {{ t("tags.articleTag") }}: {{ t(`tags.${paramsTag}`) }} ({{ tags.length }})
     </h1>
     <div class="flex flex-col flex-wrap mb-2">
       <div

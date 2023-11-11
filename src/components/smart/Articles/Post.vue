@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { isClient } from "@vueuse/core"
 import { getRelatedArticles, dataShare } from "~/data"
-import { slug, limitString } from "~/utils"
+import { slug, limitString, dateToIntString, capitalizeStr } from "~/utils"
 import { i18n } from "~/main"
 
 const { frontmatter } = defineProps<{ frontmatter: Record<string, any> }>()
@@ -61,7 +61,7 @@ if (isClient) {
     <div class="flex flex-row flex-wrap justify-center">
       <carbon-calendar class="mr-1 mt-2px dark:text-elucidator-50" />
       <p class="text-center text-dark-100 font-light mb-5 dark:text-elucidator-50">
-        {{ new Date(frontmatter.date).toDateString() }}
+        {{ capitalizeStr(dateToIntString(frontmatter.date)) }}
       </p>
     </div>
     <Tag :tags="frontmatter.tags" class="mb-5 flex flex-row justify-center" />
