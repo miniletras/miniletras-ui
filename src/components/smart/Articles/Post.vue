@@ -2,6 +2,7 @@
 import { isClient } from "@vueuse/core"
 import { getRelatedArticles, dataShare } from "~/data"
 import { slug, limitString } from "~/utils"
+import { i18n } from "~/main"
 
 const { frontmatter } = defineProps<{ frontmatter: Record<string, any> }>()
 
@@ -14,6 +15,8 @@ const relatedArticles = computed(() => {
 })
 
 const router = useRoute()
+const { t } = i18n.global
+
 const routes = router.fullPath
 let url: string = ""
 if (typeof window !== "undefined") {
@@ -41,9 +44,6 @@ if (isClient) {
         navigate()
       })
     })
-
-    navigate()
-    setTimeout(navigate, 500)
   })
 }
 </script>
@@ -80,7 +80,7 @@ if (isClient) {
     <h2
       class="text-center text-3xl font-bold text-elucidator-700 dark:text-dark-repulser-400 mt-5 mb-4"
     >
-      Share this article
+      {{ t("post.shareArticle") }}
     </h2>
     <div class="share">
       <Share
@@ -101,20 +101,20 @@ if (isClient) {
     <div class="mt-5 mb-5"></div>
     <div class="flex flex-wrap flex-col px-4 lg:px-0">
       <h1 class="mb-5 mt-8 text-3xl text-elucidator-700 dark:text-dark-repulser-400 font-bold">
-        Related Articles
+        {{ t("post.relatedArticles") }}
       </h1>
       <div class="mx-auto grid inline-grid gap-4 mb-5 lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2">
         <Article
           v-for="(data, i) in relatedArticles"
           :key="i"
-          :image="(data as Record<string, any>).meta.frontmatter.thumbnail"
-          :alt="`blog-banner-${slug((data as Record<string, any>).meta.frontmatter.name)}`"
-          :tags="(data as Record<string, any>).meta.frontmatter.tags"
-          :date="`${new Date((data as Record<string, any>).meta.frontmatter.date).toDateString()}`"
-          :title="(data as Record<string, any>).meta.frontmatter.name"
+          :image="data.meta.frontmatter.thumbnail"
+          :alt="`blog-banner-${slug(data.meta.frontmatter.name)}`"
+          :tags="data.meta.frontmatter.tags"
+          :date="`${new Date(data.meta.frontmatter.date).toDateString()}`"
+          :title="data.meta.frontmatter.name"
           :to="data.path"
-          :description="limitString((data as Record<string, any>).meta.frontmatter.description, 200)"
-          :to-tags="`/tags/${(data as Record<string, any>).meta.frontmatter.tags}`"
+          :description="limitString(data.meta.frontmatter.description, 200)"
+          :to-tags="`/tags/${data.meta.frontmatter.tags}`"
         />
       </div>
     </div>

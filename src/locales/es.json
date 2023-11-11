@@ -1,39 +1,44 @@
 {
-  "common": {
-    "languages": "idiomas"
-  },
   "clubs": {
     "monthClub": "Club del mes"
+  },
+  "common": {
+    "languages": "idiomas"
   },
   "contact": {
     "email": "Email",
     "footnote": "El email o el teléfono son obligatorios",
     "fullName": "Nombre completo",
     "introduction": "Si quieres contactar conmigo,\n completa los siguientes datos:",
+    "miniletrasDescription": "Blog de Cata",
     "name": "Nombre",
     "phoneNumber": "Teléfono",
     "reason": "Motivo",
     "send": "Enviar",
     "subscribeChild": "¿Quieres inscribir a tu hijo?",
-    "testSession": "¿Quieres una sesión de prueba para tu hijo?",
-    "miniletrasDescription": "Blog de Cata"
+    "testSession": "¿Quieres una sesión de prueba para tu hijo?"
   },
   "latest": {
     "publishedAt": "Publicado el"
   },
   "menu": {
-    "home": "Inicio",
     "childrenClubs": "Clubs",
-    "workshops": "Talleres",
+    "contact": "Contacto",
+    "defaultSearch": "Búsqueda de artículos...",
+    "home": "Inicio",
     "trainingAndProjects": "Proyectos",
     "whoAmI": "Quién soy",
-    "contact": "Contacto"
+    "workshops": "Talleres"
   },
   "messages": {
     "warning": {
       "emailDotCom": "Después de \"{'@'}\" tienes que incluir al menos un caracter, el signo \".\", seguido de al menos dos caracteres.",
       "telLength": "El prefijo debería tener 3 dígitos y el número de teléfono 9"
     }
+  },
+  "post": {
+    "relatedArticles": "Artículos relacionados",
+    "shareArticle": "Comparte este artículo"
   },
   "tags": {
     "club": "clubs",
@@ -47,9 +52,6 @@
   "trainings": {
     "monthTraining": "Proyecto del mes"
   },
-  "workshops": {
-    "monthWorkshop": "Taller del mes"
-  },
   "whoami": {
     "biopic": "Especializada en literatura infantil y juvenil he colaborado en intervenido en diferentes proyectos de edición y corrección tanto en Lima, Perú como en Madrid, España.",
     "biopicTwo": "Actualmente trabajo de forma independiente para algunas editoriales dirigidas al público infantil, además de mantener mi actividad en la mediación de la lectura.",
@@ -59,5 +61,8 @@
     "occupationSubtitle": "Correctora de estilos",
     "skills": "Especialidades",
     "training": "Formación"
+  },
+  "workshops": {
+    "monthWorkshop": "Taller del mes"
   }
 }

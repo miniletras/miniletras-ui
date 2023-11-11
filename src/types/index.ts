@@ -51,3 +51,41 @@ export interface ContactForm {
   subscribeChild?: string
   testSession?: boolean
 }
+
+interface Instances {}
+
+interface Props {
+  default: boolean
+}
+
+interface Meta2 {
+  frontmatter: Frontmatter
+}
+
+interface Frontmatter {
+  name: string
+  thumbnail: string
+  date: string
+  description: string
+  tags: string[]
+  meta?: Meta[]
+}
+
+interface Meta {
+  property?: string
+  content: string
+  name?: string
+}
+
+export interface MetaArticles {
+  path: string
+  name: string
+  meta: Meta2
+  props: Props
+  children: any[]
+  instances: Instances
+  leaveGuards: Instances
+  updateGuards: Instances
+  enterCallbacks: Instances
+  components: Instances
+}

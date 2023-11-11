@@ -1,38 +1,43 @@
 {
+  "clubs": {
+    "monthClub": "Month club"
+  },
   "common": {
     "language": "Languages"
   },
   "contact": {
     "email": "Email",
-    "fullName": "Full name",
     "footnote": "Email or phone are mandatory",
+    "fullName": "Full name",
     "introduction": "If you would like to contact me, please, fill this form",
+    "miniletrasDescription": "Cata's Blog",
     "phoneNumber": "Phone Number",
     "reason": "Reason",
     "send": "Send",
     "subscribeChild": "Do you want subcribe your child?",
-    "testSession": "Do you want a test session for your child?",
-    "miniletrasDescription": "Cata's Blog"
-  },
-  "clubs": {
-    "monthClub": "Month club"
+    "testSession": "Do you want a test session for your child?"
   },
   "latest": {
     "publishedAt": "Published at"
   },
   "menu": {
-    "home": "Home",
     "childrenClubs": "Clubs",
-    "workshops": "Workshops",
+    "contact": "Contact",
+    "defaultSearch": "Search articles...",
+    "home": "Home",
     "trainingAndProjects": "Projects",
     "whoAmI": "Who am I",
-    "contact": "Contact"
+    "workshops": "Workshops"
   },
   "messages": {
     "warning": {
       "emailDotCom": "After \"{'@'}\" you should include at least one character, the sign \".\", followed by at least two characters.",
       "telLength": "The prefix should be with 3 digits and the telephone number with 9"
     }
+  },
+  "post": {
+    "relatedArticles": "Artículos relacionados",
+    "shareArticle": "Share this article"
   },
   "tags": {
     "club": "clubs",
@@ -46,9 +51,6 @@
   "trainings": {
     "monthTraining": "Month training"
   },
-  "workshops": {
-    "monthWorkshop": "Month workshop"
-  },
   "whoami": {
     "biopic": "Specializing in children's and young adult literature, I have collaborated in different editing and proofreading projects both in Lima, Peru and in Madrid, Spain. I am currently working independently for some publishing houses aimed at children.",
     "biopicTwo": "In addition I'm maintaining my activity in the mediation of reading.",
@@ -58,5 +60,8 @@
     "occupationSubtitle": "Proofreader",
     "skills": "Skills",
     "training": "Training"
+  },
+  "workshops": {
+    "monthWorkshop": "Month workshop"
   }
 }

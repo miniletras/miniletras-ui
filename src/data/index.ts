@@ -1,5 +1,5 @@
 import { usePaginate, someTag, sortByDate } from "~/utils"
-import type { RelatedArticles, PaginateData, DataShare } from "~/types"
+import type { RelatedArticles, PaginateData, DataShare, MetaArticles } from "~/types"
 
 // Get data frontmatter using function getRoutes from useRouter
 const getDataRoutes = () => {
@@ -87,7 +87,8 @@ export const getRelatedArticles = ({ limit, tags, name }: RelatedArticles) => {
   const filter = isPosts.filter((tag: Record<string, any>) =>
     tags.some((filter) => tag.meta.frontmatter.tags.includes(filter)),
   )
-  return filter
+
+  return filter as MetaArticles[] | []
 }
 
 // Filter paginate data
@@ -104,6 +105,7 @@ export const paginateData = ({ articles, currentPage, pageSize }: PaginateData) 
   const mid = Array(prev, currentPage, next).filter((value) => value > startPage && value < endPage)
 
   const listArticles = getArticles.slice(startIndex, endIndex + 1)
+
   return {
     startPage,
     mid,

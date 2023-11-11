@@ -11,7 +11,7 @@ import * as en from "./locales/en.json"
 // https://next.router.vuejs.org/guide/advanced/scroll-behavior.html#scroll-behavior
 const scrollBehavior: RouterScrollBehavior = (to, from, savedPosition) => {
   if (savedPosition) return savedPosition
-  else return { top: 0, behavior: "smooth" }
+  return { top: 0, behavior: "smooth" }
 }
 
 // https://github.com/antfu/vite-ssg

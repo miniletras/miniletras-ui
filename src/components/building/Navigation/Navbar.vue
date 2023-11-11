@@ -97,23 +97,23 @@ const dataNavbar: NavbarMenu[] = [
         >
         <carbon-sun
           v-if="isDark"
-          class="mr-5 cursor-pointer text-elucidator-700 dark:text-dark-repulser-400"
+          class="menu-icon"
           tabindex="0"
           @click="toggleDark"
           title="Toggle light mode"
         />
         <carbon-moon
           v-else
-          class="mr-5 cursor-pointer text-elucidator-700 dark:text-dark-repulser-400"
+          class="menu-icon"
           tabindex="0"
           @click="toggleDark"
           title="Toggle dark mode"
         />
         <carbon-search
-          class="mr-5 cursor-pointer text-elucidator-700 dark:text-dark-repulser-400"
+          class="menu-icon"
           tabindex="0"
+          :title="t('menu.defaultSearch')"
           @click="setSearch"
-          title="Search articles.."
         />
         <a
           href="https://github.com/satyawikananda/elucidator-blog-starter"
@@ -136,7 +136,7 @@ const dataNavbar: NavbarMenu[] = [
   <nav
     v-if="open"
     ref="navbottom"
-    class="py-4 px-8 bg-elucidator-100 dark:bg-elucidator-600 fixed bottom-0 z-99 inset-x-0 rounded-t-lg shadow-lg overflow-x-hidden overflow-y-hidden lg:hidden"
+    class="nav-bottom"
     :class="open ? 'block translate-y-0' : 'hidden translate-y-full'"
   >
     <ul class="flex flex-col">
@@ -147,7 +147,7 @@ const dataNavbar: NavbarMenu[] = [
         :to="data.to"
       >
         <li class="flex flex-row flex-wrap items-center dark:text-elucidator-100">
-          <carbon-home class="mr-2" />{{ data.name }}
+          <carbon-menu class="mr-2" />{{ data.name }}
         </li>
       </router-link>
     </ul>
@@ -167,19 +167,21 @@ const dataNavbar: NavbarMenu[] = [
         v-model="searchArticle"
         type="text"
         class="bg-white shadow rounded border-0 w-lg h-14 py-5 px-5 focus:outline-none"
-        placeholder="Search articles here..."
+        :placeholder="t('menu.defaultSearch')"
         @keydown.enter="goSearch"
       />
     </div>
   </div>
   <div
     v-if="search || open"
-    class="fixed inset-0 z-40 opacity-60 bg-dark-200"
-    :class="open ? 'lg:hidden' : ''"
+    :class="['fixed inset-0 z-40 opacity-60 bg-dark-200', { 'lg:hidden': open }]"
   />
 </template>
 
 <style scoped lang="scss">
+.menu-icon {
+  @apply mr-5 cursor-pointer text-elucidator-700 dark:text-dark-repulser-400;
+}
 .active-class {
   @apply p-2 mb-2 rounded-md bg-elucidator-200 dark:bg-elucidator-700;
 }
@@ -187,5 +189,11 @@ const dataNavbar: NavbarMenu[] = [
   &--negative {
     @apply mr-5 py-1.5 px-3 rounded-md text-elucidator-700 dark:text-dark-repulser-400 dark:hover:text-elucidator-300 hover:text-gray-900 hidden lg:block;
   }
+}
+.nav-bottom {
+  @apply px-8 bg-elucidator-100 dark:bg-elucidator-600 fixed bottom-0 z-99 inset-x-0 shadow-lg lg:hidden;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  overflow: hidden;
 }
 </style>
