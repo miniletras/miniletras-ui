@@ -25,15 +25,14 @@
     "@iconify/iconify": "^2.1.2",
     "@vueuse/core": "^6.9.2",
     "@vueuse/head": "^0.5.1",
-    "maska": "^2.1.9",
+    "maska": "^2.1.10",
     "nprogress": "^0.2.0",
     "prism-theme-vars": "^0.2.2",
     "vue": "^3.2.31",
-    "vue-disqus": "^5.1.0",
     "vue-i18n": "^9.2.2",
     "vue-router": "^4.0.13",
     "vue-social-sharing": "^4.0.0-alpha4",
-    "workbox-window": "^6.6.0"
+    "workbox-window": "^7.0.0"
   },
   "devDependencies": {
     "@iconify/json": "^1.1.461",
@@ -66,9 +65,9 @@
     "vite-plugin-md": "^0.6.7",
     "vite-plugin-pages": "^0.12.2",
     "vite-plugin-purge-icons": "^0.7.0",
-    "vite-plugin-pwa": "^0.8.2",
+    "vite-plugin-pwa": "^0.12.8",
     "vite-plugin-windicss": "^0.16.7",
-    "vite-ssg": "^0.11.4",
+    "vite-ssg": "^0.20.0",
     "vue-tsc": "^0.0.24",
     "windicss": "^3.5.0"
   }

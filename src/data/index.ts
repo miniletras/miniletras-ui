@@ -116,7 +116,6 @@ export const dataShare = (
   url: string,
   { name: title, description }: Record<string, any>,
 ): DataShare[] => {
-  console.log("%c[index.ts url]- 116", "color: blue; background: pink; font-size: 14px", url)
   return [
     {
       icon: "facebook",
