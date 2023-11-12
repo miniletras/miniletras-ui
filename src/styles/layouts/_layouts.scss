@@ -19,10 +19,8 @@
   @media (min-width: 570px) {
     flex-wrap: unset;
   }
+  &__contact a,
   a {
     width: 100%;
   }
-}
-.share__contact a {
-  width: 100%;
 }

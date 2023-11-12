@@ -48,90 +48,119 @@ router.afterEach(() => {
 // Navbar list
 const dataNavbar: NavbarMenu[] = [
   {
+    activeColor: "cornflowerblue",
     name: t("menu.home"),
     to: "/",
   },
   {
+    activeColor: "orange",
     name: t("menu.childrenClubs"),
     to: "/clubs",
   },
   {
+    activeColor: "green",
     name: t("menu.workshops"),
     to: "/workshops",
   },
   {
+    activeColor: "red",
     name: t("menu.trainingAndProjects"),
     to: "/trainings",
   },
   {
+    activeColor: "blue",
     name: t("menu.whoAmI"),
     to: "/whoami",
   },
   {
+    activeColor: "rebeccapurple",
     name: t("menu.contact"),
     to: "/contact",
   },
 ]
-</script>
 
+const indicator = ref<HTMLSpanElement>()
+const items = ref<NodeListOf<HTMLElement>>()
+onMounted(() => {
+  indicator.value = <HTMLSpanElement>document.querySelector(".navbar-indicator")
+  items.value = <NodeListOf<HTMLElement>>document.querySelectorAll(".navbar-item")
+})
+
+const handleIndicator = (el: HTMLElement) => {
+  items.value?.forEach((item) => {
+    item.classList.remove("is-active")
+    item.removeAttribute("style")
+  })
+
+  if (indicator.value?.style) {
+    indicator.value.style.width = `${el.offsetWidth}px`
+    indicator.value.style.left = `${el.offsetLeft}px`
+    indicator.value.style.backgroundColor = `${el.getAttribute("active-color")}`
+  }
+
+  el.classList.add("is-active")
+  el.style.color = `${el.getAttribute("active-color")}`
+}
+
+const onNavItem = (event: Event) => {
+  event?.target && handleIndicator(<HTMLElement>event.target)
+}
+</script>
 <template>
-  <nav
-    class="z-10 text-elucidator-700 dark:text-dark-repulser-400 relative h-20 px-4"
-    role="navigation"
-    aria-label="navbar"
-  >
+  <div>
     <div class="max-w-screen-lg mx-auto h-full flex flex-row items-center space-x-4">
       <div class="logo flex-1">
         <router-link to="/" class="font-bold lg:tracking-wide text-2xl">
           MiniLetras Blog
         </router-link>
       </div>
-      <div class="flex flex-wrap items-center">
+      <nav class="navbar flex flex-wrap items-center" role="navigation" aria-label="navbar">
         <router-link
           v-for="(data, i) in dataNavbar"
           :key="`desktop-navbar-${i}`"
-          class="light-button--negative"
+          class="navbar-item"
           :to="data.to"
-          active-class="bg-gray-200 dark:bg-gray-500 dark:text-dark-repulser-200"
+          :active-color="data.activeColor"
+          @click="(event: Event) => onNavItem(event)"
           >{{ data.name }}</router-link
         >
-        <carbon-sun
-          v-if="isDark"
-          class="menu-icon"
-          tabindex="0"
-          @click="toggleDark"
-          title="Toggle light mode"
-        />
-        <carbon-moon
-          v-else
-          class="menu-icon"
-          tabindex="0"
-          @click="toggleDark"
-          title="Toggle dark mode"
-        />
-        <carbon-search
-          class="menu-icon"
-          tabindex="0"
-          :title="t('menu.defaultSearch')"
-          @click="setSearch"
-        />
-        <a
-          href="https://github.com/satyawikananda/elucidator-blog-starter"
-          target="_blank"
-          rel="noreferrer"
-          title="repository github"
-        >
-          <uil-github class="flex cursor-pointer text-elucidator-700 dark:text-dark-repulser-400" />
-        </a>
-        <carbon-menu
-          class="cursor-pointer text-elucidator-700 dark:text-dark-repulser-400 ml-5 sm:block lg:hidden"
-          tabindex="0"
-          @click="setOpen"
-        />
-      </div>
+        <span class="navbar-indicator"></span>
+      </nav>
+      <carbon-sun
+        v-if="isDark"
+        class="menu-icon"
+        tabindex="0"
+        @click="toggleDark"
+        title="Toggle light mode"
+      />
+      <carbon-moon
+        v-else
+        class="menu-icon"
+        tabindex="0"
+        @click="toggleDark"
+        title="Toggle dark mode"
+      />
+      <carbon-search
+        class="menu-icon"
+        tabindex="0"
+        :title="t('menu.defaultSearch')"
+        @click="setSearch"
+      />
+      <a
+        href="https://github.com/satyawikananda/elucidator-blog-starter"
+        target="_blank"
+        rel="noreferrer"
+        title="repository github"
+      >
+        <uil-github class="flex cursor-pointer text-elucidator-700 dark:text-dark-repulser-400" />
+      </a>
+      <carbon-menu
+        class="cursor-pointer text-elucidator-700 dark:text-dark-repulser-400 ml-5 sm:block lg:hidden"
+        tabindex="0"
+        @click="setOpen"
+      />
     </div>
-  </nav>
-
+  </div>
   <!-- Nav bottom -->
   <nav
     v-if="open"
@@ -195,5 +224,55 @@ const dataNavbar: NavbarMenu[] = [
   padding-top: 1rem;
   padding-bottom: 0.5rem;
   overflow: hidden;
+}
+.navbar {
+  display: inline-flex;
+  position: relative;
+  max-width: 100%;
+  background-color: #fff;
+  padding: 0 20px;
+  border-radius: 40px;
+  box-shadow: 0 10px 40px rgba(159, 162, 177, 0.8);
+  height: 60px;
+  @media (max-width: 580px) {
+    overflow: auto;
+  }
+  &-item {
+    color: #83818c;
+    padding: 20px;
+    text-decoration: none;
+    transition: 0.3s;
+    margin: 0 6px;
+    z-index: 1;
+    font-weight: 500;
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background-color: #dfe2ea;
+      border-radius: 8px 8px 0 0;
+      opacity: 0;
+      transition: 0.3s;
+    }
+    &:not(.is-active):hover:before {
+      opacity: 1;
+      bottom: 4px;
+    }
+    :not(.is-active):hover {
+      color: #333;
+    }
+  }
+  &-indicator {
+    position: absolute;
+    height: 6px;
+    bottom: 0;
+    transition: 0.4s;
+    z-index: 1;
+    border-radius: 8px 8px 0 0;
+  }
 }
 </style>

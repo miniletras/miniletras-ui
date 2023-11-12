@@ -21,6 +21,7 @@ export interface DataShare {
 
 export interface NavbarMenu {
   name: string
+  activeColor: string
   to: string
 }
 
