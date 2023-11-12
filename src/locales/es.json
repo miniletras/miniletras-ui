@@ -45,6 +45,9 @@
     "relatedArticles": "Artículos relacionados",
     "shareArticle": "Comparte este artículo"
   },
+  "search": {
+    "search": "Buscar"
+  },
   "tags": {
     "articleTag": "Artículos con la etiqueta",
     "club": "Clubs",

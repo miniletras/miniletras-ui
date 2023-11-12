@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { getArticlesSearch, getParams, paginateData } from "~/data"
 import { unslug, slug, limitString } from "~/utils"
+import { i18n } from "~/main"
+
+const { t } = i18n.global
 
 const searchParams: any = getParams("search")
 const search = getArticlesSearch([unslug(searchParams)])
@@ -32,7 +35,9 @@ const clickEndPage = () => {
 <template>
   <div class="flex flex-col flex-wrap mb-2 px-4 lg:px-0">
     <h1 class="text-3xl text-elucidator-700 dark:text-dark-repulser-400 font-bold">
-      Search: {{ searchParams }} ({{ getArticlesSearch([unslug(searchParams)]).length }})
+      {{ t("search.search") }}: {{ searchParams }} ({{
+        getArticlesSearch([unslug(searchParams)]).length
+      }})
     </h1>
     <div class="flex flex-col flex-wrap mb-2">
       <div

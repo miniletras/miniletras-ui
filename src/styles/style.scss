@@ -3,6 +3,7 @@
 @use "./components/_markdown.scss" as *;
 @use "./elements" as *;
 @use "./layouts" as *;
+@use "./settings" as *;
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
 
@@ -22,7 +23,12 @@ a {
 
 body {
   font-size: 14px;
-  @media (min-width: 420px) and (min-width: 1024px) {
+  @media (min-width: $xxs) and (min-width: $lg) {
     font-size: 16px;
+  }
+  #app {
+    @media (max-width: $lg) {
+      margin-top: 1rem;
+    }
   }
 }

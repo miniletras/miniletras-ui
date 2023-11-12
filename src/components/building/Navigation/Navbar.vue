@@ -48,32 +48,32 @@ router.afterEach(() => {
 // Navbar list
 const dataNavbar: NavbarMenu[] = [
   {
-    activeColor: "cornflowerblue",
+    activeColor: "#828da6",
     name: t("menu.home"),
     to: "/",
   },
   {
-    activeColor: "orange",
+    activeColor: "#828da6",
     name: t("menu.childrenClubs"),
     to: "/clubs",
   },
   {
-    activeColor: "green",
+    activeColor: "#828da6",
     name: t("menu.workshops"),
     to: "/workshops",
   },
   {
-    activeColor: "red",
+    activeColor: "#828da6",
     name: t("menu.trainingAndProjects"),
     to: "/trainings",
   },
   {
-    activeColor: "blue",
+    activeColor: "#caa5e6",
     name: t("menu.whoAmI"),
     to: "/whoami",
   },
   {
-    activeColor: "rebeccapurple",
+    activeColor: "#25d1bc",
     name: t("menu.contact"),
     to: "/contact",
   },
@@ -107,59 +107,57 @@ const onNavItem = (event: Event) => {
 }
 </script>
 <template>
-  <div>
-    <div class="max-w-screen-lg mx-auto h-full flex flex-row items-center space-x-4">
-      <div class="logo flex-1">
-        <router-link to="/" class="font-bold lg:tracking-wide text-2xl">
-          MiniLetras Blog
-        </router-link>
-      </div>
-      <nav class="navbar flex flex-wrap items-center" role="navigation" aria-label="navbar">
-        <router-link
-          v-for="(data, i) in dataNavbar"
-          :key="`desktop-navbar-${i}`"
-          class="navbar-item"
-          :to="data.to"
-          :active-color="data.activeColor"
-          @click="(event: Event) => onNavItem(event)"
-          >{{ data.name }}</router-link
-        >
-        <span class="navbar-indicator"></span>
-      </nav>
-      <carbon-sun
-        v-if="isDark"
-        class="menu-icon"
-        tabindex="0"
-        @click="toggleDark"
-        title="Toggle light mode"
-      />
-      <carbon-moon
-        v-else
-        class="menu-icon"
-        tabindex="0"
-        @click="toggleDark"
-        title="Toggle dark mode"
-      />
-      <carbon-search
-        class="menu-icon"
-        tabindex="0"
-        :title="t('menu.defaultSearch')"
-        @click="setSearch"
-      />
-      <a
-        href="https://github.com/satyawikananda/elucidator-blog-starter"
-        target="_blank"
-        rel="noreferrer"
-        title="repository github"
-      >
-        <uil-github class="flex cursor-pointer text-elucidator-700 dark:text-dark-repulser-400" />
-      </a>
-      <carbon-menu
-        class="cursor-pointer text-elucidator-700 dark:text-dark-repulser-400 ml-5 sm:block lg:hidden"
-        tabindex="0"
-        @click="setOpen"
-      />
+  <div class="navbar-responsive">
+    <div class="logo flex-1">
+      <router-link to="/" class="font-bold lg:tracking-wide text-2xl">
+        MiniLetras Blog
+      </router-link>
     </div>
+    <nav class="navbar flex flex-wrap items-center" role="navigation" aria-label="navbar">
+      <router-link
+        v-for="(data, i) in dataNavbar"
+        :key="`desktop-navbar-${i}`"
+        class="navbar-item"
+        :to="data.to"
+        :active-color="data.activeColor"
+        @click="(event: Event) => onNavItem(event)"
+        >{{ data.name }}</router-link
+      >
+      <span class="navbar-indicator"></span>
+    </nav>
+    <carbon-sun
+      v-if="isDark"
+      class="menu-icon"
+      tabindex="0"
+      @click="toggleDark"
+      title="Toggle light mode"
+    />
+    <carbon-moon
+      v-else
+      class="menu-icon"
+      tabindex="0"
+      @click="toggleDark"
+      title="Toggle dark mode"
+    />
+    <carbon-search
+      class="menu-icon"
+      tabindex="0"
+      :title="t('menu.defaultSearch')"
+      @click="setSearch"
+    />
+    <a
+      href="https://github.com/satyawikananda/elucidator-blog-starter"
+      target="_blank"
+      rel="noreferrer"
+      title="repository github"
+    >
+      <uil-github class="flex cursor-pointer text-elucidator-700 dark:text-dark-repulser-400" />
+    </a>
+    <carbon-menu
+      class="cursor-pointer text-elucidator-700 dark:text-dark-repulser-400 ml-5 sm:block lg:hidden"
+      tabindex="0"
+      @click="setOpen"
+    />
   </div>
   <!-- Nav bottom -->
   <nav
@@ -211,14 +209,6 @@ const onNavItem = (event: Event) => {
 .menu-icon {
   @apply mr-5 cursor-pointer text-elucidator-700 dark:text-dark-repulser-400;
 }
-.active-class {
-  @apply p-2 mb-2 rounded-md bg-elucidator-200 dark:bg-elucidator-700;
-}
-.light-button {
-  &--negative {
-    @apply mr-5 py-1.5 px-3 rounded-md text-elucidator-700 dark:text-dark-repulser-400 dark:hover:text-elucidator-300 hover:text-gray-900 hidden lg:block;
-  }
-}
 .nav-bottom {
   @apply px-8 bg-elucidator-100 dark:bg-elucidator-600 fixed bottom-0 z-99 inset-x-0 shadow-lg lg:hidden;
   padding-top: 1rem;
@@ -226,16 +216,13 @@ const onNavItem = (event: Event) => {
   overflow: hidden;
 }
 .navbar {
-  display: inline-flex;
+  display: none;
   position: relative;
-  max-width: 100%;
-  background-color: #fff;
   padding: 0 20px;
-  border-radius: 40px;
-  box-shadow: 0 10px 40px rgba(159, 162, 177, 0.8);
-  height: 60px;
-  @media (max-width: 580px) {
-    overflow: auto;
+  box-shadow: 0px 18px 10px -22px rgba(159, 162, 177, 0.8);
+  height: 58px;
+  @media (min-width: $lg) {
+    display: inline-flex;
   }
   &-item {
     color: #83818c;
@@ -260,7 +247,7 @@ const onNavItem = (event: Event) => {
     }
     &:not(.is-active):hover:before {
       opacity: 1;
-      bottom: 4px;
+      bottom: 6px;
     }
     :not(.is-active):hover {
       color: #333;
@@ -273,6 +260,13 @@ const onNavItem = (event: Event) => {
     transition: 0.4s;
     z-index: 1;
     border-radius: 8px 8px 0 0;
+  }
+  &-responsive {
+    width: 100%;
+    @apply max-w-screen-lg mx-auto h-full flex flex-row items-center space-x-4;
+    @media (max-width: $lg) {
+      padding: 0 1rem;
+    }
   }
 }
 </style>
