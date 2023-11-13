@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getItemsByMenu as getItemsByMenu, latestItemByMenuTag } from "~/data"
+import { getItemsByMenu, latestItemByMenuTag } from "~/data"
 import { limitString, slug } from "~/utils"
 import { i18n } from "~/main"
 

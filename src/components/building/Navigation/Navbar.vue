@@ -1,90 +1,23 @@
 <script setup lang="ts">
-import { isDark, toggleDark, slug } from "~/utils"
-import type { NavbarMenu } from "~/types"
+import { isDark, toggleDark, slug, isPositiveNum } from "~/utils"
+import { dataNavbar } from "~/data"
 import { i18n } from "~/main"
+import { NavbarMenu } from "~/types"
 
 const { t } = i18n.global
-
 // https://vueuse.org/shared/useToggle/
 const [search, setSearch] = useToggle()
 const [open, setOpen] = useToggle()
 
-// https://vueuse.org/core/onKeyStroke/
-onKeyStroke("Escape", () => {
-  search.value = false
-})
-onKeyStroke("Escape", () => {
-  open.value = false
-})
-
-// https://vueuse.org/core/onClickOutside/
-const modalSearch = ref(null)
-onClickOutside(modalSearch, (e) => {
-  search.value = false
-})
-
-const navbottom = ref(null)
-onClickOutside(navbottom, (e) => {
-  open.value = false
-})
-
 // Search article
 const searchArticle = ref("")
 const router = useRouter()
-const goSearch = () => {
-  if (searchArticle.value) {
-    router.push(`/search/${slug(searchArticle.value)}`).then(() => {
-      search.value = false
-      searchArticle.value = ""
-    })
-  }
-}
-
-// Hide navbottom after page has been changed
-router.afterEach(() => {
-  open.value = false
-})
-
-// Navbar list
-const dataNavbar: NavbarMenu[] = [
-  {
-    activeColor: "#828da6",
-    name: t("menu.home"),
-    to: "/",
-  },
-  {
-    activeColor: "#828da6",
-    name: t("menu.childrenClubs"),
-    to: "/clubs",
-  },
-  {
-    activeColor: "#828da6",
-    name: t("menu.workshops"),
-    to: "/workshops",
-  },
-  {
-    activeColor: "#828da6",
-    name: t("menu.trainingAndProjects"),
-    to: "/trainings",
-  },
-  {
-    activeColor: "#caa5e6",
-    name: t("menu.whoAmI"),
-    to: "/whoami",
-  },
-  {
-    activeColor: "#25d1bc",
-    name: t("menu.contact"),
-    to: "/contact",
-  },
-]
-
+// Navbar menu
 const indicator = ref<HTMLSpanElement>()
 const items = ref<NodeListOf<HTMLElement>>()
-onMounted(() => {
-  indicator.value = <HTMLSpanElement>document.querySelector(".navbar-indicator")
-  items.value = <NodeListOf<HTMLElement>>document.querySelectorAll(".navbar-item")
-})
+// https://vueuse.org/core/onClickOutside/
+const modalSearch = ref(null)
+const navbottom = ref(null)
 
 const handleIndicator = (el: HTMLElement) => {
   items.value?.forEach((item) => {
@@ -101,6 +34,59 @@ const handleIndicator = (el: HTMLElement) => {
   el.classList.add("is-active")
   el.style.color = `${el.getAttribute("active-color")}`
 }
+
+onMounted(() => {
+  indicator.value = <HTMLSpanElement>document.querySelector(".navbar-indicator")
+  items.value = <NodeListOf<HTMLElement>>document.querySelectorAll(".navbar-item")
+
+  const menuItemIdx = dataNavbar.findIndex(
+    (item: NavbarMenu) => item.to === router.currentRoute.value.path,
+  )
+  setTimeout(() => {
+    if (items.value && isPositiveNum(menuItemIdx)) {
+      handleIndicator(items.value[menuItemIdx])
+    }
+  }, 500)
+})
+
+// Search article
+const goSearch = () => {
+  if (searchArticle.value) {
+    router.push(`/search/${slug(searchArticle.value)}`).then(() => {
+      search.value = false
+      searchArticle.value = ""
+    })
+  }
+}
+
+// https://vueuse.org/core/onKeyStroke/
+onKeyStroke("Escape", () => {
+  search.value = false
+})
+onKeyStroke("Escape", () => {
+  open.value = false
+})
+
+// https://vueuse.org/core/onClickOutside/
+onClickOutside(modalSearch, () => {
+  search.value = false
+})
+
+onClickOutside(navbottom, () => {
+  open.value = false
+})
+
+router.beforeEach((to, from) => {
+  if (to.name === "index" && from.name !== "index") {
+    items.value?.length && handleIndicator(items.value[0])
+  }
+  return true
+})
+
+// Hide navbottom after page has been changed
+router.afterEach(() => {
+  open.value = false
+})
 
 const onNavItem = (event: Event) => {
   event?.target && handleIndicator(<HTMLElement>event.target)
@@ -121,7 +107,7 @@ const onNavItem = (event: Event) => {
         :to="data.to"
         :active-color="data.activeColor"
         @click="(event: Event) => onNavItem(event)"
-        >{{ data.name }}</router-link
+        >{{ t(data.name) }}</router-link
       >
       <span class="navbar-indicator"></span>
     </nav>
@@ -174,7 +160,7 @@ const onNavItem = (event: Event) => {
         :to="data.to"
       >
         <li class="flex flex-row flex-wrap items-center dark:text-elucidator-100">
-          <carbon-menu class="mr-2" />{{ data.name }}
+          <carbon-menu class="mr-2" />{{ t(data.name) }}
         </li>
       </router-link>
     </ul>
