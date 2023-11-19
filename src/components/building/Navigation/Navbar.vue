@@ -132,7 +132,7 @@ const onNavItem = (event: Event) => {
       @click="setSearch"
     />
     <a
-      href="https://github.com/satyawikananda/elucidator-blog-starter"
+      href="https://github.com/miniletras/miniletras-ui"
       target="_blank"
       rel="noreferrer"
       title="repository github"

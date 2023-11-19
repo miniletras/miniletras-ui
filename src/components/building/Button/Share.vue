@@ -27,7 +27,7 @@ const props = defineProps<{
       :twitter-user="props.twitterUser"
       :media="props.media"
     >
-      <button class="border-button flex">
+      <button class="border-button">
         <span
           class="iconify text-xl text-elucidator-500 dark:text-dark-repulser-50 mr-2"
           :data-icon="`uim:${props.icon}`"

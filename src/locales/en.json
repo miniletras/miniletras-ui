@@ -1,4 +1,8 @@
 {
+  "articles": {
+    "allArticles": "All articles",
+    "totalArticles": "Total articles"
+  },
   "clubs": {
     "monthClub": "Month club"
   },

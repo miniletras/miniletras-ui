@@ -11,7 +11,7 @@
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
   },
-  "author": "Satya Wikananda <satyawikananda456@gmail.com>",
+  "author": "Fernando Rodríguez<frmonteira@gmail.com>",
   "keywords": [
     "blog",
     "blog-starter",

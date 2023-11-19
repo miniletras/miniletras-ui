@@ -13,11 +13,11 @@ const props = defineProps<{
 </script>
 
 <template>
-  <ul v-if="$props.endPage > $props.startPage" class="flex">
+  <ul v-if="props.endPage > props.startPage" class="flex">
     <li
       class="mx-1 py-2 px-4 bg-gray-200 text-gray-700 hover:bg-elucidator-400 hover:text-gray-200 rounded-1/2 cursor-pointer"
       :class="
-        $props.currentPage == $props.startPage
+        props.currentPage == props.startPage
           ? isDark
             ? ''
             : 'bg-elucidator-400'
@@ -27,14 +27,14 @@ const props = defineProps<{
       "
       @click="clickStartPage"
     >
-      <a class="font-bold">{{ $props.startPage }}</a>
+      <a class="font-bold">{{ props.startPage }}</a>
     </li>
     <li
-      v-for="(paginate, i) in $props.mid"
+      v-for="(paginate, i) in props.mid"
       :key="i"
       class="mx-1 py-2 px-4 bg-gray-200 text-gray-700 hover:bg-elucidator-400 hover:text-gray-200 rounded-1/2 cursor-pointer"
       :class="
-        $props.currentPage == paginate
+        props.currentPage == paginate
           ? isDark
             ? ''
             : 'bg-elucidator-400'
@@ -49,7 +49,7 @@ const props = defineProps<{
     <li
       class="mx-1 py-2 px-4 bg-gray-200 text-gray-700 hover:bg-elucidator-400 hover:text-gray-200 rounded-1/2 cursor-pointer"
       :class="
-        $props.currentPage == $props.endPage
+        props.currentPage == props.endPage
           ? isDark
             ? ''
             : 'bg-elucidator-400'
@@ -59,7 +59,7 @@ const props = defineProps<{
       "
       @click="clickEndPage"
     >
-      <a class="font-bold">{{ $props.endPage }}</a>
+      <a class="font-bold">{{ props.endPage }}</a>
     </li>
   </ul>
 </template>
