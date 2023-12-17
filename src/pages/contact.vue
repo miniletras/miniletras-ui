@@ -42,10 +42,10 @@ const onTargetEmail = (emailEl: HTMLInputElement) => {
 }
 
 const onSubmit = (event: Event) => {
-  console.log("%c [ event ]-40", "font-size:13px; background:pink; color:#bf2c9f;", event)
   if (!emailOrPhoneRequired.value) {
     return
   }
+  console.log("%c [ event ]-40", "font-size:13px; background:pink; color:#bf2c9f;", event);
 }
 </script>
 <hr class="green-line" />
@@ -54,31 +54,13 @@ const onSubmit = (event: Event) => {
     <form
       action="/contact-form.php"
       class="contact__form dark__bg--negative"
+      id="contact-form"
       method="POST"
       @submit.prevent="onSubmit"
     >
       <hr class="green-line" />
       <h2 class="h post__h2 text-center">{{ contactTranslator("introduction") }}</h2>
       <div class="contact__form-group">
-        <div class="share__contact">
-          <!-- <Share
-            v-for="(share, i) in dataShare(url, {
-              name: 'MiniLetras',
-              description: contactTranslator('miniletrasDescription'),
-            })"
-            :key="i"
-            :icon="share.icon"
-            :name="share.name"
-            :network="share.network"
-            :url="share.url"
-            :title="share.title"
-            :description="share.description"
-            :quote="share.quote"
-            :hashtags="share.hashtags"
-            :twitter-user="share.twitterUser"
-            :media="share.media"
-          /> -->
-        </div>
         <Input
           v-model="form.name"
           class="contact--min-md"

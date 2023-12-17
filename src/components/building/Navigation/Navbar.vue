@@ -253,6 +253,11 @@ const onNavItem = (event: Event) => {
     @media (max-width: $lg) {
       padding: 0 1rem;
     }
+    @media (min-width: $lg) {
+      .logo {
+        max-width: 120px;
+      }
+    }
   }
 }
 </style>

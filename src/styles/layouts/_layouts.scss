@@ -24,3 +24,25 @@
     width: 100%;
   }
 }
+.mini {
+  &-inline-grid {
+    display: inline-grid;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    @media (min-width: $lg-l) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+.latest-posts {
+  @include flex($direction: "column", $flex-wrap: "wrap");
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-top: 3rem;
+  margin-bottom: 0.5rem;
+  @media (min-width: $lg-l) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

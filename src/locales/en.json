@@ -23,7 +23,7 @@
     "testSession": "Do you want a test session for your child?"
   },
   "home": {
-    "latest": "latest posts",
+    "latest": "Latest posts",
     "latestArticle": "Latest Article",
     "seeAll": "See all"
   },
@@ -46,7 +46,7 @@
     }
   },
   "post": {
-    "relatedArticles": "Artículos relacionados",
+    "relatedArticles": "Related articles",
     "shareArticle": "Share this article"
   },
   "search": {

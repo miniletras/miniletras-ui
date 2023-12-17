@@ -17,7 +17,7 @@ const articles = computed(() => {
 </script>
 
 <template>
-  <div class="inline-grid px-4 lg:px-0">
+  <div class="mini-inline-grid">
     <h1 class="post__h1">{{ t("home.latestArticle") }}</h1>
     <Latest
       :image="latest.thumbnail"
@@ -30,7 +30,7 @@ const articles = computed(() => {
       :to-tags="`/tags/${latest.tags}`"
     />
   </div>
-  <div class="flex flex-col flex-wrap mb-2 mt-12 px-4 lg:px-0">
+  <div class="latest-posts">
     <div class="grid inline-grid grid-cols-2 mb-5">
       <h1 class="text-3xl font-bold text-elucidator-700 dark:text-dark-repulser-400">
         {{ t("home.latest") }}
@@ -38,8 +38,9 @@ const articles = computed(() => {
       <router-link
         to="/articles"
         class="cursor-pointer text-right my-auto text-elucidator-700 dark:text-dark-repulser-400"
-        >{{ t("home.seeAll") }}</router-link
       >
+        {{ t("home.seeAll") }}
+      </router-link>
     </div>
     <div
       class="mx-auto inline-grid gap-4 mb-5 sm:grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-10"

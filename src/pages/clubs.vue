@@ -14,7 +14,7 @@ const itemImportant = computed(() => {
 const clubs = computed(() => getItemsByMenu("club", 6))
 </script>
 <template>
-  <div class="inline-grid px-4 lg:px-0">
+  <div class="mini-inline-grid">
     <h1 class="post__h1">
       {{ t("clubs.monthClub") }}
     </h1>
@@ -29,7 +29,7 @@ const clubs = computed(() => getItemsByMenu("club", 6))
       :to-tags="`/tags/${itemImportant.tags}`"
     />
   </div>
-  <div class="flex flex-col flex-wrap mb-2 mt-12 px-4 lg:px-0">
+  <div class="latest-posts">
     <div
       class="mx-auto inline-grid gap-4 mb-5 sm:grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-10"
     >

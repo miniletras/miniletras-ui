@@ -16,10 +16,7 @@ defineProps<{
 const { t } = i18n.global
 </script>
 <template>
-  <router-link
-    :to="to"
-    class="h-full inline-grid gap-0 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2"
-  >
+  <router-link :to="to" class="latest-container sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
     <img
       :src="image"
       class="rounded h-sm object-cover mx-auto w-full"
@@ -45,3 +42,10 @@ const { t } = i18n.global
     </div>
   </router-link>
 </template>
+<style scoped lang="scss">
+.latest-container {
+  grid-gap: 1rem;
+  height: 100%;
+  display: inline-grid;
+}
+</style>

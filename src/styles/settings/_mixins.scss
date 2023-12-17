@@ -13,7 +13,8 @@
   $justify-content: unquote(""),
   $gap: "",
   $row-gap: "",
-  $column-gap: ""
+  $column-gap: "",
+  $direction: "",
 ) {
   display: flex;
   align-items: unquote($align-items);
@@ -22,6 +23,7 @@
   gap: unquote($gap);
   row-gap: unquote($row-gap);
   column-gap: unquote($column-gap);
+  flex-direction: unquote($direction);
 }
 
 @mixin flex-center(
