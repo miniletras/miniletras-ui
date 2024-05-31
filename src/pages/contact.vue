@@ -4,7 +4,6 @@ import { MaskOptions, MaskaDetail, vMaska } from "maska"
 import { ContactForm } from "~/types"
 import { InputType } from "~/components/building/models"
 import { Undefinable } from "~/utils/models"
-import { dataShare } from "~/data"
 
 const phoneMaskdetail = ref<MaskaDetail & { maskValues: Undefinable<string> }>()
 const form = reactive<ContactForm>({ phoneNumber: "051" })
@@ -45,7 +44,7 @@ const onSubmit = (event: Event) => {
   if (!emailOrPhoneRequired.value) {
     return
   }
-  console.log("%c [ event ]-40", "font-size:13px; background:pink; color:#bf2c9f;", event);
+  console.log("%c [ event ]-40", "font-size:13px; background:pink; color:#bf2c9f;", event)
 }
 </script>
 <hr class="green-line" />

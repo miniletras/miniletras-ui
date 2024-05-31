@@ -18,7 +18,6 @@ const articles = computed(() => {
 
 const { t } = i18n.global
 
-// Pagination
 const clickStartPage = () => {
   currentPage.value = articles.value.startPage
 }

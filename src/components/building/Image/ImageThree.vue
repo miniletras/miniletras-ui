@@ -15,6 +15,7 @@ defineProps<{
 <template>
   <div class="flex flex-wrap flex-row justify-center items-center">
     <div class="flex flex-wrap flex-col sm:w-full lg:w-1/2">
+      <pre>{{ $props }}</pre>
       <img
         :src="$props.imageOne"
         :alt="$props.altOne"

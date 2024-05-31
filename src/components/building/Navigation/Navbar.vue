@@ -96,7 +96,7 @@ const onNavItem = (event: Event) => {
   <div class="navbar-responsive">
     <div class="logo flex-1">
       <router-link to="/" class="font-bold lg:tracking-wide text-2xl">
-        MiniLetras Blog
+        <img class="logo__img" src="/src/assets/images/logo-pelican.svg" alt="logo-pelican" />
       </router-link>
     </div>
     <nav class="navbar flex flex-wrap items-center" role="navigation" aria-label="navbar">
@@ -253,9 +253,16 @@ const onNavItem = (event: Event) => {
     @media (max-width: $lg) {
       padding: 0 1rem;
     }
-    @media (min-width: $lg) {
-      .logo {
+    .logo {
+      @media (min-width: $lg) {
         max-width: 120px;
+        padding: 10px 0 0 10px;
+      }
+      &__img {
+        max-height: 70px;
+        @media (min-width: $lg) {
+          max-height: 100px;
+        }
       }
     }
   }
