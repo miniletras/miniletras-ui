@@ -41,9 +41,8 @@ const onTargetEmail = (emailEl: HTMLInputElement) => {
 }
 
 const onSubmit = (event: Event) => {
-  if (!emailOrPhoneRequired.value) {
-    return
-  }
+  if (!emailOrPhoneRequired.value) return
+
   console.log("%c [ event ]-40", "font-size:13px; background:pink; color:#bf2c9f;", event)
 }
 </script>
@@ -51,7 +50,6 @@ const onSubmit = (event: Event) => {
 <template>
   <div class="contact">
     <form
-      action="/contact-form.php"
       class="contact__form dark__bg--negative"
       id="contact-form"
       method="POST"

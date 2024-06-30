@@ -1,6 +1,6 @@
 ---
 name: Normally, both your asses would be dead as fucking fried chicken
-thumbnail: https://source.unsplash.com/collection/94734566/1920x1080
+thumbnail: https://picsum.photos/id/18/1920/1080
 date: 2023-03-10
 description: Already been through too much shit this morning over this case to hand it over to your dumb ass.
 tags: ["training", "post"]
