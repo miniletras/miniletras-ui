@@ -25,7 +25,7 @@ const emailOrPhoneRequired = computed(() => {
 
 const contactTranslator = recordTranslator("contact")
 const phoneMaskOptions: MaskOptions = { mask: "+(###) ###-##-##-##", eager: true }
-const phoneMask = {
+const phoneMask = <string>(<unknown>{
   ...phoneMaskOptions,
   onMaska: (detail: MaskaDetail) => {
     const prefixValues = detail.masked.substring(
@@ -34,7 +34,7 @@ const phoneMask = {
     )
     phoneMaskdetail.value = { ...detail, maskValues: `+(${prefixValues}) ` }
   },
-}
+})
 
 const onTargetEmail = (emailEl: HTMLInputElement) => {
   validEmail.value = emailEl.validity.valid
@@ -46,12 +46,13 @@ const onSubmit = (event: Event) => {
   console.log("%c [ event ]-40", "font-size:13px; background:pink; color:#bf2c9f;", event)
 }
 </script>
-<hr class="green-line" />
+
 <template>
   <div class="contact">
     <form
       class="contact__form dark__bg--negative"
       id="contact-form"
+      action="contact-form.php"
       method="POST"
       @submit.prevent="onSubmit"
     >
@@ -107,6 +108,7 @@ const onSubmit = (event: Event) => {
     </form>
   </div>
 </template>
+
 <style lang="scss" scoped>
 html.dark {
   .contact .post__h2 {

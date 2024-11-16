@@ -1,6 +1,6 @@
 <?PHP
 $errors = '';
-$recipient = 'cata.cabanillas@gmail.com'; 
+$recipient = 'catademar@miniletras.com'; 
 if(empty($_POST['email']) &&
    empty($_POST['phoneNumber']))
 {
@@ -21,7 +21,7 @@ $email_address))
   $errors .= "\n Error: Invalid email address";
 }
 
-$mailheader = "From:".$email_address"<".$email_address.">\r\n";
+$mailheader = "From:" . $email_address . "<" . $email_address . ">\r\n";
 
 // mail($recipient, "CONTACT", $email_address, $mailheader) or die("Error!");
 if (mail($recipient, "CONTACT", $email_address, $mailheader))
