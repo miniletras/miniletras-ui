@@ -7,8 +7,10 @@ import { Undefinable } from "~/utils/models"
 
 const phoneMaskdetail = ref<MaskaDetail & { maskValues: Undefinable<string> }>()
 const form = reactive<ContactForm>({ phoneNumber: "051" })
-
+const formData = reactive<FormData>(new FormData())
+const messageSuccess = ref(false)
 const validEmail = ref<boolean>()
+const router = useRouter()
 
 const { fullPath } = useRoute()
 const url = ref("")
@@ -40,20 +42,39 @@ const onTargetEmail = (emailEl: HTMLInputElement) => {
   validEmail.value = emailEl.validity.valid
 }
 
-const onSubmit = (event: Event) => {
+const onSubmit = () => {
   if (!emailOrPhoneRequired.value) return
 
-  console.log("%c [ event ]-40", "font-size:13px; background:pink; color:#bf2c9f;", event)
+  Object.keys(form).forEach((key) => {
+    formData.append(key, form[key as keyof unknown])
+  })
+  sendContactForm(formData)
+}
+
+const sendContactForm = async (formData: FormData) => {
+  const response = await fetch("contact-form.php", {
+    method: "POST",
+    body: formData,
+  })
+  if (!response.ok) {
+    throw new Error(`Response status: ${response.status}`)
+  }
+  const data = await response.text()
+  if (data) {
+    messageSuccess.value = true
+    setTimeout(async () => {
+      messageSuccess.value = false
+      await router.push("/")
+    }, 2000)
+  }
 }
 </script>
 
 <template>
   <div class="contact">
     <form
-      class="contact__form dark__bg--negative"
-      id="contact-form"
       action="contact-form.php"
-      method="POST"
+      class="contact__form dark__bg--negative"
       @submit.prevent="onSubmit"
     >
       <hr class="green-line" />
@@ -101,6 +122,9 @@ const onSubmit = (event: Event) => {
         </div>
         <div class="button-right">
           <input type="submit" class="border-button" :value="contactTranslator('send')" />
+          <p :class="['message', { success: messageSuccess }]">
+            {{ contactTranslator("messageSuccess") }}
+          </p>
         </div>
       </div>
       <hr class="grey-line" />
@@ -180,5 +204,13 @@ html.dark {
 }
 .share__contact {
   @include grid($gap: "0.5rem");
+}
+.message {
+  display: none;
+  margin-top: 8px;
+  &.success {
+    display: block;
+    color: $color-green-4;
+  }
 }
 </style>

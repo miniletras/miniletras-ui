@@ -20,7 +20,8 @@
     "reason": "Motivo",
     "send": "Enviar",
     "subscribeChild": "¿Quieres inscribir a tu hijo?",
-    "testSession": "¿Quieres una sesión de prueba para tu hijo?"
+    "testSession": "¿Quieres una sesión de prueba para tu hijo?",
+    "messageSuccess": "Formulario enviado correctamente"
   },
   "home": {
     "latest": "Posts recientes",

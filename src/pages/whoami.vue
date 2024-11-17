@@ -7,9 +7,8 @@ const { t } = i18n.global
 const contactList = [
   {
     list: [
-      { icon: "mdi:phone-classic", label: "+34 717 70 39 20" },
       { icon: "jam:envelope-f", label: "cata.cabanillas@gmail.com" },
-      { icon: "tabler:world-www", label: "http://miniletras.com" },
+      { icon: "tabler:world-www", label: "https://miniletras.com" },
       {
         icon: "mdi:location-radius-outline",
         label: "Baiona, Pontevedra (Galicia), ESP",
@@ -21,9 +20,9 @@ const contactList = [
 const trainingList = [
   {
     subtitles: {
-      h4: "Centro de Formación CA Madrid",
-      h5: "Asistencia a le edición",
-      h6: "2017 - 2018",
+      h4: "Diplomado Pensamiento Educativo Peruano",
+      h5: "UNMSM",
+      h6: "2024",
     },
     list: [],
   },
@@ -43,6 +42,14 @@ const trainingList = [
     },
     list: [],
   },
+  {
+    subtitles: {
+      h4: "Centro de Formación CA Madrid",
+      h5: "Asistencia a le edición",
+      h6: "2017 - 2018",
+    },
+    list: [],
+  },
 ]
 const skillList = [
   {
@@ -59,7 +66,7 @@ const expOne = {
   subtitles: {
     h4: "Freelance",
     h5: "MiniLetras",
-    h6: "2017 - Actualidad · 5 años 6 meses",
+    h6: `2017 - Actualidad · ${new Date().getFullYear() - 2017} años`,
   },
   list: [
     { label: "Mediación en la lectura" },

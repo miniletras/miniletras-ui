@@ -7,13 +7,6 @@ if(empty($_POST['email']) &&
     $errors .= "\n Error: all fields are required";
 }
 
-$name = $_POST['name'];
-$email_address = $_POST['email'];
-$phoneNumber = $_POST['phoneNumber'];
-$reason = $_POST['reason'];
-$subscribeChild = $_POST['subscribeChild'];
-$testSession = $_POST['testSession'];
-
 if (!preg_match(
 "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i",
 $email_address))
@@ -21,15 +14,25 @@ $email_address))
   $errors .= "\n Error: Invalid email address";
 }
 
-$mailheader = "From:" . $email_address . "<" . $email_address . ">\r\n";
+$subject = "MINILETRAS: Formulario completado";
 
-// mail($recipient, "CONTACT", $email_address, $mailheader) or die("Error!");
-if (mail($recipient, "CONTACT", $email_address, $mailheader))
+$message.= "\nDesde: miniletras.com";
+$message.= isset($_POST['name']) ? "\nDe: " . $_POST['name'] : '';
+$message.= isset($_POST['email']) ? "\nE-mail: " . $_POST['email'] : '';
+$message.= isset($_POST['phoneNumber']) ? "\nTel: " . $_POST['phoneNumber'] : '';
+$mensaje.= "\n-----------\n";
+$message.= isset($_POST['reason']) ? "\nMotivo: " . $_POST['reason'] : '';
+$message.= isset($_POST['subscribeChild']) ? "\nNombre del hijo/a: " . $_POST['subscribeChild'] : '';
+$message.= isset($_POST['testSession']) ? "\nQuiere una prueba: " . $_POST['testSession'] : '';
+
+$mailheader = "From: " . $email_address;
+
+if (mail($recipient, $subject, $message, $mailheader))
 {
-  echo "Message accepted";
+  echo "Message accepted: " . "MESSAGE: " . $message;
 }
 else
 {
-  echo "Error: Message not accepted";
+  echo "Error: Message not accepted: " . $errors;
 }
 ?>

@@ -20,7 +20,8 @@
     "reason": "Reason",
     "send": "Send",
     "subscribeChild": "Do you want subcribe your child?",
-    "testSession": "Do you want a test session for your child?"
+    "testSession": "Do you want a test session for your child?",
+    "messageSuccess": "Form sent successfully"
   },
   "home": {
     "latest": "Latest posts",
