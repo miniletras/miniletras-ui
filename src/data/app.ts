@@ -18,10 +18,12 @@ const getItemsByMenu = (menuItem: string, limit?: number) => {
   const important =
     sortedByDate.find((post) => {
       const tags = post.meta.frontmatter.tags
+
       return tags.includes("important")
     }) ?? {}
   const noImportant = sortedByDate.filter((post) => {
     const tags = post.meta.frontmatter.tags
+
     return !tags.includes("important")
   })
 
@@ -53,15 +55,16 @@ const latestItemByMenuTag = (menuItem: string, tag: string) => {
 
 // Get the latest article
 const getLatestArticle = () => {
-  const frontmatter = getDataRoutes()
+  const frontmatter = <Record<string, any>[]>getDataRoutes()
     .filter((data) => data.meta.frontmatter)
-    .map((data) => data.meta.frontmatter) as Record<string, any>[]
+    .map((data) => data.meta.frontmatter)
 
   const lastArticle = sortByDate(frontmatter)[0]
 
   return lastArticle
 }
 
+// Get path of the latest article
 const getPathLastArticle = (articles: MetaArticles[], date: string) => {
   const lastArticle = articles.find((article) => {
     return article.meta.frontmatter.date === date

@@ -5,16 +5,12 @@ import { i18n } from "~/main"
 
 const { t } = i18n.global
 
-const articles = computed(() => {
-  return getArticles(6)
-})
-
 const latestArticle = computed(() => {
   return getLatestArticle()
 })
 
 const pathLastArticle = computed(() => {
-  return getPathLastArticle(articles.value, latestArticle.value.date)
+  return getPathLastArticle(getArticles(), latestArticle.value.date)
 })
 </script>
 
@@ -48,7 +44,7 @@ const pathLastArticle = computed(() => {
       class="mx-auto inline-grid gap-4 mb-5 sm:grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-10"
     >
       <Article
-        v-for="(data, i) in articles"
+        v-for="(data, i) in getArticles(6)"
         :key="i"
         :image="data.meta.frontmatter.thumbnail"
         :alt="`blog-banner-${slug(data.meta.frontmatter.name)}`"

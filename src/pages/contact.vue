@@ -7,7 +7,7 @@ import { Undefinable } from "~/utils/models"
 
 const phoneMaskdetail = ref<MaskaDetail & { maskValues: Undefinable<string> }>()
 const form = reactive<ContactForm>({ phoneNumber: "051" })
-const formData = reactive<FormData>(new FormData())
+const formData = reactive(new FormData())
 const messageSuccess = ref(false)
 const validEmail = ref<boolean>()
 const router = useRouter()
@@ -51,7 +51,7 @@ const onSubmit = () => {
   sendContactForm(formData)
 }
 
-const sendContactForm = async (formData: FormData) => {
+const sendContactForm = async (formData: BodyInit) => {
   const response = await fetch("contact-form.php", {
     method: "POST",
     body: formData,

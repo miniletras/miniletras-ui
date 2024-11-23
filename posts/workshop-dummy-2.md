@@ -3,7 +3,7 @@ name: Well, the way they make shows is
 thumbnail: https://picsum.photos/id/20/1920/1080
 date: 2023-03-10
 description: Cras convallis ex at egestas ultrices. Pellentesque mattis ipsum vehicula massa mollis dictum. Nulla iaculis quis dui vel mattis. Nam egestas elit et tempus hendrerit. Obcaecati vel distinctio sit quas iure libero. Corporis numquam in molestias?
-tags: ["workshop", "post"]
+tags: ["workshop", "post", "important", "new"]
 ---
 
 Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.

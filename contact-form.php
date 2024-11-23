@@ -20,7 +20,6 @@ $message.= "\nDesde: miniletras.com";
 $message.= isset($_POST['name']) ? "\nDe: " . $_POST['name'] : '';
 $message.= isset($_POST['email']) ? "\nE-mail: " . $_POST['email'] : '';
 $message.= isset($_POST['phoneNumber']) ? "\nTel: " . $_POST['phoneNumber'] : '';
-$mensaje.= "\n-----------\n";
 $message.= isset($_POST['reason']) ? "\nMotivo: " . $_POST['reason'] : '';
 $message.= isset($_POST['subscribeChild']) ? "\nNombre del hijo/a: " . $_POST['subscribeChild'] : '';
 $message.= isset($_POST['testSession']) ? "\nQuiere una prueba: " . $_POST['testSession'] : '';
