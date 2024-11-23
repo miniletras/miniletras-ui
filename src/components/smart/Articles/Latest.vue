@@ -16,14 +16,14 @@ defineProps<{
 const { t } = i18n.global
 </script>
 <template>
-  <router-link :to="to" class="latest-container sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
+  <router-link class="latest-container sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2" :to="to">
     <img
-      :src="image"
       class="rounded h-sm object-cover mx-auto w-full"
+      loading="lazy"
+      role="img"
       :alt="alt"
       :aria-label="alt"
-      role="img"
-      loading="lazy"
+      :src="image"
     />
     <div class="mt-5 flex flex-col lg:px-5 lg:pt-5 lg:mt-0">
       <span class="mb-2 sm:mt-5 lg:mt-0 text-elucidator-700 dark:text-elucidator-50">

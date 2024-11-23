@@ -35,12 +35,12 @@ const getParams = (value: string) => {
 }
 
 // Filter data routes to get the articles data and limit as needed
-const getArticles = (limit?: number) => {
+const getArticles = (limit?: number): MetaArticles[] => {
   const isPosts = getDataRoutes()
     .filter((data) => Object.keys(data.meta).length)
     .slice(0, limit)
 
-  return sortByDate(isPosts)
+  return <MetaArticles[]>sortByDate(isPosts)
 }
 
 // Get the latest important by tag
@@ -52,12 +52,22 @@ const latestItemByMenuTag = (menuItem: string, tag: string) => {
 }
 
 // Get the latest article
-const latestArticle = () => {
+const getLatestArticle = () => {
   const frontmatter = getDataRoutes()
     .filter((data) => data.meta.frontmatter)
     .map((data) => data.meta.frontmatter) as Record<string, any>[]
 
-  return sortByDate(frontmatter)[0]
+  const lastArticle = sortByDate(frontmatter)[0]
+
+  return lastArticle
+}
+
+const getPathLastArticle = (articles: MetaArticles[], date: string) => {
+  const lastArticle = articles.find((article) => {
+    return article.meta.frontmatter.date === date
+  })
+
+  return lastArticle?.path ?? ""
 }
 
 // Filter data to get specific articles based on tags
@@ -117,12 +127,12 @@ const paginateData = ({ articles, currentPage, pageSize }: PaginateData): Pagina
 const dataShare = (url: string, { name: title, description }: Record<string, any>): DataShare[] => {
   return [
     {
+      description,
+      title,
       icon: "facebook",
       network: "facebook",
       name: "Facebook",
       url: url,
-      title,
-      description,
       hashtags: "test",
     },
     {
@@ -160,7 +170,8 @@ export {
   getItemsByMenu,
   getParams,
   getRelatedArticles,
-  latestArticle,
+  getLatestArticle,
   latestItemByMenuTag,
   paginateData,
+  getPathLastArticle,
 }

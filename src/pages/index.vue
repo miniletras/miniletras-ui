@@ -1,18 +1,20 @@
 <script setup lang="ts">
-import { latestArticle, getArticles } from "~/data"
+import { getLatestArticle, getArticles, getPathLastArticle } from "~/data"
 import { limitString, slug } from "~/utils"
 import { i18n } from "~/main"
 
 const { t } = i18n.global
 
-// Get latest article
-const latest = computed(() => {
-  return latestArticle()
-})
-
-// Get articles data
 const articles = computed(() => {
   return getArticles(6)
+})
+
+const latestArticle = computed(() => {
+  return getLatestArticle()
+})
+
+const pathLastArticle = computed(() => {
+  return getPathLastArticle(articles.value, latestArticle.value.date)
 })
 </script>
 
@@ -20,14 +22,14 @@ const articles = computed(() => {
   <div class="mini-inline-grid">
     <h1 class="post__h1">{{ t("home.latestArticle") }}</h1>
     <Latest
-      :image="latest.thumbnail"
-      :alt="`blog-banner-${slug(latest.name)}`"
-      :tags="latest.tags"
-      :date="`${new Date(latest.date).toDateString()}`"
-      :title="latest.name"
-      :description="limitString(latest.description, 200)"
-      :to="articles[0].path"
-      :to-tags="`/tags/${latest.tags}`"
+      :image="latestArticle.thumbnail"
+      :alt="`blog-banner-${slug(latestArticle.name)}`"
+      :tags="latestArticle.tags"
+      :date="`${new Date(latestArticle.date).toDateString()}`"
+      :title="latestArticle.name"
+      :description="limitString(latestArticle.description, 200)"
+      :to="pathLastArticle"
+      :to-tags="`/tags/${latestArticle.tags}`"
     />
   </div>
   <div class="latest-posts">

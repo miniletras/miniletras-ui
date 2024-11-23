@@ -1,7 +1,7 @@
 ---
 name: Taller de lectura para madres
 thumbnail: https://1.bp.blogspot.com/-CoUI1pSF4Y0/YFhZGVgD9OI/AAAAAAAAPo4/PKqCzPORYHUhXmvvxNSxTHEgbeuevuqZACLcBGAsYHQ/w640-h310/Captura%2Bde%2Bpantalla%2B2021-03-22%2Ba%2Blas%2B9.43.58.png
-date: 2023-03-01
+date: 2023-03-20
 description: Un camino de aprendizaje hacia la lectura en familia.
 tags: ["workshop", "important"]
 ---
